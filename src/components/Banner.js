@@ -1,37 +1,68 @@
 import React from 'react';
-import backgroundImage from '../assets/images/background-img.png';
-import childImage from '../assets/images/child.png'; // Import the image for the child
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JS
+import bannerchild from '../assets/images/bannerchild.svg'; // Import the image for the child
 
 function Banner() {
-  // Inline styles for the background image and other styles
-  const style = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    height: '100vh',
-  };
-
   return (
-    <section className="banner" style={style}>
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6">
-            <h5 className="quest">Quest For Knowledge</h5>
-            <h1 className="join">
-              Join the Fun, <br /> Play the Game!
-            </h1>
-            <p className="banner-pg">
-              Step into the action, embrace the excitement, and challenge <br />
-              yourself to win!
-            </p>
-            <button className="book">Book Now</button>
-          </div>
-          <div className="col-lg-6">
-            <img src={childImage} alt="Child playing" className="child" />
-          </div>
+    <div id="demo" className="carousel slide" data-bs-ride="carousel">
+      {/* Carousel indicators */}
+      <div className="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide-to="0"
+          className="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+
+      {/* Carousel items */}
+      <div className="carousel-inner">
+        <div className="carousel-item active">
+          <img src={bannerchild} alt="banner" className="d-block w-100" />
+        </div>
+        <div className="carousel-item">
+          <img src={bannerchild} alt="banner" className="d-block w-100" />
+        </div>
+        <div className="carousel-item">
+          <img src={bannerchild} alt="banner" className="d-block w-100" />
         </div>
       </div>
-    </section>
+
+      {/* Carousel controls */}
+      <button
+        className="carousel-control-prev"
+        type="button"
+        data-bs-target="#demo"
+        data-bs-slide="prev"
+      >
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Previous</span>
+      </button>
+      <button
+        className="carousel-control-next"
+        type="button"
+        data-bs-target="#demo"
+        data-bs-slide="next"
+      >
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Next</span>
+      </button>
+    </div>
   );
 }
 

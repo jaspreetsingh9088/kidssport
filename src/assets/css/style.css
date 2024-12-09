@@ -1,13 +1,30 @@
-/* <top.css> */
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+/* top.css */
+body {
+    font-family: 'Lato', sans-serif !important;
+  }
 img.watch-img {
     width: 20px;
 }
+a.nav-link {
+    text-transform: uppercase;
+}
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: unset;
+}
 
+img.contact-uss {
+    width: 30px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
 .header-one {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 8px;
 }
 
 ul.navbar-nav.ms-auto {
@@ -32,38 +49,50 @@ button.book {
     border-radius: 300px;
     margin-top: 20px;
 }
-
+img.check-icon {
+    width: 24px;
+}
 img.facebook2 {
     width: 19px;
-    margin-right: 10px;
+    margin-right: 16px;
 }
 
 img.phone-logo {
     width: 20px;
 }
-
-a.btn-cantact {
-    border: 1px solid;
-    background-image: linear-gradient(#921C8E, #E9018B);
-    border-color: #921C8E;
-    padding: 10px 50px;
-    border-radius: 300px;
-    color: white;
-    text-decoration: none !important;
+.contact-bg-rol {
+    background: linear-gradient(45deg, #921c8e, #db058b);
+    padding: 3px 8px;
+    border-radius: 36px;
+    transition: 0.3s;
 }
 
-h5.quest {
-    color: #ff9f49;
-    margin-top: 90px;
+a.btn-cantact {
+    border-radius: 30px;
+    color: white;
+    text-decoration: none !important;
+    text-align: center;
+    padding: 3px 2px;
+    display: block;
+    position: relative;
+    left: 4px;
+    padding-bottom: 3px;
+}
+.contact-bg-rol:hover {
+   
+    box-shadow: 5px 5px 0px #00000024;
 }
 
 .d-flex.justify-content-gap-6 {
     gap: 42px;
     margin-top: 30px;
 }
+.navbar-nav .nav-item {
+    padding: 0px 28px;
+}
 
 img.child {
-    width: 509px;
+    width: 100%;
 }
 
 h1.join {
@@ -90,47 +119,62 @@ img.arrow {
     background-color: white;
 }
 
-
-
+.circle-framee {
+    position: relative;
+}
+img.circle-frame {
+    position: absolute;
+    width: 153px;
+    right: 0;
+    top: -25px;
+}
 p.about {
     color: #FF9638;
-    font-size: 20px;
-    margin-top: 120px;
+    font-size: 18px;
+    margin-bottom: 8px;
 }
-
-h5.Engaging {
+h2.Engaging {
     font-size: 52px;
     color: #002D45;
+    font-family: "Playfair", serif;
+    font-weight: 700;
+    width: 76%;
 }
 
 p.interactive {
-    font-size: 17px;
+    font-size: 16px;
     color: #002D45;
-}
-
-img.check-icon {
-    background-color: #FF9638;
-    width: 16px;
-    height: 16px;
-    border-radius: 20px;
-    margin-top: 7px;
+    margin-bottom: 28px;
+    letter-spacing: 2px;
 }
 
 p.Empowering {
-    margin-left: 10px;
     font-size: 18px;
     color: #002D45;
     margin-bottom: 0px;
+    letter-spacing: 1px;
 }
-
-button.Know {
-    width: 253px;
+button.Know{
+    width: 35%;
     border: 0px;
-    height: 64px;
     border-radius: 300px;
-    background-color: #921C8E;
+    background: linear-gradient(45deg, #921C8E, #E9018B);
     color: white;
-    margin-top: 40px;
+    margin-top: 36px;
+    padding: 12px;
+    font-family: 'Lato';
+    font-size: 18px;
+    transition: 0.2s;
+}
+section.about.kidzsport-about {
+    background: #FFFAF6;
+    padding-top: 78px;
+    padding-bottom: 56px;
+}
+button.Know:hover {
+    /* background: linear-gradient(45deg, #E9018B, #921C8E); */
+    transform: scale(1.03);
+    box-shadow: 16px 12px 32px #ff9638;
 }
 
 section.About.KIDZSPORT {
@@ -139,9 +183,7 @@ section.About.KIDZSPORT {
 }
 
 img.child-play {
-    margin-top: 90px;
-    margin-bottom: 90px;
-    width: 100%;
+    width: 86%;
 }
 
 h5.why-choose {
@@ -341,41 +383,40 @@ p.old {
 
 p.code {
     color: #FF8010;
-    font-size: 52px;
+    font-size: 42px;
     font-weight: 800;
-    margin-bottom: -15px;
-    margin-top: 50px;
+    margin-bottom: 0;
 }
 
-h1.sports-kidz {
+h2.sports-kidz {
+    font-family: "Playfair", serif;
+    font-weight: 700;
     font-size: 50px;
     color: #002D45;
-    font-weight: 600;
 }
 
 p.sports-pg {
     color: #002D45;
+    letter-spacing: 1px;
 }
 
 p.phone1 {
-    font-size: 20px;
     color: #259E44;
-    font-weight: 800;
-    margin-top: 20px;
+    font-weight: 700;
+    margin-bottom: 0;
 }
 
 p.phone2 {
     color: #F6911E;
-    font-size: 20px;
     font-weight: 700;
-    margin-top: 20px;
+    margin-bottom: 0;
 }
 
 img.right-arrow {
-    width: 18px;
-    height: 18px;
-    margin-top: 28px;
-    margin-left: -10px;
+    height: 12px;
+    width: 12px;
+    position: relative;
+    top: 2px;
 }
 
 section.event {
@@ -557,12 +598,10 @@ img.child-group {
 }
 
 img.girl-play {
-    width: 100%;
+    width: 80%;
 }
 
-img.football {
-    width: 100%;
-}
+
 
 img.child-sports {
     width: 100%;
@@ -737,10 +776,6 @@ p.reg {
     color: #FF8010;
     font-size: 24px;
     margin-top: 66px;
-}
-
-.navbar-nav .nav-item {
-    margin-right: 100px; /* Adjust the value as needed */
 }
 
 h1.reg-pg {
@@ -927,16 +962,121 @@ section.Registration.Now\! {
     border-radius: 12px;
     box-shadow: 10px 10px #ff96383b;
 }
+.bg-success-one {
+    --bs-bg-opacity: 1;
+    background: #65A72F;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
 
 /* <top.css end> */
-
-
-/* about css */
-
-
-
-
-
-
-/* about css end */
+@media only screen and (min-width: 1200px) and (max-width: 1280px) {
+    .navbar-nav .nav-item {
+        padding: 0px 15px;
+    }
+    a.nav-link {
+        font-size: 14px;
+    }
+    .header-one span {
+        font-size: 14px;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .navbar-nav .nav-item {
+        padding: 0px 18px;
+    }
+    section.about.kidzsport-about {
+        background: #FFFAF6;
+        padding-top: 18px;
+        padding-bottom: 56px;
+    }
+    img.child-play {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+    p.Empowering {
+        font-size: 15px;
+        color: #002D45;
+        margin-bottom: 0px;
+        letter-spacing: 1px;
+    }
+    button.Know {
+        width: 48%;
+    }
+    h5.Engaging {
+        font-size: 48px;
+        color: #002D45;
+        font-family: "Playfair", serif;
+        font-weight: 700;
+        width: 76%;
+    }
+    img.circle-frame {
+        position: absolute;
+        width: 115px;
+        right: 0px;
+        top: -25px;
+    }
+    .navbar-nav {
+        --bs-nav-link-padding-x: 0;
+        --bs-nav-link-padding-y: 0.5rem;
+        --bs-nav-link-font-weight: ;
+        --bs-nav-link-color: var(--bs-navbar-color);
+        --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+        --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+        display: flex;
+        flex-direction: row;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        flex-wrap: wrap;
+    }
+    .contact-bg-rol {
+        background: linear-gradient(45deg, #921c8e, #db058b);
+        padding: 3px 8px;
+        border-radius: 36px;
+        transition: 0.3s;
+        width: 138px;
+        display: block;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    .navbar-nav .dropdown-menu {
+        position: absolute;
+    }
+    ul.navbar-nav.ms-auto {
+        margin: auto;
+        border-bottom: 1px solid #d3d4d5;
+    }
+    img.plus-person {
+        width: 8%;
+        margin-inline-end: 30px;
+        display: block;
+        margin: auto;
+    }
+    img.Kidzsport.World {
+        width: 160px;
+    }
+    img.watch-img {
+        width: 10px;
+        display: none;
+    }
+    img.phone-logo {
+        width: 10px;
+        display: none;
+    }
+    .header-one span {
+        font-size: 10px;
+    }
+    .social-icons {
+        display: none;
+    }
+    header.bg-success-one.text-white.p-2 {
+        padding: 0 !important;
+    }
+    div#navbarNav {
+        border-top: 1px solid #d3d4d5;
+    }
+}

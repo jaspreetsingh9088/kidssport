@@ -2,6 +2,7 @@ import React from "react";
 
 import logoLogo from "../assets/images/logo-kidz.png";
 import pluspersonImg from "../assets/images/plus-person.png";
+import arrowcontact from "../assets/images/arrowcontact.png";
 
 
 function Navbar() {
@@ -65,9 +66,11 @@ function Navbar() {
               alt="Plus person"
               className="plus-person"
             />
+            <div className="contact-bg-rol">
             <a href="#" className="btn-cantact">
-              Contact Us
+              Contact Us <span><img src={arrowcontact} className="contact-uss" alt="contact-us" /></span>
             </a>
+            </div>
           </div>
         </div>
       </nav>
