@@ -2,13 +2,17 @@ import React from 'react';
 import footballplay from '../assets/images/footballplay.png'
 import girlplay from '../assets/images/girlplay.png'
 import rightarrow from '../assets/images/rightarrow.png'
+import circleiconframe from '../assets/images/circleiconframe.png';
 
 function Event() {
   return (
     <section className="event">
     <div className="container">
-        <div className="row">
+        <div className="row align-items-center">
             <div className="col-lg-3">
+            <div className='circle-framee'>
+            <img src={circleiconframe} alt='' className='circle-frame circle-frame-one floating-opposite'/>
+            </div>
                 <div className="text-center">
                     <div>
                         <img src={girlplay} alt="" class="girl-play"/>
@@ -44,9 +48,12 @@ function Event() {
             <div className="col-lg-3">
                 <div className="text-center">
                     <div>
-                        <img src={footballplay} alt="" class="girl-play"/>
+                        <img src={footballplay} alt="" class="girl-play boy-play"/>
                     </div>
                 </div>
+                <div className='circle-framee'>
+            <img src={circleiconframe} alt='' className='circle-frame circle-frame-two floating'/>
+            </div>
             </div>
         </div>
     </div>

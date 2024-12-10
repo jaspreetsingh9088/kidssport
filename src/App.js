@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
 import About from "./components/About";
 import Event from "./components/Event";
+import Whychoose from "./components/Whychoose";
+import Programm from "./components/Programm";
 import Sponsors from "./components/Sponsors";
 import Footer from "./components/Footer";
 import "./assets/css/style.css";
@@ -16,6 +18,8 @@ function App() {
       <Banner />
       <About />
       <Event />
+      <Whychoose />
+      <Programm />
       <Sponsors />
       <Footer />
     </>

@@ -14,7 +14,7 @@ function About() {
           </div>
           <div class="col-lg-6">
              <div className='circle-framee'>
-            <img src={circleiconframe} alt='' className='circle-frame'/>
+            <img src={circleiconframe} alt='' className='circle-frame floating'/>
             </div>
                     <div>
                         <p class="about">ABOUT KIDZSPORT</p>
