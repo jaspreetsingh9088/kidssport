@@ -1,5 +1,7 @@
 import React from 'react';
 import childsports from '../assets/images/childsports.png'
+import playingfootball from '../assets/images/playingfootball.png'
+import playingcarem from '../assets/images/playingcarem.png'
 import arrowjoin from '../assets/images/arrowjoin.png'
 import twolines from '../assets/images/twolines.png'
 
@@ -17,8 +19,8 @@ function Programm() {
         Adventures and Innovations
     </h2>
     <div className="container box-program-main">
-        <div className="row">
-            <div className="col-lg-4">
+        <div className="row program-mobile-preview">
+            <div className="col-lg-4 wid-program">
                 <div className="img1">
                     <div>
                         <img src={childsports} alt="" className="child-sports" />
@@ -40,10 +42,10 @@ function Programm() {
                     </div>
                 </div>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4 wid-program">
                 <div className="img1">
                     <div>
-                        <img src={childsports} alt="" className="child-sports" />
+                        <img src={playingfootball} alt="" className="child-sports" />
                     </div>
                     <div>
                         <h5 className="Activities">Sports Activities</h5>
@@ -62,10 +64,10 @@ function Programm() {
                     </div>
                 </div>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4 wid-program">
                 <div className="img1">
                     <div>
-                        <img src={childsports} alt="" className="child-sports" />
+                        <img src={playingcarem} alt="" className="child-sports" />
                     </div>
                     <div>
                         <h5 className="Activities">Sports Activities</h5>
