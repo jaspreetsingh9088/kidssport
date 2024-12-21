@@ -706,6 +706,7 @@ img.child-sports {
 
 section.latest-blog {
     background-color: #FFFAF6F2;
+    padding-bottom: 68px;
 }
 
 .latest-gap {
@@ -1093,6 +1094,16 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
 
 /* <top.css end> */
 @media only screen and (min-width: 1200px) and (max-width: 1280px) {
+    button.read-more {
+        background: none;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        width: 48% !important;
+        padding: 6px;
+        color: #fff;
+        transition: 0.3s;
+        margin-top: 18px;
+    }
     label.form-label {
         color: #002d45;
         font-size: 14px;
@@ -1237,6 +1248,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
         padding-top: 18px;
         padding-bottom: 56px;
     }
+    
     img.child-play {
         width: 100%;
         margin-bottom: 16px;
@@ -1324,3 +1336,68 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
         border-top: 1px solid #d3d4d5;
     }
 }
+img.blog-images-arrow {
+    width: 32px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+img.blog-images {
+    width: 100%;
+}
+.box-blog {
+    background: #259E44;
+    padding: 20px;
+    border-radius: 20px;
+}
+.box-blog h5 {
+    font-family: "Playfair", serif;
+    color: #fff;
+}
+button.read-more {
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    width: 45%;
+    padding: 6px;
+    color: #fff;
+    transition: 0.3s;
+    margin-top: 18px;
+}
+p.interactive.interactive-one {
+    text-align: center;
+    padding-bottom: 40px;
+}
+.main-display-admin {
+    padding-top: 10px;
+    color: #fff;
+}
+button.read-more:hover {
+    background: #fff;
+    color: #259e44;
+}
+ul.list-admin-name {
+    display: flex;
+    gap: 48px;
+    padding-left: 17px;
+}
+img.list-dot {
+    width: 16px;
+    vertical-align: text-bottom;
+}
+span.color-dot {
+    margin-right: 6px;
+}
+.row.blog-gutter {
+    --bs-gutter-x: 3.5rem;
+}
+.kidzsport-about .col-lg-6 img.child-play {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+  }
+  
+  /* When the section comes into view, slide the image */
+  .kidzsport-about.show .col-lg-6 img.child-play {
+    transform: translateX(0);
+    opacity: 1;
+  }
