@@ -4,15 +4,20 @@ import ludoplay from '../assets/images/ludoplay.png'
 import blocks from '../assets/images/blocks.png'
 import arrowright from '../assets/images/arrowright.png'
 import listdot from '../assets/images/listdot.png'
+import circleiconframe from '../assets/images/circleiconframe.png';
 
 function Latestblog() {
   return (
     <section className="latest-blog">
         <div className='container'>
+      <div className='circle-framee'>
+            <img src={circleiconframe} alt='' className='circle-frame circle-frame-two floating-opposite'/>
+            </div>
         <h2 class="text-center text-center mt-0">Latest Blog</h2>
         <p class="interactive interactive-one">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. <br />Aliquam in hendrerit urna.</p>
-        <div className='row blog-gutter'>
-            <div className='col-lg-4'>
+        <div className='row blog-gutter program-mobile-preview'>
+            <div className='col-lg-4 wid-program'>
+            
               <div className='box-blog'>
               <img src={groupchild} alt="" className="blog-images" />
               <div className='main-display-admin'>
@@ -25,7 +30,7 @@ function Latestblog() {
               <button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button>
               </div>
             </div>
-            <div className='col-lg-4'>
+            <div className='col-lg-4 wid-program'>
               <div className='box-blog'>
               <img src={ludoplay} alt="" className="blog-images" />
               <div className='main-display-admin'>
@@ -38,7 +43,7 @@ function Latestblog() {
               <button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button>
               </div>
             </div>
-            <div className='col-lg-4'>
+            <div className='col-lg-4 wid-program'>
               <div className='box-blog'>
               <img src={blocks  } alt="" className="blog-images" />
               <div className='main-display-admin'>
@@ -51,6 +56,9 @@ function Latestblog() {
               <button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button>
               </div>
             </div>
+            </div>
+            <div className='circle-framee'>
+            <img src={circleiconframe} alt='' className='circle-frame circle-frame-three floating'/>
             </div>
         </div>
         <script>

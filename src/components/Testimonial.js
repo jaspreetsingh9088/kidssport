@@ -36,7 +36,7 @@ function Testimonial() {
 
             <div className="col-lg-5">
                 <div>
-                    <img src={imagetestominal} alt="" className="image-testimonial" />
+                    <img src={imagetestominal} alt="" className="image-testimonial floating" />
                 </div>
             </div>
         </div>

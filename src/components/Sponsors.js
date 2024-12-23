@@ -9,6 +9,7 @@ function Sponsors() {
     <section className="Sponsors">
     <div className="container">
             <h2 className="text-center">Our Sponsors</h2>
+            <div class="marquee fast">
         <div className="row sponsors-logo">
             <div className="col-lg-3">
                 <div className="text-center first-logo">
@@ -30,6 +31,7 @@ function Sponsors() {
                     <img src={wizo} alt="" className="sponser-logo-wid" />
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </section>

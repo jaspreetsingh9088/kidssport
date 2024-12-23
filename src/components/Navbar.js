@@ -1,19 +1,16 @@
 import React from "react";
-
-import logoLogo from "../assets/images/logo-kidz.png";
+import logokidz from "../assets/images/logokidz.png";
 import pluspersonImg from "../assets/images/plus-person.png";
 import arrowcontact from "../assets/images/arrowcontact.png";
-
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav>
-      {/* top nav */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div className="container">
-          <a className="navbar-brand" href="#">
-            {/* Use relative path for images correctly */}
-            <img src={logoLogo} className="Kidzsport World" alt="Kidzsport" />
+          <a className="navbar-brand" href="/">
+            <img src={logokidz} className="Kidzsport World" alt="Kidzsport" />
           </a>
           <button
             className="navbar-toggler"
@@ -29,7 +26,7 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/">
                   Home
                 </a>
               </li>
@@ -61,20 +58,17 @@ function Navbar() {
                 </a>
               </li>
             </ul>
-            <img
-              src={pluspersonImg}
-              alt="Plus person"
-              className="plus-person"
-            />
+            <Link to="/stepform">
+              <img src={pluspersonImg} alt="Plus person" className="plus-person" />
+            </Link>
             <div className="contact-bg-rol">
-            <a href="#" className="btn-cantact">
-              Contact Us <span><img src={arrowcontact} className="contact-uss" alt="contact-us" /></span>
-            </a>
+              <a href="#" className="btn-cantact">
+                Contact Us <span><img src={arrowcontact} className="contact-uss" alt="contact-us" /></span>
+              </a>
             </div>
           </div>
         </div>
       </nav>
-      {/* top nav end */}
     </nav>
   );
 }

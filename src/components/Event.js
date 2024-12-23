@@ -25,7 +25,7 @@ function Event() {
                         <p className="code">2024</p>
                     </div>
                     <div>
-                        <h2 className="sports-kidz">Sports Kidz Events</h2>
+                        <h2 className="sports-kidz" > Sports Kidz Events</h2>
                     </div>
                     <div>
                         <p className="sports-pg"> provide a fun and engaging environment where children can participate

@@ -15,23 +15,23 @@ function Register() {
         <div><h2 class="Engaging Engaging-one">Register for Our 
         Kidzsports World Today!</h2></div>
         <p class="interactive">interactive sports lessons and events, our company promotes healthy habits and teamwork. Join us on social media for tips, challenges, and exciting giveaways!</p>
-        <div className='row'>
+        <div className='row register-form-fill'>
             <div className='col-lg-6'>
-                <div className='d-flex gap-3 align-items-center mb-4'>
+                <div className='d-flex gap-3 align-items-center mb-4 gap-mobile-view-form'>
                     <div><img src={callcircleicon} alt="" className="contact-info-icon" /></div>
                     <div>
                         <p className='mini-info'>Call Us Now</p>
                         <p className='info-inquiry'>+91-9988775566</p>
                     </div>
                 </div>
-                <div className='d-flex gap-3 align-items-center mb-4'>
+                <div className='d-flex gap-3 align-items-center mb-4 gap-mobile-view-form'>
                     <div><img src={mailcircleicon} alt="" className="contact-info-icon" /></div>
                     <div>
                         <p className='mini-info pp-color'>Call Us Now</p>
                         <p className='info-inquiry'>+91-9988775566</p>
                     </div>
                 </div>
-                <div className='d-flex gap-3 align-items-center '>
+                <div className='d-flex gap-3 align-items-center  gap-mobile-view-form'>
                     <div><img src={loactioncircleicon} alt="" className="contact-info-icon" /></div>
                     <div>
                         <p className='mini-info gr-color'>Call Us Now</p>

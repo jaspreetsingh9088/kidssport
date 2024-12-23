@@ -4,6 +4,7 @@ import watchImg from "../assets/images/watch-img.png";
 import facebookImg from "../assets/images/facebook (2).png";
 import instagramImg from "../assets/images/instagram (2).png";
 import whatsappImg from "../assets/images/whatsapp (2).png";
+import locationhead from "../assets/images/locationhead.png";
 
 
 
@@ -16,7 +17,7 @@ function Header() {
           <span>+91 9988775566</span> |
           <img src={watchImg} alt="Watch Icon" className="watch-img" />
           <span>9:30 am - 6:30 pm - Mon - Sun</span> |
-          <img src={watchImg} alt="Watch Icon" className="watch-img" />
+          <img src={locationhead} alt="Watch Icon" className="watch-img" />
           <span>1234 Magnesia / Zirakpur 140062</span>
         </div>
         <div className="social-icons">
