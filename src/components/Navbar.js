@@ -25,15 +25,20 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="/">
+              <li className="nav-item ">
+                <a className="nav-link " href="/">
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+              <Link to="/Aboutus" className="nav-link">
                   About Us
-                </a>
+                  </Link>
+              </li>
+              <li className="nav-item">
+              <Link to="/Programmdetail" className="nav-link">
+                  Events
+                  </Link>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
@@ -46,19 +51,20 @@ function Navbar() {
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a className="dropdown-item dropdown-items" href="#">
                       Videos
                     </a>
                   </li>
                 </ul>
               </li>
+              
               <li className="nav-item">
-                <a className="nav-link" href="#">
+              <Link to="/Blog" className="nav-link">
                   Blog
-                </a>
+               </Link>
               </li>
             </ul>
-            <Link to="/stepform">
+            <Link to="/stepform" title="Registration">
               <img src={pluspersonImg} alt="Plus person" className="plus-person" />
             </Link>
             <div className="contact-bg-rol">

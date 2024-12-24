@@ -4,6 +4,7 @@ import troffy from '../assets/images/troffy.png'
 import imaginpicture from '../assets/images/imaginpicture.png'
 import happycustomer from '../assets/images/happycustomer.png'
 import youngboy from '../assets/images/youngboy.png'
+import rightarrows from '../assets/images/rightarrows.png';
 
 
 function Whychoose() {
@@ -22,7 +23,8 @@ function Whychoose() {
                             elit Ut et massa mi. Aliquam in hendrerit urna.
                         </p>
 
-                        <button className="know more1 mt-3">Know More</button>
+                        <button className="know more1 mt-3">Know More <span className='img-right-arrow img-right-arrows'>
+                        <img src={rightarrows} alt='' /> </span></button>
                         <div className='youn-boy-img-with-bat'>
                             <img src={youngboy} alt="" className="young-boy" />
                         </div>

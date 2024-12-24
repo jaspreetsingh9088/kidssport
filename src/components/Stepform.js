@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import fancyicon from '../assets/images/fancyicon.png'
 import linethree from '../assets/images/linethree.png'
 import rightarrows from '../assets/images/rightarrows.png';
+import listdot from '../assets/images/listdot.png'
+import leftarrows from '../assets/images/leftarrows.png'
 function Stepform() {
     const [currentStep, setCurrentStep] = useState(1);
 
@@ -36,10 +38,10 @@ function Stepform() {
                             <h1 className='heading-main text-center'>
                                 Registration
                             </h1>
-                            <ul className='breadcrumb justify-content-center text-white'>
-                                <a href='/' className='nav-link'><li>Home | </li></a>
-                                <li>Registration</li>
-                            </ul>
+                            <ul class="breadcrumb justify-content-center text-white align-items-center gap-1">
+                                <a href="/" class="nav-link"><li>Home | </li></a>
+                                <a href="/" class="nav-link" style={{ color: "#ffb06c" }}><li>Registration</li></a>
+                                </ul>
                         </div>
                         <div className='col-lg-4'>
                             <img src={linethree} alt="" className="fancy-iconss floating" />
@@ -78,12 +80,12 @@ function Stepform() {
                                 </div>
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="date" placeholder="MM/DD/YYYY" />
+                                    <input type="date" className="form-control form-date" id="date" name="date"/>
                                     </div>
                                 </div>
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="Gender" placeholder="Gender" />
+                                        <select class="form-select" id="sel2" name="sellist2"><option>Gender</option><option>Male</option><option>Female</option></select>
                                     </div>
                                 </div>
                                 <div className='col-lg-4'>
@@ -128,19 +130,25 @@ function Stepform() {
                                 </div>
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
-                                    <label htmlFor="firstName" className="form-label">Need to see if we verify it with phone numer</label>
+                                    <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Need to see if we verify it with phone numer</label>
                                         <input type="text" className="form-control" id="Adharcard" placeholder="Addhar Card Number" />
                                     </div>
                                 </div>
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
-                                    <label htmlFor="firstName" className="form-label">Adhar Card Front</label>
+                                    <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Adhar Card Front</label>
+                                    <div className='span-choose'>
+                                    <span className='choose-file-span'>Choose File </span>
+                                    </div>
                                     <input type="file" className="form-controls" id="file-input" name="file-input"/>
                                     </div>
                                 </div>
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
-                                    <label htmlFor="firstName" className="form-label">Adhar Card Back</label>
+                                    <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Adhar Card Back</label>
+                                    <div className='span-choose'>
+                                    <span className='choose-file-span'>Choose File </span>
+                                    </div>
                                     <input type="file" className="form-controls" id="file-input" name="file-input"/>
                                     </div>
                                 </div>
@@ -153,31 +161,95 @@ function Stepform() {
 
                         <div className="form-step" style={{ display: currentStep === 2 ? 'block' : 'none' }}>
                             {/* Step 2 */}
-                            <div className="mb-4">
-                                <input type="text" className="form-control" id="parentName" placeholder="Parent/Guardian Name" />
+                            <div className='row'>
+                                <div className='col-lg-6'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="firstName" placeholder="Primary Guardian’s Full Name" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-6'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="parents" placeholder="Relationship to Student (e.g., mother, father, guardian)" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-6'>
+                                    <div className="mb-4">
+                                        <input type="number" className="form-control" id="mobile" placeholder="Phone Number(s) (Mobile, Home)" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-6'>
+                                    <div className="mb-4">
+                                        <input type="email" className="form-control" id="email" placeholder="Email Address" />
+                                    </div>
+                                </div>
                             </div>
                             {/* More inputs for Step 2 */}
                         </div>
 
                         <div className="form-step" style={{ display: currentStep === 3 ? 'block' : 'none' }}>
                             {/* Step 3 */}
-                            <div className="mb-4">
-                                <input type="text" className="form-control" id="emergencyContact" placeholder="Emergency Contact" />
+                            <div className='row'>
+                                <div className='col-lg-6'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="firstName" placeholder="Contact Person’s Full Name" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-6'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="parents" placeholder="Relationship to Student" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-6'>
+                                    <div className="mb-4">
+                                        <input type="number" className="form-control" id="mobile" placeholder="Phone Number(s)" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-6'>
+                                    <div className="mb-4">
+                                        <input type="email" className="form-control" id="email" placeholder="Alternative Contact Number" />
+                                    </div>
+                                </div>
                             </div>
                             {/* More inputs for Step 3 */}
                         </div>
 
                         <div className="form-step" style={{ display: currentStep === 4 ? 'block' : 'none' }}>
                             {/* Step 4 */}
-                            <div className="mb-4">
-                                <input type="text" className="form-control" id="medicalCondition" placeholder="Medical Condition" />
+                            <div className='row'>
+                                <div className='col-lg-6'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="medicalinfo" placeholder="Known Medical Conditions (e.g., allergies, asthma)" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-6'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="medication" placeholder="Medications (if any)" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-4'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="doctorname" placeholder="Doctor’s Name" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-4'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="mobile" placeholder="Doctor’s Phone Number" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-4'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="insurance" placeholder="Insurance Information (if applicable)" />
+                                    </div>
+                                </div>
                             </div>
                             {/* More inputs for Step 4 */}
                         </div>
 
                     </form>
                     <div className="d-flex justify-content-end gap-3 next-previous-button">
-                        <button type="button" className="btn btn-secondary" onClick={handlePrevStep} disabled={currentStep === 1}>Previous</button>
+                        <button type="button" className="btn btn-secondary" onClick={handlePrevStep} disabled={currentStep === 1}><span className='img-right-arrow img-right-arrows'>
+                                <img src={leftarrows} alt='' />
+                            </span> Previous</button>
                         <button 
                             type="button" 
                             className="btn btn-primary" 

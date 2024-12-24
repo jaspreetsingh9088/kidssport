@@ -10,7 +10,7 @@ function Programm() {
     return (
 
         <section className="program">
-    <p className="text-center">Our programs</p>
+    <p className="text-center Our-programs-color">Our programs</p>
     <div className='two-lines-img'>
     <img src={twolines} alt="" className="two-lines-img-one" />
     </div>

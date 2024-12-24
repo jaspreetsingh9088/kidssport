@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Import router components
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner";
@@ -12,6 +12,9 @@ import Sponsors from "./components/Sponsors";
 import Register from "./components/Register";
 import Latestblog from "./components/Latestblog";
 import Stepform from "./components/Stepform";
+import Programmdetail from "./components/Programmdetail";
+import Aboutus from "./components/Aboutus";
+import Blog from "./components/Blog";
 import Footer from "./components/Footer";
 
 import "./assets/css/style.css";
@@ -19,34 +22,41 @@ import "./assets/css/style.css";
 function App() {
   return (
     <Router>
-      {/* Always show Header and Navbar on all pages */}
+      {/* Header and Navbar always visible */}
       <Header />
       <Navbar />
 
-      <Routes>
-        {/* Default home page route */}
-        <Route 
-          path="/" 
-          element={
-            <>
-              <Banner />
-              <About />
-              <Event />
-              <Whychoose />
-              <Programm />
-              <Testimonial />
-              <Sponsors />
-              <Register />
-              <Latestblog />
-            </>
-          }
-        />
+      <main>
+        <Routes>
+          {/* Home route */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Banner />
+                <About />
+                <Event />
+                <Whychoose />
+                <Programm />
+                <Testimonial />
+                <Sponsors />
+                <Register />
+                <Latestblog />
+              </>
+            }
+          />
 
-        {/* Route for the Stepform */}
-        <Route path="/stepform" element={<Stepform />} />
-      </Routes>
+          {/* Other specific routes */}
+          <Route path="stepform" element={<Stepform />} />
+          <Route path="programmdetail" element={<Programmdetail />} />
+          <Route path="Aboutus" element={<Aboutus />} />
+          <Route path="Blog" element={<Blog />} />
 
-      {/* Footer always shows */}
+        
+        </Routes>
+      </main>
+
+      {/* Footer always visible */}
       <Footer />
     </Router>
   );

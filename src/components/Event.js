@@ -3,6 +3,7 @@ import footballplay from '../assets/images/footballplay.png'
 import girlplay from '../assets/images/girlplay.png'
 import rightarrow from '../assets/images/rightarrow.png'
 import circleiconframe from '../assets/images/circleiconframe.png';
+import { Link } from "react-router-dom";
 
 function Event() {
   return (
@@ -39,7 +40,7 @@ function Event() {
                         <img src={rightarrow} alt="" class="right-arrow"/>
                         </div>
                         <div className='d-flex gap-2 align-items-center'>
-                        <p className="phone2">View More</p>
+                        <Link to="/Programmdetail"><p className="phone2">View More</p></Link>
                         <img src={rightarrow} alt="" class="right-arrow"/>
                         </div>
                     </div>
