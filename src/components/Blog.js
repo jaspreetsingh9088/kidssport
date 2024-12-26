@@ -6,7 +6,7 @@ import ludoplay from '../assets/images/ludoplay.png'
 import blocks from '../assets/images/blocks.png'
 import arrowright from '../assets/images/arrowright.png'
 import listdot from '../assets/images/listdot.png'
-
+import { Link } from "react-router-dom";
 function Blog() {
   return (
     <section className="Blog-page">
@@ -48,7 +48,7 @@ function Blog() {
                 </div>
               </div>
               <h5>Top 5 Benefits Bootcamp Building Confidence and Character</h5>
-              <button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button>
+              <Link to='/Postdetail'><Link to='/Postdetail'><button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button></Link></Link>
               </div>
             </div>
             <div className='col-lg-4 wid-program'>
@@ -61,7 +61,7 @@ function Blog() {
                 </div>
               </div>
               <h5>Top 5 Benefits Bootcamp Building Confidence and Character</h5>
-              <button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button>
+              <Link to='/Postdetail'><button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-4 wid-program'>
@@ -74,7 +74,7 @@ function Blog() {
                 </div>
               </div>
               <h5>Top 5 Benefits Bootcamp Building Confidence and Character</h5>
-              <button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button>
+              <Link to='/Postdetail'><button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-4 wid-program mt-5'>
@@ -88,7 +88,7 @@ function Blog() {
                 </div>
               </div>
               <h5>Top 5 Benefits Bootcamp Building Confidence and Character</h5>
-              <button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button>
+              <Link to='/Postdetail'><button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-4 wid-program mt-5'>
@@ -101,7 +101,7 @@ function Blog() {
                 </div>
               </div>
               <h5>Top 5 Benefits Bootcamp Building Confidence and Character</h5>
-              <button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button>
+              <Link to='/Postdetail'><button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-4 wid-program mt-5'>
@@ -114,7 +114,7 @@ function Blog() {
                 </div>
               </div>
               <h5>Top 5 Benefits Bootcamp Building Confidence and Character</h5>
-              <button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button>
+              <Link to='/Postdetail'><button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button></Link>
               </div>
             </div>
             </div>

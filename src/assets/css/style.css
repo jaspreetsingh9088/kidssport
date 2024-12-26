@@ -34,7 +34,11 @@ ul.breadcrumb.justify-content-center.text-white.align-items-center a.nav-link {
 img.contact-uss {
     width: 30px;
     margin-left: 6px;
-    vertical-align: middle;
+}
+.d-inline-flex.align-items-center.contact-us-btn {
+    position: relative;
+    left: 5px;
+    color: #fff;
 }
 .header-one {
     display: flex;
@@ -111,7 +115,7 @@ a.btn-cantact {
 }
 .contact-bg-rol:hover {
     /* transform: scale(1.03); */
-    box-shadow: 0px 10px 16px #ff963880;
+    box-shadow: 0px 0px 10px #ff963880;
 }
 
 .d-flex.justify-content-gap-6 {
@@ -119,7 +123,7 @@ a.btn-cantact {
     margin-top: 30px;
 }
 .navbar-nav .nav-item {
-    padding: 0px 28px;
+    padding: 0px 20px;
 }
 
 img.child {
@@ -1173,7 +1177,74 @@ img.circle-frame.circle-frame-two.floating-opposite {
 
 
 /* <top.css end> */
+@media only screen and (min-width: 1024px) and (max-width: 1099px) {
+    header.bg-success-one.text-white.p-2 span {
+        font-size: 12px;
+    }
+    img.phone-logo {
+        width: 14px;
+    }
+    img.watch-img {
+        width: 16px;
+    }
+    img.Kidzsport.World {
+        width: 150px;
+    }
+    .navbar-nav .nav-item {
+        padding: 0px 10px;
+    }
+    a.nav-link {
+        font-size: 12px;
+    }
+    img.plus-person {
+        width: 24px;
+        margin-right: 28px;
+        margin-left: 28px;
+    }
+    img.register-tag-one {
+        position: absolute;
+        width: 52px !important;
+        left: -29px !important;
+        top: 5px !important;
+    }
+
+
+}
 @media only screen and (min-width: 1200px) and (max-width: 1280px) {
+    .contact-box {
+        border: 8px solid #921c8e2e;
+        padding: 26px !important;
+        width: 75%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    img.contact-info-icon {
+        width: 60px;
+    }
+    section.post-detail h4.post {
+        color: #002D45;
+        font-size: 32px !important;
+    }
+    p.post-paragraph {
+        color: #002D45;
+        font-size: 16px !important;
+        margin-bottom: 0px !important;
+    }
+    section.post-detail img.img-fluid {
+        width: 140px !important;
+    }
+    p.post-admin {
+        color: #002D45;
+        margin-bottom: 0px;
+        font-size: 10px;
+    }
+
+    img.list-dot-img {
+        width: 6px;
+        position: relative;
+        bottom: 1px;
+    }
+
     img.Kidzsport.World {
         width: 192px;
     }
@@ -1297,6 +1368,49 @@ img.circle-frame.circle-frame-three.floating {
     top: 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .contact-box {
+        border: 8px solid #921c8e2e;
+        padding: 16px !important;
+        width: 100% !important;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    img.fancy-iconss {
+        width: 35px !important;
+        position: relative;
+        left: 0 !important;
+        top: 0px !important;
+        display: block;
+        margin-left: auto;
+    }
+    h2.Engaging {
+        font-size: 28px !important;
+        width: 100% !important;
+    }
+    section.new-genration {
+        margin-top: 26px !important;
+        background-color: #FFFAF6F2;
+        padding: 15px !important;
+    }
+    h1.heading-main.text-center {
+        font-size: 38px !important;
+    }
+    .contact-box {
+        margin-bottom: 30px;
+    }
+    img.fancy-icons {
+        width: 47px !important;
+        position: relative;
+        left: 5px !important;
+        bottom: -21px !important;
+    }
+    .bacground-purple {
+        background: linear-gradient(45deg, #921C8E, #E9018B);
+        padding: 0px !important;
+    }
+    .contact-box .col-lg-6 {
+        width: 50%;
+    }
     .step-indicator {
         display: flex;
         justify-content: space-between;
@@ -1345,16 +1459,21 @@ img.circle-frame.circle-frame-three.floating {
     }
     section.register-form {
         background: #FFFAF6;
-        margin-top: 60px;
+        margin-top: 20px;
         padding: 0px;
         padding-top: 16px;
+    }
+    h2.Engaging.Engaging-one {
+        width: 100% !important;
+        font-size: 28px;
+        margin-bottom: 10px;
     }
     .box-form .col-lg-6 {
         width: 50%;
     }
     label.form-label {
         color: #002d45;
-        font-size: 12px;
+        font-size: 10px;
     }
     .form-select {
         padding: 6px;
@@ -1422,8 +1541,24 @@ img.circle-frame.circle-frame-three.floating {
         border: 0;
     }
     section.choose {
-        padding-top: 82px;
+        padding-top: 5px;
         padding-bottom: 16px;
+    }
+    section.Sponsors .col-lg-3 {
+        width: 50%;
+    }
+    img.sponser-logo-wid {
+        display: block;
+        margin: auto;
+        width: 100%;
+        background: #FFFBF7;
+        border: 1px solid #FF9638;
+        border-radius: 8px;
+        margin-bottom: 7px;
+    }
+    .row.sponsors-logo {
+        padding-top: 8px;
+        --bs-gutter-x: 0.5rem;
     }
     .col-lg-4.wid-program {
         width: 320px;
@@ -1505,7 +1640,30 @@ img.circle-frame.circle-frame-three.floating {
         top: 0px;
     }
     .navbar-nav .nav-item {
-        padding: 0px 18px;
+        padding: 0px 9px;
+    }
+    img.register-tag-one {
+        position: absolute;
+        width: 58px;
+        left: -5px;
+        top: 5px;
+        display: none;
+    }
+    p.info-inquiry {
+        color: #002D45;
+        margin-bottom: 0;
+        font-size: 14px;
+    }
+    a.nav-link {
+        font-size: 13px;
+    }
+    img.cloudsfooter {
+        position: absolute;
+        width: 88%;
+        z-index: 0;
+        top: 117px;
+        right: 21%;
+        display: none;
     }
     section.about.kidzsport-about {
         background: #FFFAF6;
@@ -1569,12 +1727,15 @@ img.circle-frame.circle-frame-three.floating {
     ul.navbar-nav.ms-auto {
         margin: auto;
         border-bottom: 1px solid #d3d4d5;
+        justify-content: space-between;
     }
     img.plus-person {
         width: 8%;
         margin-inline-end: 30px;
         display: block;
         margin: auto;
+        margin-top: 10px;
+        padding-bottom: 6px;
     }
     img.Kidzsport.World {
         width: 160px;
@@ -1588,7 +1749,24 @@ img.circle-frame.circle-frame-three.floating {
         display: none;
     }
     .header-one span {
-        font-size: 10px;
+        font-size: 9px;
+    }
+    img.girl-play {
+        width: 100%;
+        display: block;
+    }
+    p.code {
+
+        margin-top: 10px;
+    }
+    img.girl-play.boy-play {
+        margin-left: auto;
+        margin-top: 18px;
+    }
+    .header-one {
+        display: flex;
+        align-items: center;
+        gap: 2px;
     }
     .social-icons {
         display: none;
@@ -2247,6 +2425,384 @@ section.Blog-page {
     padding-bottom: 72px;
 }
 
-/* nav pop */
+/* post detail */
+img.group-play-child {
+    width: 100%;
+    margin-bottom: 20px;
+}
 
-/* nav pop */
+img.girl-image {
+    width: 44px;
+    height: 44px;
+}
+
+img.clarity {
+    width: 18px;
+    height: 18px;
+}
+
+img.clarity1 {
+    width: 24px;
+    height: 24px;
+}
+
+p.admin-bg {
+    color: #002D45;
+    margin-bottom: 0px;
+}
+
+
+section.post-detail h1.top {
+    font-family: 'Playfair';
+    font-size: 42px;
+    color: #002D45;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+section.post-detail p.post-pg {
+    font-size: 16px;
+    color: #002D45A8;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+img.pumpkin {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.features-imp {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+img.list-dot-img {
+    width: 8px;
+}
+.d-inline-flex.align-items-center.gap-2.read-list {
+    padding-left: 15px;
+}
+section.post-detail h2.Experence {
+    color: #002D45;
+    font-size: 38px;
+}   
+
+p.lorem-ipsm-pg {
+    color: #002D45A8;
+    font-size: 17px;
+}
+
+p.Empowering-paragraph {
+    color: #002D45;
+    font-size: 18px;
+}
+img.tickgreen-image {
+    width: 28px;
+}
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: rgb(255 255 255) !important;
+}
+
+
+.search-container {
+    position: relative;
+    width: 100%; 
+    max-width: 300px; 
+}
+
+.input-bg-border {
+    padding: 10px 178px 10px 10px;
+    border: 1px solid #F6911E;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #002D45A8;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #002D45;
+    pointer-events: none;
+}
+
+section.post-detail {
+    margin-top: 8px;
+    background-image: linear-gradient(#FFF5F0, #FFF9F5);
+    padding-bottom: 80px;
+}
+
+p.leave {
+    font-size: 28px;
+    color: #002D45;
+    font-weight: 600;
+    margin-top: 30px;
+    border-bottom: 1px solid;
+    border-bottom-color: #F6911E;
+}
+section.post-detail img.img-fluid {
+    width: 200px;
+}
+section.post-detail p.email-address {
+    color: #002D45A8;
+    font-size: 16px;
+    margin-top: 10px;
+}
+section.post-detail input.form-control {
+    border-color: #002d45;
+}
+section.post-detail input.form-control::placeholder {
+    color: #002d458a;
+}
+input.bg-border {
+    border-color: #002D45;
+    /* padding: 9px 6px; */
+    outline: none;
+    border-radius: 5px;
+    width: 172px;
+    height: 41px;
+}
+
+input.bg-border1 {
+    margin-top: 21px;
+    width: 371px;
+    height: 74px;
+    border-color: #002D45;
+    outline: none;
+    border-radius: 5px;
+}
+img.search-icon-one {
+    width: 36px;
+}
+button.search-button {
+    border: 1px solid #f6911e;
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0;
+    background: #f6911e0d;
+}
+section.post-detail button.submit-button {
+    margin-top: 30px;
+    border: 0px;
+    width: 142px;
+    height: 44px;
+    border-radius: 8px;
+    color: white;
+    background: linear-gradient(93deg, #74BB3B, #259E44);
+}
+input.form-control.form-control-search {
+    border-radius: 5px 0px 0px 5px;
+}
+input.form-control.form-control-search {
+    border-color: #f6911e !important;
+    background: #f6911e0d;
+}
+.post.bg-back-color {
+    position: sticky;
+    top: 10px;
+}
+hr.orange-lines {
+    border-top: 2px solid #f6911e;
+    opacity: 1;
+}
+
+section.post-detail h4.post {
+    color: #002D45;
+    font-size: 38px;
+    font-weight: 700;
+    margin-top: 22px;
+    border-bottom: 2px solid #F6911E;
+    font-family: 'Playfair';
+    margin-bottom: 24px;
+}
+
+img.post-image {
+    width: 118px;
+    height: 104px;
+    margin-bottom: 30px;
+}
+
+img.post-dot {
+    width: 7px;
+    height: 7px;
+}
+
+p.post-paragraph {
+    color: #002D45;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Playfair';
+    line-height: 20px;
+    margin-bottom: 7px;
+}
+
+p.post-admin {
+    color: #002D45;
+    margin-bottom: 0px;
+}
+
+.post-top {
+    border-bottom: 1px solid #F6911E;
+}
+
+input.bg-border::placeholder {
+    color: #002D45A8;
+}
+
+input.bg-border1::placeholder {
+    color: #002D45A8;
+}
+
+.post-background-color {
+    border: 1px solid #ffffff;
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.post.bg-back-color {
+    border: 1px solid #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+
+/* post detail end */
+.register-tag {
+    position: relative;
+}
+img.register-tag-one {
+    position: absolute;
+    width: 58px;
+    left: -5px;
+    top: 5px;
+}
+.register-tag-one {
+    animation: blink-animation 4s infinite;
+  }
+  
+  .register-tag-one:hover {
+    animation: none; /* Stop the animation on hover */
+  }
+  
+  @keyframes blink-animation {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  .contact-us-btn p {
+    margin-bottom: 0;
+}
+img.contact-img {
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+.contact-box h2 {
+    color: #002D45;
+}
+.contact-box p {
+    color: #002D45;
+}
+.contact-box {
+    border: 8px solid #921c8e2e;
+    padding: 38px;
+}
+.contact-box .form-control {
+    padding: 8px;
+    border-color: #002d45;
+    border-bottom: 1px solid #002d45 !important;
+    border: 0;
+    border-radius: 0;
+    padding-bottom: 5px;
+    background: unset;
+}
+label.contact-input-name {
+    color: #002d45;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+.contact-box {
+    border: 8px solid #921c8e2e;
+    padding: 38px;
+    width: 75%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.post.bg-back-color textarea#comment {
+    border-color: #002d45;
+}
+.contact-box {
+    border: 8px solid #921c8e2e;
+    animation: borderAnimation 2s infinite;
+    box-shadow: 0px 17px 20px #00000029;
+}
+.contact-box  button.Know {
+    width: 36%;
+    border: 0px;
+    border-radius: 0;
+    background: linear-gradient(45deg, #921C8E, #E9018B);
+    color: white;
+    margin-top: 10px;
+    padding: 7px;
+    font-family: 'Lato';
+    font-size: 16px;
+    transition: 0.1s;
+}   
+.contact-box textarea.form-control {
+    border: 1px solid #002d45;
+    padding: 8px;
+}
+.contact-box .form-control::placeholder {
+    font-size: 12px;
+}
+  @keyframes borderAnimation {
+    0% {
+      border-color: #921c8e2e;
+    }
+    25% {
+      border-color: #d40381;
+    }
+    50% {
+      border-color: #921c8e2e;
+    }
+    75% {
+      border-color: #E9018B;
+    }
+    100% {
+      border-color: #921c8e2e;
+    }
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  .typing-effect {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 2s steps(12, end) forwards, blink 0.6s step-end 3s;
+  }
+  
+  .box-form-contact {
+    background: #FFFAF6;
+}

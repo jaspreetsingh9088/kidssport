@@ -15,6 +15,8 @@ import Stepform from "./components/Stepform";
 import Programmdetail from "./components/Programmdetail";
 import Aboutus from "./components/Aboutus";
 import Blog from "./components/Blog";
+import Postdetail from "./components/Postdetail";
+import Contactus from "./components/Contactus";
 import Footer from "./components/Footer";
 
 import "./assets/css/style.css";
@@ -51,6 +53,8 @@ function App() {
           <Route path="programmdetail" element={<Programmdetail />} />
           <Route path="Aboutus" element={<Aboutus />} />
           <Route path="Blog" element={<Blog />} />
+          <Route path="Postdetail" element={<Postdetail />} />
+          <Route path="Contactus" element={<Contactus />} />
 
         
         </Routes>

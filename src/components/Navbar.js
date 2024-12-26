@@ -2,6 +2,7 @@ import React from "react";
 import logokidz from "../assets/images/logokidz.png";
 import pluspersonImg from "../assets/images/plus-person.png";
 import arrowcontact from "../assets/images/arrowcontact.png";
+import registertag from "../assets/images/registertag.png";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -64,14 +65,20 @@ function Navbar() {
                </Link>
               </li>
             </ul>
-            <Link to="/stepform" title="Registration">
+            <Link to="/stepform" >
+            <div className="register-tag">
+            <img src={registertag} className="register-tag-one" alt="Kidzsport" />
+            </div>
               <img src={pluspersonImg} alt="Plus person" className="plus-person" />
             </Link>
+            <Link to="/Contactus" >
             <div className="contact-bg-rol">
-              <a href="#" className="btn-cantact">
-                Contact Us <span><img src={arrowcontact} className="contact-uss" alt="contact-us" /></span>
-              </a>
+              <div className="d-inline-flex align-items-center contact-us-btn">
+                <div><p>Contact Us</p></div>
+                <div><img src={arrowcontact} className="contact-uss" alt="contact-us" /></div>
+              </div>
             </div>
+            </Link>
           </div>
         </div>
       </nav>
