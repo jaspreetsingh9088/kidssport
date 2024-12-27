@@ -1,4 +1,5 @@
 import React from 'react';
+
 import fancyicon from '../assets/images/fancyicon.png'
 import linethree from '../assets/images/linethree.png'
 import groupchild from '../assets/images/groupchild.png'
@@ -48,7 +49,7 @@ function Blog() {
                 </div>
               </div>
               <h5>Top 5 Benefits Bootcamp Building Confidence and Character</h5>
-              <Link to='/Postdetail'><Link to='/Postdetail'><button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button></Link></Link>
+              <Link to='/Postdetail'><button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-4 wid-program'>

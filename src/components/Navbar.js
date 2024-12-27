@@ -6,9 +6,18 @@ import registertag from "../assets/images/registertag.png";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  document.addEventListener("scroll", () => {
+    const navbar = document.getElementById("navbar");
+    if (window.scrollY > 10) {
+      navbar.classList.add("navbar-shadow");
+    } else {
+      navbar.classList.remove("navbar-shadow");
+    }
+  });
+  
   return (
-    <nav>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <div className="sticky-top">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light " id="navbar">
         <div className="container">
           <a className="navbar-brand" href="/">
             <img src={logokidz} className="Kidzsport World" alt="Kidzsport" />
@@ -41,23 +50,12 @@ function Navbar() {
                   Events
                   </Link>
               </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                  Gallery
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Photos
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item dropdown-items" href="#">
-                      Videos
-                    </a>
-                  </li>
-                </ul>
+              <li className="nav-item">
+              <Link to="/Sportsstore" className="nav-link">
+                  Sports  Store
+                  </Link>
               </li>
+
               
               <li className="nav-item">
               <Link to="/Blog" className="nav-link">
@@ -65,6 +63,7 @@ function Navbar() {
                </Link>
               </li>
             </ul>
+            <div className="mobile-register">
             <Link to="/stepform" >
             <div className="register-tag">
             <img src={registertag} className="register-tag-one" alt="Kidzsport" />
@@ -79,10 +78,12 @@ function Navbar() {
               </div>
             </div>
             </Link>
+            </div>
           </div>
         </div>
       </nav>
-    </nav>
+      </div>
+
   );
 }
 

@@ -36,7 +36,7 @@ function Event() {
                     </div>
                     <div class="d-flex gap-4 justify-content-center">
                         <div className='d-flex gap-2 align-items-center'>
-                        <p className="phone1">Contact Us</p>
+                        <Link to="/Contactus"> <p className="phone1">Contact Us</p></Link>
                         <img src={rightarrow} alt="" class="right-arrow"/>
                         </div>
                         <div className='d-flex gap-2 align-items-center'>

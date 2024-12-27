@@ -15,7 +15,9 @@ import programicon2 from '../assets/images/programicon2.png'
 import programicon3 from '../assets/images/programicon3.png'
 import programicon4 from '../assets/images/programicon4.png'
 
+
 import listdot from '../assets/images/listdot.png'
+import { Link } from "react-router-dom";
 
 function Programmdetail() {
   return (
@@ -59,7 +61,7 @@ function Programmdetail() {
               <h5>Exciting Football Showdown: 
               The Ultimate Clash of Champions!</h5>
               <hr className='line-programm-sec'></hr>
-              <button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button>
+              <Link to={'/Eventform'} style={{ textDecoration: 'none' }}><button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-3 wid-program'>
@@ -74,7 +76,7 @@ function Programmdetail() {
               <h5>Exciting Cricket Showdown: 
               The Ultimate Clash of Champions!</h5>
               <hr className='line-programm-sec'></hr>
-              <button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button>
+              <Link to={'/Eventform'} style={{ textDecoration: 'none' }}><button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-3 wid-program'>
@@ -89,7 +91,7 @@ function Programmdetail() {
               <h5>Exciting handball Showdown: 
               The Ultimate Clash of Champions!</h5>
               <hr className='line-programm-sec'></hr>
-              <button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button>
+              <Link to={'/Eventform'} style={{ textDecoration: 'none' }}><button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-3 wid-program'>
@@ -104,7 +106,7 @@ function Programmdetail() {
               <h5>Exciting badminton Showdown: 
               The Ultimate Clash of Champions!</h5>
               <hr className='line-programm-sec'></hr>
-              <button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button>
+               <Link to={'/Eventform'} style={{ textDecoration: 'none' }}><button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-3 wid-program mt-4'>
@@ -120,7 +122,7 @@ function Programmdetail() {
               <h5>Exciting Football Showdown: 
               The Ultimate Clash of Champions!</h5>
               <hr className='line-programm-sec'></hr>
-              <button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button>
+               <Link to={'/Eventform'} style={{ textDecoration: 'none' }}><button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-3 wid-program mt-4'>
@@ -135,7 +137,7 @@ function Programmdetail() {
               <h5>Exciting Cricket Showdown: 
               The Ultimate Clash of Champions!</h5>
               <hr className='line-programm-sec'></hr>
-              <button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button>
+               <Link to={'/Eventform'} style={{ textDecoration: 'none' }}><button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-3 wid-program mt-4'>

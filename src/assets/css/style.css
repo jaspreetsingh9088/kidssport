@@ -123,7 +123,7 @@ a.btn-cantact {
     margin-top: 30px;
 }
 .navbar-nav .nav-item {
-    padding: 0px 20px;
+    padding: 0px 12px;
 }
 
 img.child {
@@ -174,6 +174,7 @@ h2.Engaging {
     font-family: "Playfair", serif;
     font-weight: 700;
     width: 76%;
+    margin-bottom: 3px !important; 
 }
 .background-video {
   position: absolute;
@@ -469,6 +470,10 @@ p.phone1 {
     color: #259E44;
     font-weight: 700;
     margin-bottom: 0;
+    transition: 0.3s;
+}
+p.phone1:hover {
+    color: #002d45;
 }
 
 p.phone2 {
@@ -486,7 +491,7 @@ img.right-arrow {
     height: 12px;
     width: 12px;
     position: relative;
-    top: 2px;
+    top: 1px;
 }
 
 section.event {
@@ -801,7 +806,7 @@ img.Kidzsport {
 }
 img.plus-person {
     width: 32px;
-    margin-right: 48px;
+    margin-right: 55px;
     margin-left: 56px;
 }
 
@@ -1178,6 +1183,115 @@ img.circle-frame.circle-frame-two.floating-opposite {
 
 /* <top.css end> */
 @media only screen and (min-width: 1024px) and (max-width: 1099px) {
+    .row.blog-gutter {
+        --bs-gutter-x: 1.5rem !important;
+    }
+    button.read-more {
+
+        width: 56% !important;
+
+    }
+    h2.Engaging.Engaging-one {
+        width: 100%;
+        font-size: 42px;
+        margin-bottom: 12px !important;
+    }
+    .container.purple-lg-review {
+        padding: 30px;
+    }
+    p.old {
+        font-size: 12px;
+        padding: 6px;
+    }
+    section.post-detail h4.post {
+        color: #002D45;
+        font-size: 28px !important;
+    }
+    p.ratios {
+        font-size: 32px;
+        font-weight: 800;
+        margin-bottom: 0px;
+        color: #002D45;
+    }
+    img.emoji-content-img {
+        width: 62px;
+    }
+    h2.why-choose {
+        color: #002d45;
+        font-size: 42px;
+    }
+    h2.sports-kidz {
+        font-family: "Playfair", serif;
+        font-weight: 700;
+        font-size: 42px;
+        color: #002D45;
+    }
+    h2.Engaging {
+        font-size: 42px;
+        color: #002D45;
+        font-family: "Playfair", serif;
+        font-weight: 700;
+        width: 76%;
+        margin-bottom: 40px;
+    }
+    .border-or-two {
+        border: 1px solid;
+        border-color: #259E44;
+        border-radius: 20px;
+        width: 100%;
+        padding: 12px;
+        transition: 0.3s;
+    }
+    .border-or-one {
+        border: 1px solid;
+        border-color: #FF9F49;
+        border-radius: 20px;
+        width: 100%;
+        padding: 12px;
+        transition: 0.3s;
+    }
+    .border-or-three {
+        border: 1px solid;
+        border-color: #921C8E;
+        border-radius: 20px;
+        margin-top: 16px;
+        width: 100%;
+        padding: 12px;
+        transition: 0.3s;
+    }
+    .border-or-four {
+        border: 1px solid;
+        border-color: #0091D1;
+        border-radius: 20px;
+        margin-top: 16px;
+        width: 100%;
+        padding: 12px;
+        transition: 0.3s;
+    }
+    p.sports-pg {
+        color: #002D45;
+        letter-spacing: 1px;
+        font-size: 10px;
+    }
+    img.arrow-circle-img {
+        width: 25px;
+        margin-left: 10px;
+    }
+    img.contact-info-icon {
+        width: 54px;
+    }
+    label.form-label {
+        color: #002d45;
+        font-size: 13px;
+    }
+    section.register-form {
+        background: #FFFAF6;
+        margin-top: 60px;
+        padding: 18px;
+    }
+    .event-form-start button.btn.btn-primary {
+        width: 22% !important;
+    }
     header.bg-success-one.text-white.p-2 span {
         font-size: 12px;
     }
@@ -1198,9 +1312,9 @@ img.circle-frame.circle-frame-two.floating-opposite {
     }
     img.plus-person {
         width: 24px;
-        margin-right: 28px;
+        margin-right: 36px;
         margin-left: 28px;
-    }
+    }   
     img.register-tag-one {
         position: absolute;
         width: 52px !important;
@@ -1211,6 +1325,43 @@ img.circle-frame.circle-frame-two.floating-opposite {
 
 }
 @media only screen and (min-width: 1200px) and (max-width: 1280px) {
+    .contact-us-btn p {
+        margin-bottom: 0;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+    .event-form-start  .form-select {
+        padding: 8px !important;
+        border: 1px solid #bfbfbf;
+        color: #585b5e;
+    }
+    span.choose-file-span {
+        position: absolute;
+        background: #D9D9D9;
+        display: block;
+        margin: auto;
+        width: 97px;
+        text-align: center;
+        top: 5px !important;
+        left: 5px !important;
+        padding: 4px !important;
+        border-radius: 5px;
+    }
+    .form-controls {
+        border: 1px solid #ababab;
+        padding: 5px !important;
+        background: none !important;
+        border-radius: 10px;
+        width: 100%;
+    }
+    img.sponser-logo-wid {
+        display: block;
+        margin: auto;
+        width: 90%;
+        background: #FFFBF7;
+        border: 1px solid #FF9638;
+        border-radius: 14px;
+    }
     .contact-box {
         border: 8px solid #921c8e2e;
         padding: 26px !important;
@@ -1250,7 +1401,7 @@ img.circle-frame.circle-frame-two.floating-opposite {
     }
     img.plus-person {
         width: 32px;
-        margin-right: 40px;
+        margin-right: 32px;
         margin-left: 56px;
     }
     /* step form */
@@ -1322,8 +1473,18 @@ img.circle-frame.circle-frame-two.floating-opposite {
         width: 76%;
     }
     h2.Engaging.Engaging-one {
-        width: 86%;
+        width: 100%;
+        font-size: 42px;
+        margin-bottom: 12px;
     }
+    .form-select {
+        padding: 8px;
+        border: 1px solid #ff9638;
+    }
+    .form-control {
+        border: 1px solid #ff9638;
+        padding: 8px;
+    }   
     .container.purple-lg-review {
         background: linear-gradient(131deg, #96198e, #cd0a8c);
         padding: 58px;
@@ -1354,7 +1515,7 @@ img.circle-frame.circle-frame-two.floating-opposite {
         width: 56px;
     }
     .navbar-nav .nav-item {
-        padding: 0px 15px;
+        padding: 0px 10px;
     }
     a.nav-link {
         font-size: 14px;
@@ -1367,7 +1528,611 @@ img.circle-frame.circle-frame-three.floating {
     width: 94px;
     top: 0;
 }
+@media only screen and (min-width: 768px) and (max-width: 899px) {
+    section.Sponsors .col-lg-3 {
+        width: 25%;
+    }
+    .row.register-form-fill .col-lg-6 {
+        width: 50%;
+    }
+    .row.blog-gutter {
+        --bs-gutter-x: 1.5rem !important;
+    }
+    button.read-more {
+
+        width: 100% !important;
+
+    }
+    section.footer .col-lg-2 {
+        width: 33%;
+    }
+    section.footer .col-lg-3 {
+        width: 34%;
+    }
+    img.cloudsfooter {
+        position: absolute;
+        width: 88%;
+        z-index: 0;
+        top: 117px;
+        right: 21%;
+        display: none;
+    }
+    img.footerlogo {
+        width: 80% !important;
+    }
+    img.footer-social-icons {
+        width: 36px !important;
+        border: 1px solid #fff;
+        border-radius: 90px;
+        transition: 0.3s;
+        margin-bottom: 18px;
+    }
+    img.galleryimage {
+        border-radius: 9px !important;
+    }
+    .copyright {    
+        margin-top: 35px !important;
+    }
+    section.footer .col-lg-4 {
+        width: 34%;
+    }
+    .box-form .col-lg-6 {
+        width: 50%;
+    }
+    section.register-form {
+        background: #FFFAF6;
+        margin-top: 60px;
+        padding: 26px;
+    }
+    img.sponser-logo-wid {
+
+        border-radius: 10px;
+    }
+    .row.program-mobile-preview {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    .col-lg-4.wid-program {
+        width: 320px;
+    }
+    .container.box-program-main {
+        background: linear-gradient(116deg, #FF9638, #FF8010);
+        padding: 24px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        margin-top: 24px;
+    }
+    p.old {
+        border: 1px solid;
+        background-color: #FF881E26;
+        border-radius: 8px;
+        text-align: center;
+        color: #FF8010;
+        margin-bottom: 0;
+        padding: 8px 10px;
+        border: 0;
+        font-family: 'Lato';
+        font-size: 12px;
+    }
+    img.circle-frame.circle-frame-one {
+
+        display: none;
+    }
+    img.child-play {
+        width: 100%;
+    }
+    p.Empowering {
+        font-size: 14px;
+        color: #002D45;
+        margin-bottom: 0px;
+        letter-spacing: 1px;
+    }
+    img.check-icon {
+        width: 15px;
+    }
+    p.code {
+        color: #FF8010;
+        font-size: 30px;
+        font-weight: 800;
+        margin-bottom: 0;
+    }
+    img.circle-frame.circle-frame-two {
+
+        display: none;
+    }
+    section.choose div + p {
+        text-align: center;
+    }
+    h2.why-choose {
+        color: #002d45;
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    button.know.more1 {
+        border-radius: 300px;
+        border: 0px;
+        background: linear-gradient(45deg, #74BB3B, #259E44);
+        color: white;
+        width: 28%;
+        font-family: 'Lato';
+        padding: 8px;
+        font-size: 18px;
+        transition: 0.3s;
+        display: block;
+        margin: auto;
+        margin-bottom: 26px;
+    }
+    header.bg-success-one.text-white.p-2 .container.d-flex.justify-content-between.align-items-center {
+        margin-left: 0;
+        margin-right: 0;
+        padding-right: 0;
+    }
+    ul.navbar-nav.ms-auto {
+        margin: auto;
+        justify-content: space-around;
+        border-top: 1px solid #dbdbdb;
+        border-bottom: 1px solid #dbdbdb;
+    }
+    .contact-bg-rol {
+        background: linear-gradient(45deg, #921c8e, #db058b);
+        padding: 3px 8px;
+        border-radius: 36px;
+        transition: 0.3s;
+        width: 100%;
+        margin-top: 6px;
+        margin-bottom: 8px;
+    }
+    .mobile-register {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5px;
+        margin-bottom: 1px;
+    }
+  
+    .navbar-nav {
+        --bs-nav-link-padding-x: 0;
+        --bs-nav-link-padding-y: 0.5rem;
+        --bs-nav-link-font-weight: ;
+        --bs-nav-link-color: var(--bs-navbar-color);
+        --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+        --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+        display: flex;
+        flex-direction: row;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        flex-wrap: wrap;
+    }
+    header.bg-success-one.text-white.p-2 span {
+        font-size: 12px;
+    }
+    img.young-boy {
+        width: 100%;
+        position: absolute;
+        top: 42px;
+        display: none;
+    }
+    section.event .col-lg-6 {
+        width: 50%;
+    }
+
+    section.choose {
+        padding-top: 20px;
+        padding-bottom: 60px;
+    }
+    h2.sports-kidz {
+        font-family: "Playfair", serif;
+        font-weight: 700;
+        font-size: 28px;
+        color: #002D45;
+    }
+    button.Know {
+        width: 53%;
+        border: 0px;
+        border-radius: 300px;
+        background: linear-gradient(45deg, #921C8E, #E9018B);
+        color: white;
+        margin-top: 16px;
+        padding: 8px;
+        font-family: 'Lato';
+        font-size: 18px;
+        transition: 0.1s;
+    }
+    p.sports-pg {
+        font-size: 14px;
+    }
+    section.event .col-lg-3 {
+        width: 30%;
+    }
+    section.event .col-lg-6 {
+        width: 40%;
+    }
+    section.choose .col-lg-6 {
+        width: 50%;
+    }
+    img.girl-play {
+        width: 100%;
+        display: block;
+    }
+    img.circle-frame {
+        position: absolute;
+        width: 105px;
+        right: 0;
+        top: -25px;
+    }
+    p.interactive {
+        font-size: 14px;
+        color: #002D45;
+        margin-bottom: 16px;
+        letter-spacing: 2px;
+    }
+    h2.Engaging {
+        font-size: 28px !important;
+        width: 100% !important;
+    }
+    section.about.kidzsport-about.show .col-lg-6 {
+        width: 50%;
+    }   
+    .event-form-start form {
+        padding-left: 60px !important;
+        padding-right: 60px !important;
+    }
+    .event-form-start  .form-select {
+        padding: 6px !important;
+        border: 1px solid #bfbfbf;
+        color: #585b5e;
+    }
+    .event-form-start .col-lg-4 {
+        width: 50%;
+    }
+    .event-form-start button.btn.btn-primary {
+        width: 34% !important;
+    }
+}
+@media only screen and (min-width: 900px) and (max-width: 992px) {
+    p.ratios {
+        font-size: 36px;
+        font-weight: 800;
+        margin-bottom: 0px;
+        color: #002D45;
+    }
+    .container {
+        max-width: 92%;
+    }
+    section.Sponsors .col-lg-3 {
+        width: 25%;
+    }
+    .row.register-form-fill .col-lg-6 {
+        width: 50%;
+    }
+    .row.blog-gutter {
+        --bs-gutter-x: 1.5rem !important;
+    }
+    button.read-more {
+
+        width: 100% !important;
+
+    }
+    section.footer .col-lg-2 {
+        width: 33%;
+    }
+    section.footer .col-lg-3 {
+        width: 34%;
+    }
+    img.cloudsfooter {
+        position: absolute;
+        width: 88%;
+        z-index: 0;
+        top: 117px;
+        right: 21%;
+        display: none;
+    }
+    img.footerlogo {
+        width: 80% !important;
+    }
+    img.footer-social-icons {
+        width: 36px !important;
+        border: 1px solid #fff;
+        border-radius: 90px;
+        transition: 0.3s;
+        margin-bottom: 18px;
+    }
+    img.galleryimage {
+        border-radius: 9px !important;
+    }
+    .copyright {    
+        margin-top: 35px !important;
+    }
+    section.footer .col-lg-4 {
+        width: 34%;
+    }
+    .box-form .col-lg-6 {
+        width: 50%;
+    }
+    section.register-form {
+        background: #FFFAF6;
+        margin-top: 60px;
+        padding: 26px;
+    }
+    img.sponser-logo-wid {
+
+        border-radius: 10px;
+    }
+    .row.program-mobile-preview {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    .col-lg-4.wid-program {
+        width: 320px;
+    }
+    .container.box-program-main {
+        background: linear-gradient(116deg, #FF9638, #FF8010);
+        padding: 24px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        margin-top: 24px;
+    }
+    p.old {
+        border: 1px solid;
+        background-color: #FF881E26;
+        border-radius: 8px;
+        text-align: center;
+        color: #FF8010;
+        margin-bottom: 0;
+        padding: 8px 10px;
+        border: 0;
+        font-family: 'Lato';
+        font-size: 12px;
+    }
+    img.circle-frame.circle-frame-one {
+
+        display: none;
+    }
+    img.child-play {
+        width: 100%;
+    }
+    p.Empowering {
+        font-size: 14px;
+        color: #002D45;
+        margin-bottom: 0px;
+        letter-spacing: 1px;
+    }
+    img.check-icon {
+        width: 15px;
+    }
+    p.code {
+        color: #FF8010;
+        font-size: 30px;
+        font-weight: 800;
+        margin-bottom: 0;
+    }
+    img.circle-frame.circle-frame-two {
+
+        display: none;
+    }
+    section.choose div + p {
+        text-align: center;
+    }
+    h2.why-choose {
+        color: #002d45;
+        font-size: 42px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    button.know.more1 {
+        border-radius: 300px;
+        border: 0px;
+        background: linear-gradient(45deg, #74BB3B, #259E44);
+        color: white;
+        width: 28%;
+        font-family: 'Lato';
+        padding: 8px;
+        font-size: 18px;
+        transition: 0.3s;
+        display: block;
+        margin: auto;
+        margin-bottom: 26px;
+    }
+    header.bg-success-one.text-white.p-2 .container.d-flex.justify-content-between.align-items-center {
+        margin-left: 0;
+        margin-right: 0;
+        padding-right: 0;
+    }
+    ul.navbar-nav.ms-auto {
+        margin: auto;
+        justify-content: space-around;
+        border-top: 1px solid #dbdbdb;
+        border-bottom: 1px solid #dbdbdb;
+    }
+    .contact-bg-rol {
+        background: linear-gradient(45deg, #921c8e, #db058b);
+        padding: 3px 8px;
+        border-radius: 36px;
+        transition: 0.3s;
+        width: 100%;
+        margin-top: 6px;
+        margin-bottom: 8px;
+    }
+    .mobile-register {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5px;
+        margin-bottom: 1px;
+    }
+  
+    .navbar-nav {
+        --bs-nav-link-padding-x: 0;
+        --bs-nav-link-padding-y: 0.5rem;
+        --bs-nav-link-font-weight: ;
+        --bs-nav-link-color: var(--bs-navbar-color);
+        --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+        --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+        display: flex;
+        flex-direction: row;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        flex-wrap: wrap;
+    }
+    header.bg-success-one.text-white.p-2 span {
+        font-size: 12px;
+    }
+    img.young-boy {
+        width: 100%;
+        position: absolute;
+        top: 42px;
+        display: none;
+    }
+    section.event .col-lg-6 {
+        width: 50%;
+    }
+
+    section.choose {
+        padding-top: 20px;
+        padding-bottom: 60px;
+    }
+    h2.sports-kidz {
+        font-family: "Playfair", serif;
+        font-weight: 700;
+        font-size: 42px;
+        color: #002D45;
+    }
+    button.Know {
+        width: 53%;
+        border: 0px;
+        border-radius: 300px;
+        background: linear-gradient(45deg, #921C8E, #E9018B);
+        color: white;
+        margin-top: 16px;
+        padding: 8px;
+        font-family: 'Lato';
+        font-size: 18px;
+        transition: 0.1s;
+    }
+    img.emoji-content-img {
+        width: 56px;
+    }
+    .border-or-one .d-flex.gap-3.align-items-baseline {
+        display: block !important;
+    }
+    .border-or-two .d-flex.gap-3.align-items-baseline {
+        display: block !important;
+    }
+    .border-or-three .d-flex.gap-3.align-items-baseline {
+        display: block !important;
+    }
+    .border-or-four .d-flex.gap-3.align-items-baseline {
+        display: block !important;
+    }
+    .border-or-three, .border-or-four{
+        margin-top: 0;
+    }
+    section.choose .col-lg-6 {
+        width: 25%;
+    }
+    p.sports-pg {
+        font-size: 11px;
+    }
+    section.event .col-lg-3 {
+        width: 30%;
+    }
+    section.event .col-lg-6 {
+        width: 40%;
+    }
+   
+    img.girl-play {
+        width: 100%;
+        display: block;
+    }
+    img.circle-frame {
+        position: absolute;
+        width: 105px;
+        right: 0;
+        top: -25px;
+    }
+    p.interactive {
+        font-size: 14px;
+        color: #002D45;
+        margin-bottom: 16px;
+        letter-spacing: 2px;
+    }
+    h2.Engaging {
+        font-size: 42px !important;
+        width: 94% !important;
+    }
+    section.about.kidzsport-about.show .col-lg-6 {
+        width: 50%;
+    }   
+    .event-form-start form {
+        padding-left: 60px !important;
+        padding-right: 60px !important;
+    }
+    .event-form-start  .form-select {
+        padding: 6px !important;
+        border: 1px solid #bfbfbf;
+        color: #585b5e;
+    }
+    .event-form-start .col-lg-4 {
+        width: 50%;
+    }
+    .event-form-start button.btn.btn-primary {
+        width: 34% !important;
+    }
+}
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .event-form-start form {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .event-form-start  .form-select {
+        padding: 6px !important;
+        border: 1px solid #bfbfbf;
+        color: #585b5e;
+    }
+    .event-form-start .col-lg-4 {
+        width: 50%;
+    }
+    .event-form-start button.btn.btn-primary {
+        width: 67% !important;
+    }
+    img.footer-social-icons {
+        width: 34px !important;
+    }
+    .copyright {
+
+        margin-top: 28px !important;
+    }
+    section.footer .col-lg-2 {
+        width: 50%;
+        margin-top: 26px;
+        margin-bottom: 18px;
+    }
+    .button-pay {
+        padding-right: 15px !important;
+        padding-top: 18px;
+        padding-bottom: 10px;
+    }
+    .event-form-start {
+        padding: 13px;
+        box-shadow: 0px 13px 56px #921c8e29 !important;
+        background: #FFFAF6;
+        border-radius: 20px !important;
+        margin-top: 24px !important;
+        margin-bottom: 26px !important;
+    }
+    .event-form-start h2 {
+        padding-left: 0 !important;
+        padding-top: 18px;
+        padding-bottom: 10px;
+        text-align: center;
+    }
     .contact-box {
         border: 8px solid #921c8e2e;
         padding: 16px !important;
@@ -1860,9 +2625,9 @@ span.color-dot {
     }
   }
   
-  .sports-kidz {
+  /* .sports-kidz {
     animation: blink-color 3s infinite;
-  }
+  } */
   
   img.footerlogo {
     width: 66%;
@@ -2805,4 +3570,93 @@ label.contact-input-name {
   
   .box-form-contact {
     background: #FFFAF6;
+}
+.event-form-start {
+    padding: 13px;
+    box-shadow: 0px 13px 56px #921c8e4a;
+    background: #FFFAF6;
+    border-radius: 40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.event-form-start form {
+    background: #fff;
+    padding-top: 25px;
+    border-top: 1px solid #F6911E;
+    border-bottom: 1px solid #F6911E;
+}
+.event-form-start button.btn.btn-primary {
+    background: linear-gradient(45deg, #69b73c, #32a342);
+    border: 0;
+    width: 17%;
+    color: #fff;
+    padding: 12px;
+    border-radius: 110px;
+  
+    display: block;
+    margin-left: auto;
+}
+.event-form-start form {
+    background: #fff;
+    padding-top: 30px;
+    border-top: 1px solid #F6911E;
+    border-bottom: 1px solid #F6911E;
+    padding-bottom: 16px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+.event-form-start h2 {
+    padding-left: 46px;
+    padding-top: 18px;
+    padding-bottom: 10px;
+    font-family: 'Lato';
+    font-size: 28px;
+    color: #a2178d;
+}
+.event-form-start input.form-control {
+    border-color: #ABABAB;
+}
+.button-pay {
+    padding-right: 60px;
+    padding-top: 18px;
+    padding-bottom: 10px;
+}
+.event-form-start  .form-select {
+    padding: 12px;
+    border: 1px solid #bfbfbf;
+    color: #585b5e;
+}
+#navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.navbar-shadow {
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    border-bottom: 1px solid #ff8010;
+}
+.mobile-register {
+    display: flex;
+    align-items: baseline;
+}
+.contact-us-btn p {
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+.coming-soon {
+    text-align: center;
+    border: 5px solid #f69425;
+    padding: 12px;
+}
+section.sports-store {
+    padding: 90px;
+    background: #fff8f1;
+}
+.coming-soon h1 {
+    margin-bottom: 0;
+    color: #ffffff;
+    -webkit-text-stroke: 1px black;
+    font-weight: 900;
 }

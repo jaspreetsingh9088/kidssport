@@ -5,6 +5,7 @@ import blocks from '../assets/images/blocks.png'
 import arrowright from '../assets/images/arrowright.png'
 import listdot from '../assets/images/listdot.png'
 import circleiconframe from '../assets/images/circleiconframe.png';
+import { Link } from "react-router-dom";
 
 function Latestblog() {
   return (
@@ -27,7 +28,7 @@ function Latestblog() {
                 </div>
               </div>
               <h5>Top 5 Benefits Bootcamp Building Confidence and Character</h5>
-              <button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button>
+              <Link to='/Blog'><button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-4 wid-program'>
@@ -40,7 +41,7 @@ function Latestblog() {
                 </div>
               </div>
               <h5>Top 5 Benefits Bootcamp Building Confidence and Character</h5>
-              <button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button>
+              <Link to='/Blog'><button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button></Link>
               </div>
             </div>
             <div className='col-lg-4 wid-program'>
@@ -53,7 +54,7 @@ function Latestblog() {
                 </div>
               </div>
               <h5>Top 5 Benefits Bootcamp Building Confidence and Character</h5>
-              <button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button>
+              <Link to='/Blog'><button type="readmore" className='read-more'>Read More <span className='image-arrow-read'><img src={arrowright} alt="" className="blog-images-arrow" /></span></button></Link>
               </div>
             </div>
             </div>

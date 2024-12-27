@@ -17,6 +17,9 @@ import Aboutus from "./components/Aboutus";
 import Blog from "./components/Blog";
 import Postdetail from "./components/Postdetail";
 import Contactus from "./components/Contactus";
+import ScrollToTop from "./components/ScrollToTop";
+import Eventform from "./components/Eventform";
+import Sportsstore from "./components/Sportsstore";
 import Footer from "./components/Footer";
 
 import "./assets/css/style.css";
@@ -24,6 +27,7 @@ import "./assets/css/style.css";
 function App() {
   return (
     <Router>
+       <ScrollToTop />
       {/* Header and Navbar always visible */}
       <Header />
       <Navbar />
@@ -55,6 +59,8 @@ function App() {
           <Route path="Blog" element={<Blog />} />
           <Route path="Postdetail" element={<Postdetail />} />
           <Route path="Contactus" element={<Contactus />} />
+          <Route path="Eventform" element={<Eventform />} />
+          <Route path="Sportsstore" element={<Sportsstore />} />
 
         
         </Routes>

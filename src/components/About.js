@@ -3,7 +3,7 @@ import childplay from '../assets/images/childplay.png';
 import ticks from '../assets/images/ticks.svg';
 import circleiconframe from '../assets/images/circleiconframe.png';
 import rightarrows from '../assets/images/rightarrows.png';
-
+import { Link } from "react-router-dom";
 function About() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -60,8 +60,8 @@ function About() {
               <img src={ticks} alt="Childplay" className="check-icon" />
               <p className="Empowering">Join us for a transformative experience</p>
             </div>
-            <button className="Know">Know More <span className='img-right-arrow img-right-arrows'>
-            <img src={rightarrows} alt='' /> </span></button>
+            <Link to='/Aboutus'><button className="Know">Know More <span className='img-right-arrow img-right-arrows'>
+            <img src={rightarrows} alt='' /> </span></button></Link>
           </div>
         </div>
       </div>
