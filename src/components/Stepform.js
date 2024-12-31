@@ -128,14 +128,14 @@ function Stepform() {
                                         <input type="text" className="form-control" id="Language" placeholder="Language(s) Spoken at Home" />
                                     </div>
                                 </div>
-                                <div className='col-lg-4'>
-                                    <div className="mb-4">
+                                <div className='col-lg-4 adhar-field'>
+                                    <div className="mb-4 last-feild-col">
                                     <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Need to see if we verify it with phone numer</label>
                                         <input type="text" className="form-control" id="Adharcard" placeholder="Addhar Card Number" />
                                     </div>
                                 </div>
-                                <div className='col-lg-4'>
-                                    <div className="mb-4">
+                                <div className='col-lg-4 adhar-field'>
+                                    <div className="mb-4 last-feild-col">
                                     <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Adhar Card Front</label>
                                     <div className='span-choose'>
                                     <span className='choose-file-span'>Choose File </span>
@@ -143,8 +143,8 @@ function Stepform() {
                                     <input type="file" className="form-controls" id="file-input" name="file-input"/>
                                     </div>
                                 </div>
-                                <div className='col-lg-4'>
-                                    <div className="mb-4">
+                                <div className='col-lg-4 adhar-field'>
+                                    <div className="mb-4 last-feild-col">
                                     <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Adhar Card Back</label>
                                     <div className='span-choose'>
                                     <span className='choose-file-span'>Choose File </span>
@@ -236,7 +236,7 @@ function Stepform() {
                                         <input type="text" className="form-control" id="mobile" placeholder="Doctor’s Phone Number" />
                                     </div>
                                 </div>
-                                <div className='col-lg-4'>
+                                <div className='col-lg-4 adhar-field'>
                                     <div className="mb-4">
                                         <input type="text" className="form-control" id="insurance" placeholder="Insurance Information (if applicable)" />
                                     </div>
