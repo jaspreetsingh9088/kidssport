@@ -10,7 +10,7 @@ function Event() {
     <section className="event">
     <div className="container">
         <div className="row align-items-center">
-            <div className="col-lg-3">
+            <div className="col-lg-3 oder-set-one">
             <div className='circle-framee'>
             <img src={circleiconframe} alt='' className='circle-frame circle-frame-one floating-opposite'/>
             </div>
@@ -20,7 +20,7 @@ function Event() {
                     </div>
                 </div>
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-6 oder-set-two">
                 <div className="text-center">
                     <div>
                         <p className="code">2024</p>
@@ -46,7 +46,7 @@ function Event() {
                     </div>
                 </div>
             </div>
-            <div className="col-lg-3">
+            <div className="col-lg-3 oder-set-three">
                 <div className="text-center">
                     <div>
                         <img src={footballplay} alt="" class="girl-play boy-play"/>

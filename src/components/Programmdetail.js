@@ -189,7 +189,7 @@ function Programmdetail() {
               </p>
             </div>
             
-            <div className='row'>
+            <div className='row activity-wid'>
               <div className='col-lg-6'>
               <div className="d-flex gap-2 mb-2">
               <img src={ticktransparent} alt="Childplay" className="check-icons" />
@@ -219,7 +219,7 @@ function Programmdetail() {
             </div>
               </div>
             </div>
-            <button className="Know">Know More <span className='img-right-arrow img-right-arrows'>
+            <button className="Know btn-activity">Know More <span className='img-right-arrow img-right-arrows'>
             <img src={rightarrows} alt='' /> </span></button>
           </div>
           <div className="col-lg-6">

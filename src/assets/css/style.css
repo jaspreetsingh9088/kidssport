@@ -1186,6 +1186,13 @@ img.circle-frame.circle-frame-two.floating-opposite {
     .row.blog-gutter {
         --bs-gutter-x: 1.5rem !important;
     }
+    img.cloudsfooter {
+        position: absolute;
+        width: 88%;
+        z-index: 0;
+        top: 243px !important;
+        right: 21%;
+    }
     button.read-more {
 
         width: 56% !important;
@@ -1556,6 +1563,59 @@ img.circle-frame.circle-frame-three.floating {
     top: 0;
 }
 @media only screen and (min-width: 768px) and (max-width: 899px) {
+    .col-lg-3.wid-program {
+        width: 320px;
+        margin-top: 0 !important;
+    }
+    .worker-image-border {
+        border: 6px solid #ff963d !important;
+        width: 90% !important;
+        margin-bottom: 16px !important;
+    }
+    section.team .col-lg-4 {
+        width: 33%;
+    }
+    .bacground-purple {
+        background: linear-gradient(45deg, #921C8E, #E9018B);
+        padding: 0px !important;
+    }
+    img.fancy-iconss {
+        width: 48px;
+        position: relative;
+        left: 86% !important;
+        top: -19px !important;
+    }
+    .container.bg-background-gradient {
+        padding: 28px !important;
+        margin-top: 26px !important;
+        margin-bottom: 5px !important;
+        padding-bottom: 12px !important;
+    }
+    h5.health {
+        margin-bottom: 0px;
+    }
+    section.new-genration {
+        margin-top: 100px;
+        background-color: #FFFAF6F2;
+        padding: 24px !important;
+    }
+    img.boys-together {
+        width: 62% !important;
+        display: block;
+        margin: auto !important;
+        padding-top: 18px;
+    }
+    section.new-genration {
+        margin-top: 26px !important;
+        background-color: #FFFAF6F2;
+        padding: 50px;
+    }
+    .container.bg-background-gradient .col-lg-3 {
+        width: 50%;
+    }
+    img.fancy-icons {
+        bottom: -30px !important;
+    }
     /* step form */
     .col-lg-4.adhar-field {
         width: 100% !important;
@@ -1854,6 +1914,7 @@ img.circle-frame.circle-frame-three.floating {
     h2.Engaging {
         font-size: 28px !important;
         width: 100% !important;
+        margin-bottom: 14px !important;
     }
     section.about.kidzsport-about.show .col-lg-6 {
         width: 50%;
@@ -1875,6 +1936,47 @@ img.circle-frame.circle-frame-three.floating {
     }
 }
 @media only screen and (min-width: 900px) and (max-width: 992px) {
+    .container.bg-background-gradient .col-lg-3 {
+        width: 50%;
+    }
+    .bacground-purple {
+        background: linear-gradient(45deg, #921C8E, #E9018B);
+        padding: 0px !important;
+    }
+    img.fancy-iconss {
+        width: 48px;
+        position: relative;
+        left: 86% !important;
+        top: -19px !important;
+    }
+    img.fancy-icons {
+        bottom: -30px !important;
+    }
+    section.new-genration {
+        margin-top: 100px;
+        background-color: #FFFAF6F2;
+        padding: 24px !important;
+    }
+    img.boys-together {
+        width: 62% !important;
+        display: block;
+        margin: auto !important;
+        padding-top: 18px;
+    }
+    h2.Engaging {
+        font-size: 28px !important;
+        width: 100% !important;
+        margin-bottom: 14px !important;
+    }
+    section.team .col-lg-4 {
+        width: 33%;
+    }
+    .worker-image-border {
+        border: 6px solid #ff963d !important;
+        width: 90% !important;
+        margin-bottom: 16px !important;
+    }
+    
     p.ratios {
         font-size: 36px;
         font-weight: 800;
@@ -2169,6 +2271,78 @@ img.circle-frame.circle-frame-three.floating {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+     .row.activity-wid .col-lg-6 {
+        width: 50%;
+    }
+    button.Know.btn-activity {
+        margin-top: 12px;
+        margin-bottom: 18px;
+    }
+    .why-choose-program .col-lg-3 {
+        width: 50%;
+    }
+    .col-lg-3.wid-program {
+        width: 320px;
+        margin-top: 0 !important;
+    }
+    .row.activity-wid .col-lg-6 {
+        width: 50%;
+    }
+    .box-programme {
+        padding: 14px !important;
+        margin-bottom: 12px;
+    }
+    .activity-timing .col-lg-3 {
+        width: 50%;
+        margin-bottom: 18px;
+    }
+    .activity-timing .row.mt-5.mb-5 {
+        margin-top: 20px !important;
+    }
+    .why-choose-program {
+        margin-bottom: 12px !important;
+    }
+
+    .activit-bg {
+        /* background: radial-gradient(#fff6ed, transparent); */
+        padding-top: 0px !important;
+        padding-bottom: 16px;
+        margin-bottom: 0px !important;
+    }
+
+    section.team h2 {
+        margin-bottom: 25px !important;
+    }
+    .worker-image-border {
+        margin-bottom: 17px !important;
+    }
+    .testimonial p {
+        font-size: 16px !important;
+        line-height: 1.5;
+        color: #ffffff;
+    }
+    .col-lg-6.oder-set-two {
+        order: 1;
+    }
+    .col-lg-3.oder-set-one {
+        order: 2;
+        width: 50%;
+        margin-top: 30px;
+    }
+    .col-lg-3.oder-set-three {
+        order: 3;
+        width: 50%;
+        margin-top: 30px;
+    }
+    .kidzsport-about.show .col-lg-6 img.child-play {
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+    }
+    .kidzsport-about .col-lg-6 img.child-play {
+        transform: translateX(0%)  !important;
+        opacity: 1  !important;
+        transition: transform 1s ease-out, opacity 1s ease-out;
+    }
     .container.bg-background-gradient {
         background-image: linear-gradient(#921C8E, #E9018B);
         border-radius: 26px;
@@ -2353,8 +2527,8 @@ img.circle-frame.circle-frame-three.floating {
     .container.purple-lg-review {
         background: linear-gradient(131deg, #96198e, #cd0a8c);
         padding: 15px;
-        padding-top: 46px;
-        padding-bottom: 36px;
+        padding-top: 5px;
+        padding-bottom: 0px;
         border-radius: 20px;
         margin-top: 50px;
     }
@@ -2495,6 +2669,7 @@ img.circle-frame.circle-frame-three.floating {
     }
     .col-lg-4.wid-program {
         width: 320px;
+        margin-top: 0 !important;
     }
     .row.program-mobile-preview {
         flex-wrap: nowrap;
@@ -2573,7 +2748,7 @@ img.circle-frame.circle-frame-three.floating {
         top: 0px;
     }
     .navbar-nav .nav-item {
-        padding: 0px 9px;
+        padding: 0px 2px;
     }
     img.register-tag-one {
         position: absolute;
@@ -2694,7 +2869,10 @@ img.circle-frame.circle-frame-three.floating {
     }
     img.girl-play.boy-play {
         margin-left: auto;
-        margin-top: 18px;
+        margin-top: 0px;
+    }
+    section.event {
+        margin-top: 10px;
     }
     .header-one {
         display: flex;
