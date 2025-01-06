@@ -70,6 +70,7 @@ function Navbar() {
             </div>
               <img src={pluspersonImg} alt="Plus person" className="plus-person" />
             </Link>
+            
             <Link to="/Contactus" >
             <div className="contact-bg-rol">
               <div className="d-inline-flex align-items-center contact-us-btn">

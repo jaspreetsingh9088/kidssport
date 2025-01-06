@@ -19,6 +19,7 @@ import Postdetail from "./components/Postdetail";
 import Contactus from "./components/Contactus";
 import ScrollToTop from "./components/ScrollToTop";
 import Eventform from "./components/Eventform";
+import Myaccount from "./components/Myaccount";
 import Sportsstore from "./components/Sportsstore";
 import Footer from "./components/Footer";
 
@@ -61,6 +62,7 @@ function App() {
           <Route path="Contactus" element={<Contactus />} />
           <Route path="Eventform" element={<Eventform />} />
           <Route path="Sportsstore" element={<Sportsstore />} />
+          <Route path="Myaccount" element={<Myaccount />} />
 
         
         </Routes>

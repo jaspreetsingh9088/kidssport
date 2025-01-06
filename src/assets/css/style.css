@@ -3712,7 +3712,7 @@ input.form-control.form-control-search {
 }
 .post.bg-back-color {
     position: sticky;
-    top: 10px;
+    top: 100px;
 }
 hr.orange-lines {
     border-top: 2px solid #f6911e;

@@ -20,6 +20,7 @@ function Header() {
           <img src={locationhead} alt="Watch Icon" className="watch-img" />
           <span>1234 Magnesia / Zirakpur 140062</span>
         </div>
+        
         <div className="social-icons">
           <img src={facebookImg} alt="Facebook" className="facebook2" />
           <img src={instagramImg} alt="Instagram" className="facebook2" />
