@@ -6,7 +6,10 @@ import activity from '../assets/images/activity.svg'
 import subscription from '../assets/images/subscription.svg'
 import setting from '../assets/images/setting.svg'
 import holderimage from '../assets/images/holderimage.svg'
-
+import cricketsports from '../assets/images/cricketsports.png'
+import dateicon from "../assets/images/dateicon.png";
+import time from "../assets/images/time.png";
+import locationimg from "../assets/images/locationimg.png";
 function MyAccount() {
   const [activeTab, setActiveTab] = useState('profile'); // Default active tab
 
@@ -119,7 +122,65 @@ function MyAccount() {
                 className={`tab-content ${activeTab === 'activities' ? 'active' : ''}`}
               >
                 <h2>My Activities</h2>
-                <p>Check your recent sports activities and schedules.</p>
+                <div className='row'>
+                  <div className='col-lg-5'>
+                    <div className='image-box-one'>
+                    <img src={cricketsports} alt="" className="blog-images blog-images-ones blog-images-ones-two" />
+                    <div class="overlay">
+                  <h3>Running</h3>
+                </div>
+                    </div>
+                    <div className='upcoming-box'>
+                      <h3>UPCOMING</h3>
+                      <hr></hr>
+                      <div className='d-flex justify-content-between flex-wrap'>
+                        <div> <p className='detail-upcoming'><span className=''><img src={dateicon} alt="" className="date-icon" /></span> 15 jan 2025</p></div>
+                        <div> <p className='detail-upcoming'><span className=''><img src={time} alt="" className="date-icon" /></span> 10:00 am To 12:00 pm</p></div>
+                        <div> <p className='detail-upcoming'><span className=''><img src={locationimg} alt="" className="date-icon" /></span> Mohali</p></div>
+                        <hr></hr>
+                      </div>
+                      <div className='detailbtn'>
+                        <button className='upcomingbtn'>View Detail</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='col-lg-7'>
+                    <div className='row'>
+                      <div className='col-lg-6'>
+                      <div className='image-box-one'>
+                    <img src={cricketsports} alt="" className="blog-images blog-images-ones" />
+                    </div>
+                    <div className='upcoming-box'>
+                      <h3>UPCOMING EVENTS</h3>
+                    </div>
+                      </div>
+                      <div className='col-lg-6'>
+                      <div className='image-box-one'>
+                    <img src={cricketsports} alt="" className="blog-images blog-images-ones" />
+                    </div>
+                    <div className='upcoming-box'>
+                      <h3>UP COMING EVENTS</h3>
+                    </div>
+                      </div>
+                      <div className='col-lg-6'>
+                      <div className='image-box-one'>
+                    <img src={cricketsports} alt="" className="blog-images blog-images-ones" />
+                    </div>
+                    <div className='upcoming-box'>
+                      <h3>UP COMING EVENTS</h3>
+                    </div>
+                      </div>
+                      <div className='col-lg-6'>
+                      <div className='image-box-one'>
+                    <img src={cricketsports} alt="" className="blog-images blog-images-ones" />
+                    </div>
+                    <div className='upcoming-box'>
+                      <h3>UP COMING EVENTS</h3>
+                    </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </section>
 
               <section
