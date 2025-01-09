@@ -6,17 +6,22 @@ import activity from '../assets/images/activity.svg'
 import subscription from '../assets/images/subscription.svg'
 import setting from '../assets/images/setting.svg'
 import holderimage from '../assets/images/holderimage.svg'
-import cricketsports from '../assets/images/cricketsports.png'
+import cricket from '../assets/images/cricket.png'
 import dateicon from "../assets/images/dateicon.png";
 import time from "../assets/images/time.png";
 import locationimg from "../assets/images/locationimg.png";
+import football from '../assets/images/football.png'
+import badminton from '../assets/images/badminton.png'
+import arrowtransparent from '../assets/images/arrowtransparent.png';
 function MyAccount() {
+  
   const [activeTab, setActiveTab] = useState('profile'); // Default active tab
 
   const handleTabClick = (tab, e) => {
     e.preventDefault(); // Prevent page reload
     setActiveTab(tab);
   };
+  
 
   return (
     <section className="my-account">
@@ -45,10 +50,11 @@ function MyAccount() {
         {/* Sidebar */}
         <div className="row">
           <div className="col-lg-3">
-          <div className='hellomsg'>
+          
+            <aside className="sidebar">
+            <div className='hellomsg'>
                       <div className='heyy'>Hello!</div>
                     </div>
-            <aside className="sidebar">
               <div className='profilebox'>
                 <div className='d-flex align-items-center'>
                   <div><img src={holderimage} alt="" className="holder-image" /></div>
@@ -123,62 +129,114 @@ function MyAccount() {
               >
                 <h2>My Activities</h2>
                 <div className='row'>
+                  
                   <div className='col-lg-5'>
+                    <div className='main-box-activity'>
                     <div className='image-box-one'>
-                    <img src={cricketsports} alt="" className="blog-images blog-images-ones blog-images-ones-two" />
-                    <div class="overlay">
-                  <h3>Running</h3>
-                </div>
+                    <img src={cricket} alt="" className="blog-images blog-images-ones blog-images-ones-two" />
+
                     </div>
                     <div className='upcoming-box'>
-                      <h3>UPCOMING</h3>
-                      <hr></hr>
+                    <h3>Cricket Upcoming</h3>
+                    <hr></hr>
                       <div className='d-flex justify-content-between flex-wrap'>
                         <div> <p className='detail-upcoming'><span className=''><img src={dateicon} alt="" className="date-icon" /></span> 15 jan 2025</p></div>
                         <div> <p className='detail-upcoming'><span className=''><img src={time} alt="" className="date-icon" /></span> 10:00 am To 12:00 pm</p></div>
                         <div> <p className='detail-upcoming'><span className=''><img src={locationimg} alt="" className="date-icon" /></span> Mohali</p></div>
                         <hr></hr>
                       </div>
+                    
+                     
                       <div className='detailbtn'>
-                        <button className='upcomingbtn'>View Detail</button>
+                      <button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button>
                       </div>
                     </div>
                   </div>
+                  </div>
+                  
+                  <div className='col-lg-5'>
+                    <div className='main-box-activity'>
+                    <div className='image-box-one'>
+                    <img src={football} alt="" className="blog-images blog-images-ones blog-images-ones-two" />
+
+                    </div>
+                    <div className='upcoming-box'>
+                    <h3>Football Upcoming</h3>
+                    <hr></hr>
+                      <div className='d-flex justify-content-between flex-wrap'>
+                        <div> <p className='detail-upcoming'><span className=''><img src={dateicon} alt="" className="date-icon" /></span> 15 jan 2025</p></div>
+                        <div> <p className='detail-upcoming'><span className=''><img src={time} alt="" className="date-icon" /></span> 10:00 am To 12:00 pm</p></div>
+                        <div> <p className='detail-upcoming'><span className=''><img src={locationimg} alt="" className="date-icon" /></span> Mohali</p></div>
+                        <hr></hr>
+                      </div>
+                    
+                     
+                      <div className='detailbtn'>
+                      <button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div className='col-lg-5'>
+                    <div className='main-box-activity'>
+                    <div className='image-box-one'>
+                    <img src={cricket} alt="" className="blog-images blog-images-ones blog-images-ones-two" />
+
+                    </div>
+                    <div className='upcoming-box'>
+                    <h3>Cricket Upcoming</h3>
+                    <hr></hr>
+                      <div className='d-flex justify-content-between flex-wrap'>
+                        <div> <p className='detail-upcoming'><span className=''><img src={dateicon} alt="" className="date-icon" /></span> 15 jan 2025</p></div>
+                        <div> <p className='detail-upcoming'><span className=''><img src={time} alt="" className="date-icon" /></span> 10:00 am To 12:00 pm</p></div>
+                        <div> <p className='detail-upcoming'><span className=''><img src={locationimg} alt="" className="date-icon" /></span> Mohali</p></div>
+                        <hr></hr>
+                      </div>
+                    
+                     
+                      <div className='detailbtn'>
+                      <button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
                   <div className='col-lg-7'>
+                      <div className='box-events'>
                     <div className='row'>
                       <div className='col-lg-6'>
                       <div className='image-box-one'>
-                    <img src={cricketsports} alt="" className="blog-images blog-images-ones" />
+                    <img src={football} alt="" className="blog-images blog-images-ones" />
                     </div>
-                    <div className='upcoming-box'>
-                      <h3>UPCOMING EVENTS</h3>
-                    </div>
-                      </div>
-                      <div className='col-lg-6'>
-                      <div className='image-box-one'>
-                    <img src={cricketsports} alt="" className="blog-images blog-images-ones" />
-                    </div>
-                    <div className='upcoming-box'>
-                      <h3>UP COMING EVENTS</h3>
+                    <div className='upcoming-box-one'>
+                      <h4>Upcoming events</h4>
                     </div>
                       </div>
                       <div className='col-lg-6'>
                       <div className='image-box-one'>
-                    <img src={cricketsports} alt="" className="blog-images blog-images-ones" />
+                    <img src={badminton} alt="" className="blog-images blog-images-ones" />
                     </div>
-                    <div className='upcoming-box'>
-                      <h3>UP COMING EVENTS</h3>
+                    <div className='upcoming-box-one'>
+                      <h4>Visit events</h4>
                     </div>
                       </div>
                       <div className='col-lg-6'>
                       <div className='image-box-one'>
-                    <img src={cricketsports} alt="" className="blog-images blog-images-ones" />
+                    <img src={cricket} alt="" className="blog-images blog-images-ones" />
                     </div>
-                    <div className='upcoming-box'>
-                      <h3>UP COMING EVENTS</h3>
+                    <div className='upcoming-box-one'>
+                      <h4>Past Events</h4>
+                    </div>
+                      </div>
+                      <div className='col-lg-6'>
+                      <div className='image-box-one'>
+                    <img src={cricket} alt="" className="blog-images blog-images-ones" />
+                    </div>
+                    <div className='upcoming-box-one'>
+                      <h4>Past events</h4>
                     </div>
                       </div>
                     </div>
+                  </div>
                   </div>
                 </div>
               </section>
