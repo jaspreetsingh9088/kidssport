@@ -13,6 +13,8 @@ import locationimg from "../assets/images/locationimg.png";
 import football from '../assets/images/football.png'
 import badminton from '../assets/images/badminton.png'
 import arrowtransparent from '../assets/images/arrowtransparent.png';
+import tickgreen from "../assets/images/tickgreen.png";
+import listdot from '../assets/images/listdot.png'
 function MyAccount() {
   
   const [activeTab, setActiveTab] = useState('profile'); // Default active tab
@@ -120,7 +122,97 @@ function MyAccount() {
                 className={`tab-content ${activeTab === 'profile' ? 'active' : ''}`}
               >
                 <h2>Your Profile</h2>
-                <p>Update your personal details and preferences here.</p>
+                <div className='row'>
+                                <div className='col-lg-4'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="firstName" placeholder="First Name" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-4'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="middleName" placeholder="Middle Name" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-4'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="lastName" placeholder="Last Name" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-4'>
+                                    <div className="mb-4">
+                                    <input type="date" className="form-control form-date" id="date" name="date"/>
+                                    </div>
+                                </div>
+                                <div className='col-lg-4'>
+                                    <div className="mb-4">
+                                        <select class="form-select" id="sel2" name="sellist2"><option>Gender</option><option>Male</option><option>Female</option></select>
+                                    </div>
+                                </div>
+                                <div className='col-lg-4'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="GradeLevel" placeholder="Grade Level (e.g., Kindergarten, 1st Grade, etc.)" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-6'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="Streetaddress" placeholder="Street Address" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-2'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="City" placeholder="City" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-2'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="Stateprovince" placeholder="State/Province" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-2'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="Zipcode" placeholder="Zip/Postal Code" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-4'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="School" placeholder="School" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-4'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="Nationality" placeholder="Nationality" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-4'>
+                                    <div className="mb-4">
+                                        <input type="text" className="form-control" id="Language" placeholder="Language(s) Spoken at Home" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-4 adhar-field'>
+                                    <div className="mb-4 last-feild-col">
+                                    <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Need to see if we verify it with phone numer</label>
+                                        <input type="text" className="form-control" id="Adharcard" placeholder="Addhar Card Number" />
+                                    </div>
+                                </div>
+                                <div className='col-lg-4 adhar-field'>
+                                    <div className="mb-4 last-feild-col">
+                                    <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Adhar Card Front</label>
+                                    <div className='span-choose'>
+                                    <span className='choose-file-span'>Choose File </span>
+                                    </div>
+                                    <input type="file" className="form-controls" id="file-input" name="file-input"/>
+                                    </div>
+                                </div>
+                                <div className='col-lg-4 adhar-field'>
+                                    <div className="mb-4 last-feild-col">
+                                    <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Adhar Card Back</label>
+                                    <div className='span-choose'>
+                                    <span className='choose-file-span'>Choose File </span>
+                                    </div>
+                                    <input type="file" className="form-controls" id="file-input" name="file-input"/>
+                                    </div>
+                                </div>
+                            </div>
               </section>
 
               <section
@@ -246,7 +338,131 @@ function MyAccount() {
                 className={`tab-content ${activeTab === 'subscriptions' ? 'active' : ''}`}
               >
                 <h2>Subscriptions</h2>
-                <p>Manage your subscriptions and payments here.</p>
+               <div className='row'>
+                <div className='col-lg-4'>
+                  <div className='subscription-box'>
+                    <div className='content-subscrition'>
+                      <h3>BASIC</h3>
+                      <p>₹99/ Month</p>
+                      <div className="d-flex gap-2">
+                                <div>
+                                    <img src={tickgreen} alt="Tick icon" className="tickgreen-image" />
+                                </div>
+                                <div>
+                                    <p className="sub-points">Lorem ipsum dolor sit amet 
+
+                                    </p>
+                                </div>
+                            </div>
+                      <div className="d-flex gap-2">
+                                <div>
+                                    <img src={tickgreen} alt="Tick icon" className="tickgreen-image" />
+                                </div>
+                                <div>
+                                    <p className="sub-points">Lorem ipsum dolor sit amet 
+
+                                    </p>
+                                </div>
+                            </div>
+                      <div className="d-flex gap-2">
+                                <div>
+                                    <img src={tickgreen} alt="Tick icon" className="tickgreen-image" />
+                                </div>
+                                <div>
+                                    <p className="sub-points">Lorem ipsum dolor sit amet 
+
+                                    </p>
+                                </div>
+                            </div>
+                      <div className='get-started'>
+                        <button>Get Started</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='col-lg-4'>
+                  <div className='subscription-box standard'>
+                    <div className='content-subscrition standard-one'>
+                      <h3>STANDARD</h3>
+                      <p>₹199/ Month</p>
+                      <div className="d-flex gap-2">
+                                <div>
+                                    <img src={tickgreen} alt="Tick icon" className="tickgreen-image" />
+                                </div>
+                                <div>
+                                    <p className="sub-points">Lorem ipsum dolor sit amet 
+
+                                    </p>
+                                </div>
+                            </div>
+                      <div className="d-flex gap-2">
+                                <div>
+                                    <img src={tickgreen} alt="Tick icon" className="tickgreen-image" />
+                                </div>
+                                <div>
+                                    <p className="sub-points">Lorem ipsum dolor sit amet 
+
+                                    </p>
+                                </div>
+                            </div>
+                      <div className="d-flex gap-2">
+                                <div>
+                                    <img src={tickgreen} alt="Tick icon" className="tickgreen-image" />
+                                </div>
+                                <div>
+                                    <p className="sub-points">Lorem ipsum dolor sit amet 
+
+                                    </p>
+                                </div>
+                            </div>
+                      <div className='get-started green-btn'>
+                        <button>Get Started</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='col-lg-4'>
+                  <div className='subscription-box'>
+                    <div className='content-subscrition'>
+                      <h3>PREMIUM</h3>
+                      <p>₹1631/ Month</p>
+                      <div className="d-flex gap-2">
+                                <div>
+                                    <img src={tickgreen} alt="Tick icon" className="tickgreen-image" />
+                                </div>
+                                <div>
+                                    <p className="sub-points">Lorem ipsum dolor sit amet 
+
+                                    </p>
+                                </div>
+                            </div>
+                      <div className="d-flex gap-2">
+                                <div>
+                                    <img src={tickgreen} alt="Tick icon" className="tickgreen-image" />
+                                </div>
+                                <div>
+                                    <p className="sub-points">Lorem ipsum dolor sit amet 
+
+                                    </p>
+                                </div>
+                            </div>
+                      <div className="d-flex gap-2">
+                                <div>
+                                    <img src={tickgreen} alt="Tick icon" className="tickgreen-image" />
+                                </div>
+                                <div>
+                                    <p className="sub-points">Lorem ipsum dolor sit amet 
+
+                                    </p>
+                                </div>
+                            </div>
+                      <div className='get-started'>
+                        <button>Get Started</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
               </section>
 
               <section

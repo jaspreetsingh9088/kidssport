@@ -4421,7 +4421,7 @@ img.blog-images.blog-images-ones {
 section#activities h2 {
     background: #ffffff00;
     border-radius: 0px;
-    padding: 12px;
+    padding: 0px;
     color: #002d45;
     padding-top: 8px;
     padding-bottom: 0px;
@@ -4439,7 +4439,7 @@ section#activities .col-lg-7 {
     /* margin-top: 18px; */
 }
 .box-events {
-    margin-top: 40px;
+    margin-top: 22px;
     background: #ffffff;
     border-radius: 14px;
     padding: 16px;
@@ -4525,6 +4525,157 @@ section.my-account .bacground-purple {
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
+    background: #272d45; 
   }
-  
+  section#subscriptions h2 {
+    background: #ffffff00;
+    border-radius: 0px;
+    padding: 0px;
+    color: #002d45;
+    padding-top: 8px;
+    padding-bottom: 0px;
+    font-size: 28px;
+    border-bottom: 0px solid #002d45;
+    margin-bottom: 18px;
+    /* font-family: 'Lato'; */
+    width: 100%;
+    /* position: relative; */
+    bottom: 17px;
+    font-weight: 600;
+}
+.subscription-box {
+    background: #fff;
+    border: 1px solid #f6911e;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 4px 4px 0px #f6911e;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+.subscription-box:hover {
+    box-shadow: 0px 0px 0px #f6911e;
+}
+.content-subscrition p {
+    margin-bottom: 0;
+    background: linear-gradient(45deg, #f6911e, #a0178d);
+    color: #fff;
+    padding: 5px;
+}
+p.sub-points {
+    background: none !important;
+    color: #000 !important;
+    text-align: start;
+    padding: 0 !important;
+    font-size: 14px;
+    margin-bottom: 0 !important;
+}
+.content-subscrition.standard-one p {
+    background: linear-gradient(45deg, #74BB3B, #259E44);
+}
+.content-subscrition p {
+    margin-bottom: 0;
+    background: linear-gradient(45deg, #f6911e, #a0178d);
+    color: #fff;
+    padding: 5px;
+    margin-bottom: 14px;
+    border-radius: 6px;
+}
+
+section#subscriptions img.tickgreen-image {
+    width: 24px;
+    vertical-align: baseline;
+}
+
+.get-started button {
+    border: 0;
+    padding: 6px;
+    color: #f6911e;
+    width: 60%;
+    border-radius: 15px 15px 0px 0px;
+    background: #fff0df;
+    position: relative;
+    top: 15px;
+    transition: 0.3s;
+}
+.get-started button:hover {
+    background: #f6911e;
+    color: #fff;
+}
+.subscription-box.standard {
+    background: #fff;
+    border: 1px solid #65a72f;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 4px 4px 0px #65a72f;
+    border-radius: 12px;
+}
+.get-started.green-btn button {
+    border: 0;
+    padding: 6px;
+    color: #30a243;
+    width: 60%;
+    border-radius: 15px 15px 0px 0px;
+    background: #66b63c1f;
+    position: relative;
+    top: 15px;
+    transition: 0.3s;
+}
+.get-started.green-btn button:hover {
+    color: #fff;
+    background: #65a72f;
+}
+.content-subscrition h3 {
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+.subscription-box.standard:hover {
+    box-shadow: 0px 0px 0px #65a72f;
+}
+section#profile label.form-label {
+    font-size: 12px;
+}
+section#profile .form-controls {
+    border: 1px solid #ff9638;
+    padding: 10px;
+    background: none !important;
+    border-radius: 10px;
+    width: 100%;
+    background: #fff !important;
+}
+section#profile .form-control::placeholder {
+    font-size: 12px;
+}
+section#profile .form-select {
+    font-size: 12px;
+    color: #585b5e;
+}
+section#profile input.form-control.form-date {
+    color: #555555;
+    font-size: 12px;
+}
+section#profile .mb-4 {
+    margin-bottom: 16px !important;
+}
+section#profile span.choose-file-span {
+    position: absolute;
+    background: #D9D9D9;
+    display: block;
+    margin: auto;
+    width: 80px;
+    text-align: center;
+    top: 8px !important;
+    left: 9px;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+section#profile .form-controls {
+    border: 1px solid #ff9638;
+    padding: 10px;
+    background: none !important;
+    border-radius: 8px;
+    width: 100%;
+    background: #fff !important;
+    font-size: 12px;
+    padding: 8px !important;
+}
