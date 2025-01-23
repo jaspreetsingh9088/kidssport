@@ -21,6 +21,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Eventform from "./components/Eventform";
 import Myaccount from "./components/Myaccount";
 import Sportsstore from "./components/Sportsstore";
+import Login from "./components/Login";
 import Footer from "./components/Footer";
 
 import "./assets/css/style.css";
@@ -63,6 +64,7 @@ function App() {
           <Route path="Eventform" element={<Eventform />} />
           <Route path="Sportsstore" element={<Sportsstore />} />
           <Route path="Myaccount" element={<Myaccount />} />
+          <Route path="Login" element={<Login />} />
 
         
         </Routes>

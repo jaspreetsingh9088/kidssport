@@ -2344,6 +2344,24 @@ img.circle-frame.circle-frame-three.floating {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+    section.Login-page {
+        background: #fafafa;
+        padding: 15px !important;
+    }
+    p.register-now-btn {
+        padding-top: 24px;
+        font-size: 14px;
+    }
+    img.login-images {
+        width: 100% !important;
+        border-radius: 24px;
+        margin-bottom: 16px;
+    }
+    .box-login {
+        background: #ffffff;
+        padding: 16px !important;
+        border-radius: 24px;
+    }
      .row.activity-wid .col-lg-6 {
         width: 50%;
     }
@@ -2948,10 +2966,11 @@ img.circle-frame.circle-frame-three.floating {
         margin-top: 10px;
     }
     .header-one {
-        display: flex;
+        display: none;
         align-items: center;
         gap: 2px;
     }
+    
     .social-icons {
         display: none;
     }
@@ -4678,4 +4697,61 @@ section#profile .form-controls {
     background: #fff !important;
     font-size: 12px;
     padding: 8px !important;
+}
+img.login-images {
+    width: 96%;
+    border-radius: 24px;
+}
+section.Login-page {
+    background: #fafafa;
+    padding: 60px;
+}
+.box-login {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 24px;
+}
+section.Login-page .form-control {
+    border-radius: 0;
+}
+section.Login-page .form-control {
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid #000;
+    font-family: 'Lato';
+    font-size: 16px;
+    font-weight: 300;
+}
+
+p.register-now-btn {
+    padding-top: 24px;
+}
+span.Register-span a {
+    color: #f6911e;
+    text-decoration: none;
+}
+span.Register-span a:hover {
+    color: #000 !important;
+    text-decoration: none;
+}
+button.btn.btn-primary-login {
+    background: #f6911e;
+    width: 38%;
+    border: 0;
+    border-radius: 26px;
+    padding: 10px;
+    color: #fff;
+    margin-top: 20px;
+}
+.social-icons {
+    display: flex;
+    align-items: baseline;
+}
+.social-icons a {
+    color: #fff;
+    margin-right: 14px;
+    font-weight: 600;
+}
+a.nav-linked {
+    text-decoration: none;
 }

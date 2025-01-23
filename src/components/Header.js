@@ -5,6 +5,7 @@ import facebookImg from "../assets/images/facebook (2).png";
 import instagramImg from "../assets/images/instagram (2).png";
 import whatsappImg from "../assets/images/whatsapp (2).png";
 import locationhead from "../assets/images/locationhead.png";
+import { Link } from "react-router-dom";
 
 
 
@@ -22,9 +23,16 @@ function Header() {
         </div>
         
         <div className="social-icons">
-          <img src={facebookImg} alt="Facebook" className="facebook2" />
-          <img src={instagramImg} alt="Instagram" className="facebook2" />
-          <img src={whatsappImg} alt="WhatsApp" className="facebook2" />
+          <div> <Link to="/Login" className="nav-linked">
+                  Login
+               </Link></div>
+          <div><img src={facebookImg} alt="Facebook" className="facebook2" /></div>
+          <div><img src={instagramImg} alt="Instagram" className="facebook2" /></div>
+          <div><img src={whatsappImg} alt="WhatsApp" className="facebook2" /></div>
+       
+          
+          
+          
         </div>
       </div>
     </header>
