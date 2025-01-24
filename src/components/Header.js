@@ -23,9 +23,9 @@ function Header() {
         </div>
         
         <div className="social-icons">
-          <div> <Link to="/Login" className="nav-linked">
+          {/* <div> <Link to="/Login" className="nav-linked">
                   Login
-               </Link></div>
+               </Link></div> */}
           <div><img src={facebookImg} alt="Facebook" className="facebook2" /></div>
           <div><img src={instagramImg} alt="Instagram" className="facebook2" /></div>
           <div><img src={whatsappImg} alt="WhatsApp" className="facebook2" /></div>

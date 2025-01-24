@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import fancyicon from '../assets/images/fancyicon.png'
+import axios from 'axios'; // Import axios if you are using it
+import { useParams } from 'react-router-dom'; // Import useParams to extract id from URL
+
 import linethree from '../assets/images/linethree.png'
 import myaccounticon from '../assets/images/myaccounticon.svg'
 import activity from '../assets/images/activity.svg'
@@ -15,10 +18,102 @@ import badminton from '../assets/images/badminton.png'
 import arrowtransparent from '../assets/images/arrowtransparent.png';
 import tickgreen from "../assets/images/tickgreen.png";
 import listdot from '../assets/images/listdot.png'
-function MyAccount() {
-  
-  const [activeTab, setActiveTab] = useState('profile'); // Default active tab
+ 
 
+function MyAccount() {
+  const { id } = useParams(); // Extract id from the URL
+  const [activeTab, setActiveTab] = useState('profile'); // Default active tab
+  const [profileData, setProfileData] = useState({
+    firstName: '',
+    middleName: '',
+    lastName: '',
+    dateOfBirth: '',
+    gender: '',
+    gradeLevel: '',
+    streetAddress: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    school: '',
+    nationality: '',
+    language: '',
+    aadharNumber: '',
+  });
+
+  useEffect(() => {
+    // Fetch data using the dynamic id from URL
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://mitdevelop.com/kidsadmin/api/users/${id}`, {
+          headers: {
+            'Cookie': '<Your-Cookie-Value>', // Replace with actual cookie if required
+          },
+        });
+
+        // Log the full response to see the structure
+        console.log(response.data); // See how the data is structured
+        
+        const data = response.data;
+        // Assuming data has a structure like { user: { name, last_name, etc. } }
+        if (data.user) {
+          setProfileData({
+            firstName: data.user.name || '',
+            middleName: data.user.middle_name || '',
+            lastName: data.user.last_name || '',
+            dateOfBirth: data.user.dob || '',
+            gender: data.user.gender || '',
+            gradeLevel: data.user.grade_level || '',
+            streetAddress: data.user.address || '',
+            city: data.user.city || '',
+            state: data.user.state || '',
+            zipCode: data.user.zip || '',
+            school: data.user.school || '',
+            nationality: data.user.nationality || '',
+            language: data.user.language || '',
+            aadharNumber: data.user.aadhar || '',
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching profile data:', error);
+      }
+    };
+
+    fetchData();
+  }, [id]); // Re-run effect if id changes
+
+
+  const handleLogout = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        console.log('No token available');
+        return;
+      }
+
+      await axios.post(
+        'https://mitdevelop.com/kidsadmin/api/logout',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
+
+      window.location.href = '/login';
+    } catch (error) {
+      console.error('Logout error:', error.response?.data || error.message);
+    }
+  };
+  
+  
+  // Debug: log profileData to see if it has been updated
+  useEffect(() => {
+    console.log(profileData); // This will log profileData after it's updated
+  }, [profileData]);
   const handleTabClick = (tab, e) => {
     e.preventDefault(); // Prevent page reload
     setActiveTab(tab);
@@ -63,11 +158,14 @@ function MyAccount() {
                   <div>
                    
                     <div className='holder-name'>
-                      <p>Gurpreet Singh</p>
+                    <p>{profileData.firstName} {profileData.lastName}</p>
                     </div>
-                    <div className='logout-btn'>
-                      <button type="submit">Logout</button>
-                    </div>
+                    <div className="logout-btn">
+  <button type="button" onClick={handleLogout}>
+    Logout
+  </button>
+</div>
+
                   </div>
                 </div>
               </div>
@@ -125,73 +223,97 @@ function MyAccount() {
                 <div className='row'>
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="firstName" placeholder="First Name" />
+                                        <input type="text" className="form-control" value={profileData.firstName} id="firstName" placeholder="First Name" />
                                     </div>
                                 </div>
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="middleName" placeholder="Middle Name" />
+                                        <input type="text" className="form-control" value={profileData.middleName} id="middleName" placeholder="Middle Name" />
                                     </div>
                                 </div>
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="lastName" placeholder="Last Name" />
+                                        <input type="text" className="form-control" value={profileData.lastName} id="lastName" placeholder="Last Name" />
                                     </div>
                                 </div>
-                                <div className='col-lg-4'>
-                                    <div className="mb-4">
-                                    <input type="date" className="form-control form-date" id="date" name="date"/>
-                                    </div>
-                                </div>
-                                <div className='col-lg-4'>
+                                <div className="col-lg-4">
+  <div className="mb-4">
+    <input
+      type="date"
+      className="form-control form-date"
+      value={profileData.dateOfBirth} // Bind value to dateOfBirth
+      id="date"
+      name="date"
+      onChange={(e) => setProfileData({ ...profileData, dateOfBirth: e.target.value })} // Update state on change
+    />
+  </div>
+</div>
+
+                                {/* <div className='col-lg-4'>
                                     <div className="mb-4">
                                         <select class="form-select" id="sel2" name="sellist2"><option>Gender</option><option>Male</option><option>Female</option></select>
                                     </div>
-                                </div>
+                                </div> */}
+                                <div className="col-lg-4">
+  <div className="mb-4">
+    <select 
+      className="form-select" 
+      id="gender" 
+      name="gender" 
+      value={profileData.gender} // Bind value to profileData.gender
+      onChange={(e) => setProfileData({ ...profileData, gender: e.target.value })} // Update gender on change
+    >
+      <option value="">Select Gender</option> {/* Default placeholder */}
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+  </div>
+</div>
+
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="GradeLevel" placeholder="Grade Level (e.g., Kindergarten, 1st Grade, etc.)" />
+                                        <input type="text" className="form-control" value={profileData.gradeLevel} id="GradeLevel" placeholder="Grade Level (e.g., Kindergarten, 1st Grade, etc.)" />
                                     </div>
                                 </div>
                                 <div className='col-lg-6'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="Streetaddress" placeholder="Street Address" />
+                                        <input type="text" className="form-control" value={profileData.streetAddress} id="Streetaddress" placeholder="Street Address" />
                                     </div>
                                 </div>
                                 <div className='col-lg-2'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="City" placeholder="City" />
+                                        <input type="text" className="form-control" value={profileData.city} id="City" placeholder="City" />
                                     </div>
                                 </div>
                                 <div className='col-lg-2'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="Stateprovince" placeholder="State/Province" />
+                                        <input type="text" className="form-control" value={profileData.state} id="Stateprovince" placeholder="State/Province" />
                                     </div>
                                 </div>
                                 <div className='col-lg-2'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="Zipcode" placeholder="Zip/Postal Code" />
+                                        <input type="text" className="form-control" value={profileData.zipCode} id="Zipcode" placeholder="Zip/Postal Code" />
                                     </div>
                                 </div>
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="School" placeholder="School" />
+                                        <input type="text" className="form-control" value={profileData.school} id="School" placeholder="School" />
                                     </div>
                                 </div>
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="Nationality" placeholder="Nationality" />
+                                        <input type="text" className="form-control" value={profileData.nationality} id="Nationality" placeholder="Nationality" />
                                     </div>
                                 </div>
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
-                                        <input type="text" className="form-control" id="Language" placeholder="Language(s) Spoken at Home" />
+                                        <input type="text" className="form-control" value={profileData.language} id="Language" placeholder="Language(s) Spoken at Home" />
                                     </div>
                                 </div>
                                 <div className='col-lg-4 adhar-field'>
                                     <div className="mb-4 last-feild-col">
                                     <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Need to see if we verify it with phone numer</label>
-                                        <input type="text" className="form-control" id="Adharcard" placeholder="Addhar Card Number" />
+                                        <input type="text" className="form-control" value={profileData.aadhar} id="Adharcard" placeholder="Addhar Card Number" />
                                     </div>
                                 </div>
                                 <div className='col-lg-4 adhar-field'>

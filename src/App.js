@@ -63,7 +63,8 @@ function App() {
           <Route path="Contactus" element={<Contactus />} />
           <Route path="Eventform" element={<Eventform />} />
           <Route path="Sportsstore" element={<Sportsstore />} />
-          <Route path="Myaccount" element={<Myaccount />} />
+           <Route path="/myaccount/:id" element={<Myaccount />} />
+
           <Route path="Login" element={<Login />} />
 
         
