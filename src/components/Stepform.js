@@ -318,7 +318,7 @@ function Stepform() {
                   <div class="row">
                   <div className="col-lg-6">
                     <input
-                      type="text"
+                      type="password"
                       className="form-control"
                       id="Password"
                       placeholder="User password"

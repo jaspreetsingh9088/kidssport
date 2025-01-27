@@ -26,6 +26,7 @@ function MyAccount() {
   const [profileData, setProfileData] = useState({
     firstName: '',
     middleName: '',
+    profilePic: '', // Add profile picture property
     lastName: '',
     dateOfBirth: '',
     gender: '',
@@ -59,18 +60,19 @@ function MyAccount() {
           setProfileData({
             firstName: data.user.name || '',
             middleName: data.user.middle_name || '',
+            profilePic: data.user.profile_pic || holderimage, // Use default if profile picture is missing
             lastName: data.user.last_name || '',
-            dateOfBirth: data.user.dob || '',
+            dateOfBirth: data.user.date || '',
             gender: data.user.gender || '',
             gradeLevel: data.user.grade_level || '',
             streetAddress: data.user.address || '',
             city: data.user.city || '',
-            state: data.user.state || '',
-            zipCode: data.user.zip || '',
+            state: data.user.state_province || '',
+            zipCode: data.user.zip_code || '',
             school: data.user.school || '',
             nationality: data.user.nationality || '',
-            language: data.user.language || '',
-            aadharNumber: data.user.aadhar || '',
+            language: data.user.languages || '',
+            aadharNumber: data.user.adhar_number || '',
           });
         }
       } catch (error) {
@@ -313,7 +315,7 @@ function MyAccount() {
                                 <div className='col-lg-4 adhar-field'>
                                     <div className="mb-4 last-feild-col">
                                     <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Need to see if we verify it with phone numer</label>
-                                        <input type="text" className="form-control" value={profileData.aadhar} id="Adharcard" placeholder="Addhar Card Number" />
+                                        <input type="text" className="form-control" value={profileData.aadharNumber} id="Adharcard" placeholder="Addhar Card Number" />
                                     </div>
                                 </div>
                                 <div className='col-lg-4 adhar-field'>
