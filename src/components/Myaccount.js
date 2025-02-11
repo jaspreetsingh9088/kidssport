@@ -319,7 +319,7 @@ function MyAccount() {
                                 </div>
                                 <div className='col-lg-4 adhar-field'>
                                     <div className="mb-4 last-feild-col">
-                                    <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Need to see if we verify it with phone numer</label>
+                                    <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Aadhar Number</label>
                                         <input type="text" className="form-control" value={profileData.aadharNumber} id="Adharcard" placeholder="Addhar Card Number" />
                                     </div>
                                 </div>

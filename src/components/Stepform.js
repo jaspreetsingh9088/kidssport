@@ -318,7 +318,7 @@ function Stepform() {
                           className="list-dot list-dot-two"
                         />
                       </span>{" "}
-                      Need to see if we verify it with phone number
+                      Aadhar Number
                     </label>
                     <input
                       type="text"
