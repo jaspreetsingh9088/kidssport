@@ -21,6 +21,7 @@ import listdot from '../assets/images/listdot.png'
  
 
 function MyAccount() {
+  const BASE_URL = "https://mitdevelop.com/kidsadmin"; // Replace with your actual Laravel base URL
   const { id } = useParams(); // Extract id from the URL
   const [activeTab, setActiveTab] = useState('profile'); // Default active tab
   const [profileData, setProfileData] = useState({
@@ -39,6 +40,8 @@ function MyAccount() {
     nationality: '',
     language: '',
     aadharNumber: '',
+    adharFrontImage: '', 
+    adharBackImage: '', 
   });
 
   useEffect(() => {
@@ -73,6 +76,8 @@ function MyAccount() {
             nationality: data.user.nationality || '',
             language: data.user.languages || '',
             aadharNumber: data.user.adhar_number || '',
+            adharFrontImage: data.user.adhar_front ||'', 
+            adharBackImage: data.user.adhar_back ||'',
           });
         }
       } catch (error) {
@@ -318,24 +323,73 @@ function MyAccount() {
                                         <input type="text" className="form-control" value={profileData.aadharNumber} id="Adharcard" placeholder="Addhar Card Number" />
                                     </div>
                                 </div>
-                                <div className='col-lg-4 adhar-field'>
-                                    <div className="mb-4 last-feild-col">
-                                    <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Adhar Card Front</label>
-                                    <div className='span-choose'>
-                                    <span className='choose-file-span'>Choose File </span>
-                                    </div>
-                                    <input type="file" className="form-controls" id="file-input" name="file-input"/>
-                                    </div>
-                                </div>
-                                <div className='col-lg-4 adhar-field'>
-                                    <div className="mb-4 last-feild-col">
-                                    <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Adhar Card Back</label>
-                                    <div className='span-choose'>
-                                    <span className='choose-file-span'>Choose File </span>
-                                    </div>
-                                    <input type="file" className="form-controls" id="file-input" name="file-input"/>
-                                    </div>
-                                </div>
+                                
+
+<div className='col-lg-4 adhar-field'>
+  <div className="mb-4 last-feild-col">
+    <label htmlFor="adharFront" className="form-label">
+      <span className='color-dot'>
+        <img src={listdot} alt="" className="list-dot list-dot-two" />
+      </span> 
+      Aadhar Card Front
+    </label>
+    <div className="input-group">
+      <input 
+        type="text" 
+        className="form-control" 
+        value={profileData.adharFrontImage ? `${BASE_URL}/storage/app/public/${profileData.adharFrontImage}` : ''} 
+        id="AdharcardFront" 
+        placeholder="Aadhar Card Front Image URL" 
+        readOnly 
+      />
+      {profileData.adharFrontImage && (
+        <a 
+          href={`${BASE_URL}/storage/app/public/${profileData.adharFrontImage}`} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="btn"
+          style={{ backgroundColor: "#ff6600", color: "#fff" }}
+        >
+          View
+        </a>
+      )}
+    </div>
+  </div>
+</div>
+
+<div className='col-lg-4 adhar-field'>
+  <div className="mb-4 last-feild-col">
+    <label htmlFor="adharBack" className="form-label">
+      <span className='color-dot'>
+        <img src={listdot} alt="" className="list-dot list-dot-two" />
+      </span> 
+      Aadhar Card Back
+    </label>
+    <div className="input-group">
+      <input 
+        type="text" 
+        className="form-control" 
+        value={profileData.adharBackImage ? `${BASE_URL}/storage/${profileData.adharBackImage}` : ''} 
+        id="AdharcardBack" 
+        placeholder="Aadhar Card Back Image URL" 
+        readOnly 
+      />
+      {profileData.adharBackImage && (
+        <a 
+          href={`${BASE_URL}/storage/${profileData.adharBackImage}`} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="btn"
+           style={{ backgroundColor: "#ff6600", color: "#fff" }}
+        >
+          View
+        </a>
+      )}
+    </div>
+  </div>
+</div>
+
+
                             </div>
               </section>
 

@@ -23,13 +23,16 @@ import Myaccount from "./components/Myaccount";
 import Sportsstore from "./components/Sportsstore";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
+import DisclaimerPolicy from "./components/DisclaimerPolicy";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsConditionPolicy from "./components/TermsCondition"; // Corrected import statement
 
 import "./assets/css/style.css";
 
 function App() {
   return (
     <Router>
-       <ScrollToTop />
+      <ScrollToTop />
       {/* Header and Navbar always visible */}
       <Header />
       <Navbar />
@@ -38,7 +41,7 @@ function App() {
         <Routes>
           {/* Home route */}
           <Route
-            path="/"
+            path="/kidssport"
             element={
               <>
                 <Banner />
@@ -56,18 +59,19 @@ function App() {
 
           {/* Other specific routes */}
           <Route path="stepform" element={<Stepform />} />
-          <Route path="programmdetail" element={<Programmdetail />} />
+          <Route path="events" element={<Programmdetail />} />
           <Route path="Aboutus" element={<Aboutus />} />
-          <Route path="Blog" element={<Blog />} />
-          <Route path="Postdetail" element={<Postdetail />} />
+          <Route path="blogs" element={<Blog />} />
           <Route path="Contactus" element={<Contactus />} />
           <Route path="Eventform" element={<Eventform />} />
           <Route path="Sportsstore" element={<Sportsstore />} />
-           <Route path="/myaccount/:id" element={<Myaccount />} />
+          <Route path="/myaccount/:id" element={<Myaccount />} />
+          <Route path="/blog/:slug" element={<Postdetail />} />
+          <Route path="/Privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/Disclaimer-policy" element={<DisclaimerPolicy />} />
+          <Route path="/Terms-conditions" element={<TermsConditionPolicy />} />
 
           <Route path="Login" element={<Login />} />
-
-        
         </Routes>
       </main>
 

@@ -39,9 +39,23 @@ function Stepform() {
     insurance_info: "",
     password: "",
   });
+  const [hasMedicalCondition, setHasMedicalCondition] = useState(null);
+  const [showMedicalInputs, setShowMedicalInputs] = useState(false);
 
   const handleNextStep = () => {
-    if (currentStep === 4) {
+    if (currentStep === 3 && hasMedicalCondition === null) {
+      setCurrentStep(4);
+      return;
+    }
+    if (currentStep === 4 && hasMedicalCondition === false) {
+      setCurrentStep(5);
+      return;
+    }
+    if (currentStep === 4 && hasMedicalCondition === true && !showMedicalInputs) {
+      setShowMedicalInputs(true);
+      return;
+    }
+    if (currentStep === 4 && showMedicalInputs) {
       handleRegister();
     } else {
       setCurrentStep((prevStep) => (prevStep < 4 ? prevStep + 1 : prevStep));
@@ -49,7 +63,11 @@ function Stepform() {
   };
 
   const handlePrevStep = () => {
-    setCurrentStep((prevStep) => (prevStep > 1 ? prevStep - 1 : prevStep));
+    if (currentStep === 5 && hasMedicalCondition === false) {
+      setCurrentStep(3);
+    } else {
+      setCurrentStep((prevStep) => (prevStep > 1 ? prevStep - 1 : prevStep));
+    }
   };
 
   const handleChange = (e) => {
@@ -193,21 +211,26 @@ function Stepform() {
                       <option>Female</option>
                     </select>
                   </div>
-                  <div className="col-lg-4">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Grade Level"
-                      name="grade_level"
-                      value={formData.grade_level}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
+                     <div className="col-lg-4">
+        <select
+          className="form-select"
+          name="grade_level"
+          value={formData.grade_level}
+          onChange={handleChange}
+        >
+          <option value="">Select Grade Level</option>
+          {Array.from({ length: 12 }, (_, index) => index + 1).map((grade) => (
+            <option key={grade} value={grade}>
+              Grade {grade}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
 
-                   {/* Additional Address and School Info */}
-                   <div className="row">
-                   <div className="col-lg-6 mb-4">
+                {/* Additional Address and School Info */}
+                <div className="row">
+                  <div className="col-lg-6 mb-4">
                     <input
                       type="text"
                       className="form-control"
@@ -284,38 +307,67 @@ function Stepform() {
                       onChange={handleChange}
                     />
                   </div>
-                  </div>
-                  <div className="row">
+                </div>
+                <div className="row">
                   <div className="col-lg-4">
-                  <label htmlFor="firstName" className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Need to see if we verify it with phone numer</label>
-    <input type="text"  name="adhar_number"
+                    <label htmlFor="firstName" className="form-label">
+                      <span className="color-dot">
+                        <img
+                          src={listdot}
+                          alt=""
+                          className="list-dot list-dot-two"
+                        />
+                      </span>{" "}
+                      Need to see if we verify it with phone number
+                    </label>
+                    <input
+                      type="text"
+                      name="adhar_number"
                       value={formData.adhar_number}
-                      onChange={handleChange} 
-                      className="form-control" id="Adharcard" placeholder="Addhar Card Number" />
-                    
+                      onChange={handleChange}
+                      className="form-control"
+                      id="Adharcard"
+                      placeholder="Addhar Card Number"
+                    />
                   </div>
                   <div className="col-lg-4">
-                  <label className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Aadhar Card Front</label>
+                    <label className="form-label">
+                      <span className="color-dot">
+                        <img
+                          src={listdot}
+                          alt=""
+                          className="list-dot list-dot-two"
+                        />
+                      </span>{" "}
+                      Aadhar Card Front
+                    </label>
                     <input
                       type="file"
                       className="form-control"
                       name="adhar_front"
                       onChange={handleChange}
                     />
-                    
                   </div>
                   <div className="col-lg-4 mb-4">
-                  <label className="form-label"><span className='color-dot'><img src={listdot} alt="" className="list-dot list-dot-two" /></span> Aadhar Card Back</label>
+                    <label className="form-label">
+                      <span className="color-dot">
+                        <img
+                          src={listdot}
+                          alt=""
+                          className="list-dot list-dot-two"
+                        />
+                      </span>{" "}
+                      Aadhar Card Back
+                    </label>
                     <input
                       type="file"
                       className="form-control"
                       name="adhar_back"
                       onChange={handleChange}
                     />
-                    
                   </div>
                 </div>
-                  <div class="row">
+                <div className="row">
                   <div className="col-lg-6">
                     <input
                       type="password"
@@ -327,12 +379,7 @@ function Stepform() {
                       onChange={handleChange}
                     />
                   </div>
-
-                  </div>
-
-
-
-               
+                </div>
               </div>
             )}
 
@@ -425,58 +472,106 @@ function Stepform() {
             {/* Step 4: Medical Information */}
             {currentStep === 4 && (
               <div className="form-step">
-                <div className="row">
-                  <div className="col-lg-6 mb-4">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Known Medical Conditions"
-                      name="known_medical_condition"
-                      value={formData.known_medical_condition}
-                      onChange={handleChange}
-                    />
+                {hasMedicalCondition === null && (
+                  <div className="row">
+                    <div className="col-lg-12 mb-4">
+                      <p>Do you have any medical conditions?</p>
+                      <div className="form-check">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="medicalCondition"
+                          id="medicalConditionYes"
+                          value="yes"
+                          onChange={() => {
+                            setHasMedicalCondition(true);
+                            setShowMedicalInputs(true);
+                          }}
+                        />
+                        <label
+                          className="form-check-label"
+                          htmlFor="medicalConditionYes"
+                        >
+                          Yes
+                        </label>
+                      </div>
+                      <div className="form-check">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="medicalCondition"
+                          id="medicalConditionNo"
+                          value="no"
+                          onChange={() => {
+                            setHasMedicalCondition(false);
+                            setShowMedicalInputs(false);
+                            setCurrentStep(5);
+                          }}
+                        />
+                        <label
+                          className="form-check-label"
+                          htmlFor="medicalConditionNo"
+                        >
+                          No
+                        </label>
+                      </div>
+                    </div>
                   </div>
-                  <div className="col-lg-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Medications"
-                      name="medications"
-                      value={formData.medications}
-                      onChange={handleChange}
-                    />
+                )}
+                {hasMedicalCondition === true && showMedicalInputs && (
+                  <div className="row">
+                    <div className="col-lg-6 mb-4">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Known Medical Conditions"
+                        name="known_medical_condition"
+                        value={formData.known_medical_condition}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="col-lg-6">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Medications"
+                        name="medications"
+                        value={formData.medications}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="col-lg-6 mb-4">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Doctor's Name"
+                        name="doctors_name"
+                        value={formData.doctors_name}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="col-lg-6">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Doctor's Contact"
+                        name="dr_contact"
+                        value={formData.dr_contact}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="col-lg-6">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Insurance Information"
+                        name="insurance_info"
+                        value={formData.insurance_info}
+                        onChange={handleChange}
+                      />
+                    </div>
                   </div>
-                  <div className="col-lg-6 mb-4">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Doctor's Name"
-                      name="doctors_name"
-                      value={formData.doctors_name}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="col-lg-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Doctor's Contact"
-                      name="dr_contact"
-                      value={formData.dr_contact}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="col-lg-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Insurance Information"
-                      name="insurance_info"
-                      value={formData.insurance_info}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
+                )}
               </div>
             )}
           </form>

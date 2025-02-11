@@ -5,6 +5,8 @@ import pluspersonImg from "../assets/images/plus-person.png";
 import arrowcontact from "../assets/images/arrowcontact.png";
 import registertag from "../assets/images/registertag.png";
 import { Link } from "react-router-dom";
+import myNewLogo from "../assets/images/new-logo.png";
+
 
 function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -46,7 +48,9 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
         <div className="container">
           <a className="navbar-brand" href="/">
-            <img src={logokidz} className="Kidzsport World" alt="Kidzsport" />
+            {/* <img src={logokidz} className="Kidzsport World" alt="Kidzsport" /> */}
+            <img src={myNewLogo} className="Kidzsport World" alt="My New Logo" />
+
           </a>
           <button
             className="navbar-toggler"
@@ -60,63 +64,90 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="/">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <Link to="/Aboutus" className="nav-link">
-                  About Us
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/Programmdetail" className="nav-link">
-                  Events
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/Sportsstore" className="nav-link">
-                  Sports Store
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/Blog" className="nav-link">
-                  Blog
-                </Link>
-              </li>
-            </ul>
+  <ul className="navbar-nav ms-auto">
+    <li className="nav-item">
+      <a className="nav-link" href="/kidssport">
+        Home
+      </a>
+    </li>
+    <li className="nav-item">
+      <Link to="/Aboutus" className="nav-link">
+        About Us
+      </Link>
+    </li>
+    <li className="nav-item">
+      <Link to="/events" className="nav-link">
+        Events
+      </Link>
+    </li>
+    <li className="nav-item">
+      <Link to="/Sportsstore" className="nav-link">
+        Sports Store
+      </Link>
+    </li>
+    <li className="nav-item">
+      <Link to="/blogs" className="nav-link">
+        Blog
+      </Link>
+    </li>
 
-            <div className="mobile-register">
-              <div>
-                {isLoggedIn ? (
-                  <Link to={`/Myaccount/${userId}`}>
-                    <div className="register-tag">
-                      {/* Optionally add an icon/image */}
-                    </div>
-                    <img src={pluspersonImg} alt="Plus person" className="plus-person" />
-                  </Link>
-                ) : (
-                  <Link to="/login">
-                    <div className="register-tag">
-                      {/* Optionally add an icon/image */}
-                    </div>
-                    <img src={pluspersonImg} alt="Plus person" className="plus-person" />
-                  </Link>
-                )}
-              </div>
+    {/* New Dropdown List Item */}
+    <li className="nav-item dropdown">
+      <a
+        className="nav-link dropdown-toggle"
+        href="#"
+        id="navbarDropdown"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        More
+      </a>
+      <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li>
+          <Link className="dropdown-item" to="/option1">
+            Live Streaming
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item" to="/option2">
+          my rupee coin
+          </Link>
+        </li>
+      </ul>
+    </li>
+  </ul>
 
-              <Link to="/Contactus">
-                <div className="contact-bg-rol">
-                  <div className="d-inline-flex align-items-center contact-us-btn">
-                    <div><p>Contact Us</p></div>
-                    <div><img src={arrowcontact} className="contact-uss" alt="contact-us" /></div>
-                  </div>
-                </div>
-              </Link>
-            </div>
+  <div className="mobile-register">
+    <div>
+      {isLoggedIn ? (
+        <Link to={`/Myaccount/${userId}`}>
+          <div className="register-tag">
+            {/* Optionally add an icon/image */}
           </div>
+          <img src={pluspersonImg} alt="Plus person" className="plus-person" />
+        </Link>
+      ) : (
+        <Link to="/login">
+          <div className="register-tag">
+            {/* Optionally add an icon/image */}
+          </div>
+          <img src={pluspersonImg} alt="Plus person" className="plus-person" />
+        </Link>
+      )}
+    </div>
+
+    <Link to="/Contactus">
+      <div className="contact-bg-rol">
+        <div className="d-inline-flex align-items-center contact-us-btn">
+          <div><p>Contact Us</p></div>
+          <div><img src={arrowcontact} className="contact-uss" alt="contact-us" /></div>
+        </div>
+      </div>
+    </Link>
+  </div>
+</div>
+
         </div>
       </nav>
     </div>

@@ -25,7 +25,16 @@ label.form-label {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.view-image-link {
+  display: inline-block;
+  margin-top: 5px;
+  color: #007bff; /* Bootstrap primary color */
+  text-decoration: underline;
+}
 
+.view-image-link:hover {
+  text-decoration: none;
+}
 .App-link {
   color: #61dafb;
 }
