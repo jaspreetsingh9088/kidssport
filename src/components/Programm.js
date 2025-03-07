@@ -4,6 +4,7 @@ import playingfootball from '../assets/images/playingfootball.png'
 import playingcarem from '../assets/images/playingcarem.png'
 import arrowjoin from '../assets/images/arrowjoin.png'
 import twolines from '../assets/images/twolines.png'
+import { Link } from "react-router-dom";
 
 
 function Programm() {
@@ -38,7 +39,9 @@ function Programm() {
                     </div>
                     <div className="d-flex gap-4 justify-content-between align-items-center">
                         <p className="old">8-18 Years old</p>
+                        <Link to={'/Eventform'} style={{ textDecoration: 'none' }}>
                         <button className='join-now'>Join Now <span><img src={arrowjoin} alt="" className="arrow-circle-img" /></span></button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -60,7 +63,9 @@ function Programm() {
                     </div>
                     <div className="d-flex gap-4 justify-content-between align-items-center">
                         <p className="old">8-18 Years old</p>
+                        <Link to={'/Eventform'} style={{ textDecoration: 'none' }}>
                         <button className='join-now'>Join Now <span><img src={arrowjoin} alt="" className="arrow-circle-img" /></span></button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -82,7 +87,10 @@ function Programm() {
                     </div>
                     <div className="d-flex gap-4 justify-content-between align-items-center">
                         <p className="old">8-18 Years old</p>
+                        <Link to={'/Eventform'} style={{ textDecoration: 'none' }}>
                         <button className='join-now'>Join Now <span><img src={arrowjoin} alt="" className="arrow-circle-img" /></span></button>
+                        </Link>
+                        
                     </div>
                 </div>
             </div>

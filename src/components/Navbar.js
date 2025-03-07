@@ -66,33 +66,33 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
   <ul className="navbar-nav ms-auto">
     <li className="nav-item">
-      <a className="nav-link" href="/kidssport">
+      <a className="nav-link fw-bold" href="/">
         Home
       </a>
     </li>
     <li className="nav-item">
-      <Link to="/Aboutus" className="nav-link">
+      <Link to="/Aboutus" className="nav-link fw-bold">
         About Us
       </Link>
     </li>
     <li className="nav-item">
-      <Link to="/events" className="nav-link">
+      <Link to="/events" className="nav-link fw-bold">
         Events
       </Link>
     </li>
     <li className="nav-item">
-      <Link to="/Sportsstore" className="nav-link">
-        Sports Store
+      <Link to="/Sports-coaching" className="nav-link fw-bold">
+        Sports Coaching
       </Link>
     </li>
     <li className="nav-item">
-      <Link to="/blogs" className="nav-link">
+      <Link to="/blogs" className="nav-link fw-bold">
         Blog
       </Link>
     </li>
 
     {/* New Dropdown List Item */}
-    <li className="nav-item dropdown">
+    <li className="nav-item dropdown fw-bold">
       <a
         className="nav-link dropdown-toggle"
         href="#"
@@ -105,13 +105,18 @@ function Navbar() {
       </a>
       <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>
-          <Link className="dropdown-item" to="/option1">
+          <Link className="dropdown-item" to="/Live-streaming">
             Live Streaming
           </Link>
         </li>
         <li>
-          <Link className="dropdown-item" to="/option2">
-          my rupee coin
+          <Link className="dropdown-item" to="/My-Rupee-Coin">
+          My Rupee Coin
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item" to="/Sportsstore">
+          Sports Store
           </Link>
         </li>
       </ul>

@@ -5,6 +5,7 @@ import linethree from "../assets/images/linethree.png";
 import rightarrows from "../assets/images/rightarrows.png";
 import leftarrows from "../assets/images/leftarrows.png";
 import listdot from "../assets/images/listdot.png";
+import { useNavigate } from "react-router-dom";
 
 function Stepform() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -56,7 +57,7 @@ function Stepform() {
       return;
     }
     if (currentStep === 4 && showMedicalInputs) {
-      handleRegister();
+      setCurrentStep(5);
     } else {
       setCurrentStep((prevStep) => (prevStep < 4 ? prevStep + 1 : prevStep));
     }
@@ -64,7 +65,10 @@ function Stepform() {
 
   const handlePrevStep = () => {
     if (currentStep === 5 && hasMedicalCondition === false) {
-      setCurrentStep(3);
+      setCurrentStep(4);
+    } else if (currentStep === 5 && hasMedicalCondition === true) {
+      setShowMedicalInputs(false);
+      setCurrentStep(4);
     } else {
       setCurrentStep((prevStep) => (prevStep > 1 ? prevStep - 1 : prevStep));
     }
@@ -91,7 +95,7 @@ function Stepform() {
     Object.entries(formData).forEach(([key, value]) => {
       form.append(key, value);
     });
-
+  
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
@@ -103,6 +107,7 @@ function Stepform() {
       const result = await response.json();
       if (response.ok) {
         alert("Registration Successful!");
+        window.location.href = "/login"; 
       } else {
         alert("Error: " + result.message);
       }
@@ -111,7 +116,7 @@ function Stepform() {
       alert("An error occurred. Please try again.");
     }
   };
-
+  
   return (
     <section className="register-form-steps">
       <div className="bacground-purple">
@@ -166,7 +171,7 @@ function Stepform() {
                       className="form-control"
                       placeholder="First Name"
                       name="name"
-                      value={formData.first_name}
+                      value={formData.name}
                       onChange={handleChange}
                     />
                   </div>
@@ -590,15 +595,16 @@ function Stepform() {
               Previous
             </button>
             <button
-              type="button"
-              className="btn btn-primary"
-              onClick={handleNextStep}
-            >
-              {currentStep === 4 ? "Register" : `Step ${currentStep + 1}`}
-              <span className="img-right-arrow">
-                <img src={rightarrows} alt="" />
-              </span>
-            </button>
+            type="button"
+            className="btn btn-primary"
+            onClick={currentStep === 5 || (currentStep === 4 && hasMedicalCondition) ? handleRegister : handleNextStep}
+          >
+            {currentStep === 5 || (currentStep === 4 && hasMedicalCondition) ? "Register" : `Step ${currentStep + 1}`}
+            <span className="img-right-arrow">
+              <img src={rightarrows} alt="" />
+            </span>
+          </button>
+
           </div>
         </div>
       </div>

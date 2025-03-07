@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import login from '../assets/images/login.png';
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
-import { auth } from './firebase';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -17,84 +15,68 @@ function Login() {
   const [otpVerified, setOtpVerified] = useState(false);
   const navigate = useNavigate();
 
-  // Step 1: Check if Mobile Number is Registered
   const checkMobileAndSendOtp = async () => {
     setError('');
     setLoading(true);
-  
     try {
       const response = await axios.post('https://mitdevelop.com/kidsadmin/api/send-otp', {
         phone_number: mobile,
       });
-  
+
       if (response.status === 200) {
-        // Mobile is registered, show OTP field
         setOtpSent(true);
-        setError(''); // Clear any previous errors
+        setError('');
       } else {
-        setError('Something went wrong. Please try again.');
+        setError('This phone number is not registered.');
       }
     } catch (error) {
       console.error('Error sending OTP:', error);
-  
-      // Handling API errors properly
-      if (error.response) {
-        if (error.response.status === 404) {
-          setError('This phone number is not registered.');
-        } else {
-          setError(error.response.data.message || 'Something went wrong. Please try again.');
-        }
-      } else {
-        setError('Network error. Please check your internet connection.');
-      }
+      setError(error.response?.data?.message || 'Something went wrong. Please try again.');
     } finally {
       setLoading(false);
     }
   };
-  
-  // Step 3: Verify OTP
+
   const verifyOtp = async () => {
-    setError('');
     setLoading(true);
-
+    setError('');
     try {
-      const credential = window.verificationId.confirm(otp);
-      await credential;
-
-      // Call backend to verify OTP and login
+      // Call backend API to verify OTP
       const response = await axios.post('https://mitdevelop.com/kidsadmin/api/verify-otp', {
         phone_number: mobile,
-        otp,
+        otp: otp,
       });
 
       if (response.status === 200) {
-        setOtpVerified(true);
+        // Store token and user data in localStorage
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('userId', response.data.user.id);
+
+        // Redirect to user account page
         navigate(`/Myaccount/${response.data.user.id}`);
       } else {
         setError('Invalid OTP. Please try again.');
       }
     } catch (error) {
       console.error('Error verifying OTP:', error);
-      setError('Invalid OTP. Please try again.');
+      setError('An error occurred. Please try again.');
     } finally {
       setLoading(false);
     }
   };
-
-  // Step 4: Handle Email Login
+  
   const handleEmailLogin = async (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
-
+    
+    console.log("Login Request:", { email, password });
+  
     try {
       const response = await axios.post('https://mitdevelop.com/kidsadmin/api/login', {
         email,
         password,
       });
-
       if (response.status === 200) {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('userId', response.data.user.id);
@@ -108,6 +90,7 @@ function Login() {
       setLoading(false);
     }
   };
+  
 
   return (
     <section className="Login-page">
@@ -115,114 +98,70 @@ function Login() {
         <div className="box-login">
           <div className="row align-items-center">
             <div className="col-lg-6">
-              <img src={login} alt="" className="login-images" />
+              <img src={login} alt="Login" className="login-images" />
             </div>
             <div className="col-lg-6">
-              <form onSubmit={activeTab === 'email' ? handleEmailLogin : verifyOtp}>
-                <h2>Members Login</h2>
+              <form onSubmit={activeTab === 'email' ? handleEmailLogin : (e) => { e.preventDefault(); verifyOtp(); }}>
+                <h2 className="text-center fw-bold">Members Login</h2>
                 {error && <div className="alert alert-danger">{error}</div>}
+                <div className="toggle-container">
+  <span 
+    className={`toggle-option ${activeTab === 'email' ? 'active' : ''}`} 
+    onClick={() => setActiveTab('email')}
+  >
+    Email Login
+  </span>
+  <span 
+    className={`toggle-option ${activeTab === 'mobile' ? 'active' : ''}`} 
+    onClick={() => setActiveTab('mobile')}
+  >
+    Mobile Login
+  </span>
+</div>
 
-                <div className="mb-3">
-                  <button
-                    type="button"
-                    className={`btn ${activeTab === 'email' ? 'btn-primary' : 'btn-outline-primary'} me-2`}
-                    onClick={() => {
-                      setActiveTab('email');
-                      setOtpSent(false);
-                      setOtpVerified(false);
-                    }}
-                  >
-                    Email Login
-                  </button>
-                  <button
-                    type="button"
-                    className={`btn ${activeTab === 'mobile' ? 'btn-primary' : 'btn-outline-primary'}`}
-                    onClick={() => {
-                      setActiveTab('mobile');
-                      setOtpSent(false);
-                      setOtpVerified(false);
-                    }}
-                  >
-                    Mobile Login
-                  </button>
-                </div>
 
                 {activeTab === 'email' && (
                   <>
-                    <div className="mb-3">
-                      <input
-                        type="email"
-                        className="form-control"
-                        placeholder="Enter email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                      />
+                    <div className="mb-3 text-center">
+                    <input 
+                  type="email" 
+                  className="form-control w-75 mx-auto" 
+                  placeholder="Enter email" 
+                  name="email" 
+                  value={email} 
+                  onChange={(e) => setEmail(e.target.value)} 
+                />
+
                     </div>
                     <div className="mb-3">
-                      <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Enter password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                      />
+                      <input type="password" className="form-control w-75 mx-auto" placeholder="Enter password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                     </div>
-                    <button type="submit" className="btn btn-primary-login">
-                      Login
-                    </button>
+                    <button type="submit" className="btn btn-primary-login">Login</button>
                   </>
                 )}
-
                 {activeTab === 'mobile' && (
                   <>
                     <div className="mb-3">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Enter mobile number"
-                        value={mobile}
-                        onChange={(e) => setMobile(e.target.value)}
-                        required
-                      />
+                      <input type="text" className="form-control w-75 mx-auto" placeholder="Enter mobile number" value={mobile} onChange={(e) => setMobile(e.target.value)} />
                     </div>
-                    {!otpSent && (
-                      <button type="button" className="btn btn-primary" onClick={checkMobileAndSendOtp}>
-                        Send OTP
-                      </button>
-                    )}
+                    {!otpSent && <button type="button" className="btn btn-primary-otp" onClick={checkMobileAndSendOtp}>Send OTP</button>}
                     {otpSent && !otpVerified && (
                       <div className="mb-3">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter OTP"
-                          value={otp}
-                          onChange={(e) => setOtp(e.target.value)}
-                          required
-                        />
-                        <button type="button" className="btn btn-success mt-2" onClick={verifyOtp}>
+                        <input type="text" className="form-control w-75 mx-auto" placeholder="Enter OTP" value={otp} onChange={(e) => setOtp(e.target.value)}/>
+                        <button 
+                          type="button" 
+                          className="btn verify-otp-btn mt-2" 
+                          onClick={verifyOtp}
+                        >
                           Verify OTP
                         </button>
+
                       </div>
-                    )}
-                    {otpVerified && (
-                      <button type="submit" className="btn btn-primary-login">
-                        Login
-                      </button>
                     )}
                   </>
                 )}
-
-                <p className="register-now-btn">
-                  If you're a New User, Please Register first!
-                  <span className="Register-span">
-                    <Link to="/stepform"> Register Now</Link>
-                  </span>
-                </p>
+                <p className="register-now-btn">If you're a New User, Please Register first! <span className="Register-span"><Link to="/stepform"> Register Now</Link></span></p>
               </form>
-              <div id="recaptcha-container"></div>
             </div>
           </div>
         </div>

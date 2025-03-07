@@ -40,7 +40,7 @@ function Event() {
                         <img src={rightarrow} alt="" class="right-arrow"/>
                         </div>
                         <div className='d-flex gap-2 align-items-center'>
-                        <Link to="/Programmdetail"><p className="phone2">View More</p></Link>
+                        <Link to="/events"><p className="phone2">View More</p></Link>
                         <img src={rightarrow} alt="" class="right-arrow"/>
                         </div>
                     </div>

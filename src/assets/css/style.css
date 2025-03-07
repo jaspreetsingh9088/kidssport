@@ -4725,6 +4725,7 @@ section.Login-page .form-control {
 
 p.register-now-btn {
     padding-top: 24px;
+    margin-left: 85px;
 }
 span.Register-span a {
     color: #f6911e;
@@ -4736,13 +4737,65 @@ span.Register-span a:hover {
 }
 button.btn.btn-primary-login {
     background: #f6911e;
-    width: 38%;
+    width: 40%; /* Matches input width */
     border: 0;
     border-radius: 26px;
-    padding: 10px;
+    padding: 12px 0; /* Improve vertical spacing */
     color: #fff;
     margin-top: 20px;
-}
+    font-size: 16px; /* Make text more readable */
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background 0.3s ease-in-out;
+  }
+  button.btn.btn-primary-login:hover {
+    background: #e67e00; /* Darker on hover */
+  }
+  
+.active-login-btn {
+    background: #f6911e !important;
+    color: white !important;
+    border: 2px solid #f6911e !important;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+  }
+  
+  .inactive-login-btn {
+    background: white !important;
+    color: #f6911e !important;
+    border: 2px solid #f6911e !important;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+  }
+  .btn-primary-otp {
+    background: #f6911e;
+    width: 40%; /* Adjust width to align with inputs */
+    border: none;
+    border-radius: 26px;
+    padding: 12px 0;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    margin: 15px auto; /* Centers the button */
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .btn-primary-otp:hover {
+    background: #e67e00; /* Slightly darker on hover */
+  }
+  
+  .inactive-login-btn:hover {
+    background: #f6911e !important;
+    color: white !important;
+  }
+  
 .social-icons {
     display: flex;
     align-items: baseline;
@@ -4755,3 +4808,42 @@ button.btn.btn-primary-login {
 a.nav-linked {
     text-decoration: none;
 }
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    background: #eee;
+    padding: 5px;
+    border-radius: 30px;
+    width: fit-content;
+    margin: 0 auto 15px;
+  }
+  
+  .toggle-option {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: background 0.3s;
+  }
+  
+  .toggle-option.active {
+    background: #f6911e;
+    color: white;
+  }
+  .verify-otp-btn {
+    background: #ccc; /* Light Grey */
+    width: 53%;
+    border: none;
+    border-radius: 26px;
+    padding: 10px;
+    color: #333; /* Dark text for contrast */
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-left: 147px;
+  }
+  
+  .verify-otp-btn:hover {
+    background: #bbb; /* Slightly darker grey on hover */
+  }
+    

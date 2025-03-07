@@ -1,136 +1,273 @@
-import React, { useState } from 'react';
-import fancyicon from '../assets/images/fancyicon.png'
-import linethree from '../assets/images/linethree.png'
-import rightarrows from '../assets/images/rightarrows.png';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
+import fancyicon from "../assets/images/fancyicon.png";
+import linethree from "../assets/images/linethree.png";
+import rightarrows from "../assets/images/rightarrows.png";
 
 function Eventform() {
-  const [formData, setFormData] = useState({
-    registrationNumber: '',
-    studentName: '',
-    sport: '',
-    ageGroup: '',
-    gradeLevel: '',
-    state: '',
-    city: '',
-    area: ''
-  });
-  
-  const [termsAccepted, setTermsAccepted] = useState(false); // New state for checkbox
+  const { slug } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
+  const [formData, setFormData] = useState({
+    registrationNumber: "",
+    studentName: "",
+    sport: "",
+    ageGroup: "",
+    state: "",
+    city: "",
+    division: "",
+    area: "",
+    email: "",
+    phone: "",
+    amount: 10,
+  });
+
+  const [message, setMessage] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
+  const [checkboxError, setCheckboxError] = useState(false);
+
+  useEffect(() => {
+    const fetchEventData = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
+      try {
+        const response = await axios.get(
+          `https://mitdevelop.com/kidsadmin/api/event/${slug}`,
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+        const event = response.data.data || {};
+        setFormData((prev) => ({
+          ...prev,
+          event_id: event.id,
+          sport: event.category || "N/A",
+          ageGroup: event.age_group || "N/A",
+          state: event.state || "N/A",
+          city: event.city || "N/A",
+          division: event.division || "N/A",
+          area: event.area || "N/A",
+        }));
+      } catch (error) {
+        console.error("Error fetching event data:", error);
+      }
+    };
+    fetchEventData();
+  }, [slug]);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
+      try {
+        const response = await axios.get("https://mitdevelop.com/kidsadmin/api/user", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        const user = response.data.user || {};
+        setFormData((prev) => ({
+          ...prev,
+          user_id: user.id,
+          registrationNumber: user.registration_number || "",
+          studentName: user.name || "",
+          email: user.email || "",
+          phone: user.phone_number || "",
+        }));
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    fetchUserData();
+  }, []);
 
   const handleCheckboxChange = () => {
-    setTermsAccepted(!termsAccepted); // Toggle the checkbox value
+    setIsChecked(!isChecked);
+    setCheckboxError(false); // Remove error when checked
   };
+
+  const [orderId, setOrderId] = useState(null); // State to store order ID
+
+  const handlePayment = async () => {
+    if (!isChecked) {
+        setCheckboxError(true);
+        return;
+    }
+
+    const token = localStorage.getItem("token");
+    if (!token) return alert("User not authenticated!");
+
+    if (!formData.event_id || !formData.user_id) {
+        return alert("Event or user data not loaded. Please try again.");
+    }
+
+    try {
+        const response = await axios.post(
+            "https://mitdevelop.com/kidsadmin/api/initiate-payment",
+            {
+                amount: formData.amount,
+                email: formData.email,
+                phone: formData.phone,
+                name: formData.studentName,
+                user_id: formData.user_id,
+                event_id: formData.event_id,
+            },
+            { headers: { Authorization: `Bearer ${token}` } }
+        );
+
+        console.log("API Response:", response.data);
+
+        if (response.data.status === "CREATED" && response.data.payment_links) {
+            const orderId = response.data.order_id; // Store order_id
+            setOrderId(orderId);
+            localStorage.setItem("order_id", orderId); // Store in localStorage for later use
+
+            window.open(response.data.payment_links.web || response.data.payment_links.mobile, "_blank");
+        } else {
+            alert("Payment initiation failed. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error processing payment:", error.response?.data || error.message);
+        alert(`Payment failed: ${error.response?.data?.message || "Unknown error"}`);
+    }
+};
+
+
+
+const handlePaymentSuccess = async (orderId) => {
+  try {
+      const response = await axios.post(
+          "https://mitdevelop.com/kidsadmin/api/payment-success",
+          { order_id: orderId },
+          { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+      );
+      alert(response.data.message);
+  } catch (error) {
+      console.error("Error handling payment success:", error.response?.data || error.message);
+      alert("Error processing successful payment.");
+  }
+};
+
+const handlePaymentFailure = async (orderId) => {
+  try {
+      const response = await axios.post(
+          "https://mitdevelop.com/kidsadmin/api/payment-failure",
+          { order_id: orderId },
+          { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+      );
+      alert(response.data.message);
+  } catch (error) {
+      console.error("Error handling payment failure:", error.response?.data || error.message);
+      alert("Error processing failed payment.");
+  }
+};
+
+useEffect(() => {
+  const query = new URLSearchParams(location.search);
+  const paymentStatus = query.get("status");
+  const storedOrderId = localStorage.getItem("order_id");
+
+  if (paymentStatus === "success" && storedOrderId) {
+      handlePaymentSuccess(storedOrderId);
+      localStorage.removeItem("order_id"); // Remove after handling
+  } else if (paymentStatus === "failure" && storedOrderId) {
+      handlePaymentFailure(storedOrderId);
+      localStorage.removeItem("order_id"); // Remove after handling
+  }
+}, [location]);
+
 
   return (
     <section className="event-form-register">
-      {/* breadcrumb */}
-      <div className='bacground-purple'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-4'>
-              <img src={fancyicon} alt="" className="fancy-icons floating" />
+      <div className="bacground-purple">
+        <div className="container">
+          <div className="row text-center">
+            <div className="col-lg-4">
+              <img src={fancyicon} alt="Fancy Icon" className="fancy-icons floating" />
             </div>
-            <div className='col-lg-4'>
-              <h1 className='heading-main text-center'>
-                Registration
-              </h1>
-              <ul className='breadcrumb justify-content-center text-white align-items-center gap-1'>
-                <a href='/' className='nav-link'><li>Home | </li></a>
-                <a href='/' className='nav-link' style={{ color: "#ffb06c" }}><li>Registration</li></a>
+            <div className="col-lg-4">
+              <h1 className="heading-main" style={{ color: "white" }}>Payment Information</h1>
+              <ul className="breadcrumb justify-content-center text-white align-items-center gap-1">
+                <a href="/" className="nav-link">
+                  <li>Home | </li>
+                </a>
+                <a href="/" className="nav-link" style={{ color: "white" }}>
+                  <li>Checkout</li>
+                </a>
               </ul>
             </div>
-            <div className='col-lg-4'>
-              <img src={linethree} alt="" className="fancy-iconss floating" />
+            <div className="col-lg-4">
+              <img src={linethree} alt="Line Three" className="fancy-iconss floating" />
             </div>
           </div>
         </div>
       </div>
-      {/* breadcrumb */}
-      <div className='container'>
-        <div className='event-form-start'>
-          <div className='row'>
-            <div className='heading-form-reg'>
-              <h2>Register Event Form</h2>
+      <div className="container">
+        <div className="event-form-start">
+          <h2 className="heading-form-reg">Checkout Event Form</h2>
+          {message && (
+            <div className={`alert ${message.includes("Successful") ? "alert-success" : "alert-danger"}`}>
+              {message}
             </div>
-            <form>
-              <div className='row'>
-                <div className="col-lg-4">
-                  <div className="mb-4"><input className="form-control" id="registerno" name="registrationNumber" value={formData.registrationNumber} placeholder="Registration Number" type="text" onChange={handleChange} /></div>
-                </div>
-                <div className="col-lg-4">
-                  <div className="mb-4"><input className="form-control" id="studentname" name="studentName" value={formData.studentName} placeholder="Student Name" type="text" onChange={handleChange} /></div>
-                </div>
-                <div className="col-lg-4">
-                  <div className="mb-4"><select className="form-select" id="sport" name="sport" value={formData.sport} onChange={handleChange}>
-                    <option>Football</option>
-                    <option>Badminton</option>
-                    <option>Hand ball</option>
-                  </select></div>
-                </div>
-                <div className="col-lg-4">
-                  <div className="mb-4"><select className="form-select" id="ageGroup" name="ageGroup" value={formData.ageGroup} onChange={handleChange}>
-                    <option>10 - 12</option>
-                    <option>12 - 14</option>
-                    <option>14 - 16</option>
-                    <option>16 - 18</option>
-                  </select></div>
-                </div>
-                <div className="col-lg-4">
+          )}
+          <form>
+            <div className="row">
+              {[
+                { label: "Registration Number", field: "registrationNumber" },
+                { label: "Student Name", field: "studentName" },
+                { label: "Sport", field: "sport" },
+                { label: "Age Group", field: "ageGroup" },
+                { label: "State", field: "state" },
+                { label: "City", field: "city" },
+                { label: "Division", field: "division" },
+                { label: "Area", field: "area" },
+              ].map(({ label, field }, index) => (
+                <div className="col-lg-4" key={index}>
                   <div className="mb-4">
-                    <select className="form-select" name="gradeLevel" value={formData.gradeLevel} onChange={handleChange}>
-                      <option value="">Select Grade Level</option>
-                      {Array.from({ length: 12 }, (_, index) => index + 1).map((grade) => (
-                        <option key={grade} value={grade}>Grade {grade}</option>
-                      ))}
-                    </select>
+                    <label className="form-label">{label}</label>
+                    <input className="form-control" name={field} value={formData[field]} type="text" readOnly />
                   </div>
                 </div>
-                <div className="col-lg-4">
-                  <div className="mb-4"><input className="form-control" id="state" name="state" value={formData.state} placeholder="State" type="text" onChange={handleChange} /></div>
-                </div>
-                <div className="col-lg-4">
-                  <div className="mb-4"><input className="form-control" id="city" name="city" value={formData.city} placeholder="City" type="text" onChange={handleChange} /></div>
-                </div>
-                <div className="col-lg-4">
-                  <div className="mb-4"><input className="form-control" id="area" name="area" value={formData.area} placeholder="Area" type="text" onChange={handleChange} /></div>
-                </div>
-                {/* Terms and Conditions checkbox */}
-                <div className="col-12">
-                  <div className="form-check mb-4">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="termsAndConditions"
-                      checked={termsAccepted}
-                      onChange={handleCheckboxChange}
-                    />
-                    <label className="form-check-label" htmlFor="termsAndConditions">
-                      I accept the <a href="/terms" target="_blank">Terms and Conditions</a>.
-                    </label>
-                  </div>
+              ))}
+              <div className="col-lg-4">
+                <div className="mb-4">
+                  <label className="form-label">Amount</label>
+                  <input
+                    className="form-control"
+                    name="amount"
+                    value={formData.amount}
+                    onChange={(e) => setFormData((prev) => ({ 
+                      ...prev, 
+                      amount: Number(e.target.value) || 0 
+                    }))}
+                    type="number"
+                  />
                 </div>
               </div>
-            </form>
-            <div className='button-pay'>
-              <button
-                type="button"
-                className="btn btn-primary"
-                disabled={!termsAccepted} // Disable button if terms not accepted
-              >
-                Make Payment
-                <span className='img-right-arrow'>
-                  <img src={rightarrows} alt='' />
-                </span>
-              </button>
             </div>
+            <div className="col-12">
+              <div className="form-check mb-4">
+                <input
+                  className="form-check-input"
+                  id="termsAndConditions"
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                />
+                <label className="form-check-label" htmlFor="termsAndConditions">
+                  I accept the <a href="/Terms-conditions">Terms and Conditions</a>.
+                </label>
+              </div>
+              {checkboxError && <p style={{ color: "red" }}>You must accept the Terms and Conditions.</p>}
+            </div>
+          </form>
+          <div className="button-pay text-center">
+            <button type="button" className="btn btn-primary" onClick={handlePayment}>
+              Make Payment
+              <span className="img-right-arrow">
+                <img src={rightarrows} alt="Right Arrows" />
+              </span>
+            </button>
           </div>
         </div>
       </div>
