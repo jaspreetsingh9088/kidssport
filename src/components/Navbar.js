@@ -45,7 +45,7 @@ function Navbar() {
 
   return (
     <div className="sticky-top">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+      <nav className="navbar navbar-expand-xl navbar-light bg-light" id="navbar">
         <div className="container">
           <a className="navbar-brand" href="/">
             {/* <img src={logokidz} className="Kidzsport World" alt="Kidzsport" /> */}
@@ -87,7 +87,7 @@ function Navbar() {
     </li>
     <li className="nav-item">
       <Link to="/blogs" className="nav-link fw-bold">
-        Blog
+        Blogs
       </Link>
     </li>
 

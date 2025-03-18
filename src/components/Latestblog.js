@@ -67,7 +67,7 @@ function Latestblog() {
 
                   <div className='main-display-admin'>
                     <div className='d-flex gap-3'>
-                      <div><p className='admin-name'><span className='color-dot'><img src={listdot} alt="" className="list-dot" /></span> {blog.user.name}</p></div>
+                      <div><p className='admin-name'><span className='color-dot'><img src={listdot} alt="" className="list-dot" /></span> created by : {blog.user.name}</p></div>
                       <div><p className='admin-name'><span className='color-dot'><img src={listdot} alt="" className="list-dot" /></span> Date : {new Date(blog.created_at).toLocaleDateString()}</p></div>
                     </div>
                   </div>

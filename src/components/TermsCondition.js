@@ -43,84 +43,161 @@ function TermsConditionPolicy() {
             </div>
             <div className="d-flex gap-2 mb-2">
             <p className="Empowering">
-              <strong>Registration:</strong> To become a member of Kidzsports.world, child/kids must register and pay membership fees. Once registered, they will receive a voucher coupon worth Rupees 2000/- (based on terms and conditions of the particular voucher) of any products which they can redeem. Each sports event has a distinct registration fee, and there will be a limited number of spots available on a first-come, first-served basis. The competition is open to all kids under the age group of 18 years, with a focus on promoting sportsmanship and healthy competition among different age groups under 18 years.
-              <br />
-              “Parent” means a parent or legal guardian who will be responsible for the payment of fees and who is the contracting party to this contract.
-              <br /><br />
-              <strong>Membership:</strong> A one-time payment of 1000/- would allow children and registered members to benefit from kidzsport.world. Registered members will receive a discount on sports products related with kidzsports.world. During the inaugural event, registered members will receive vouchers worth Rupees 2,000/- from any one application that will be associate with Kidzbook.in and Kidzsports.world as a souvenir and which will offer wide range of discounts on the upcoming application of Kidzbook.in. Below mentioned are few names of upcoming application of Kidzbook.in which will be associated with Kidzsports.world as well:
+              <strong>Registration:</strong>
               <ul>
-                <li>Education - Library, Educational webinars, seminars, Sponsorships/Scholarships etc.</li>
-                <li>
-                Food Delivery Application -  
-                <a href="https://www.rasoi.delivery" target="_blank" rel="noopener noreferrer">
-                  www.rasoi.delivery
-                </a> 
-                (Pure Veg) (for all age groups)
+                  <li>To become a member of <strong>Kidzsport</strong>, children must register and pay the membership fee.
+                  </li>
+                  <li>Upon registration, members will receive a <strong>voucher coupon worth ₹2000 </strong> (subject to specific terms and conditions).
+                  </li>
+                  <li>Each sports event has a distinct registration fee, and spots are available on a <strong>first-come, first-served basis.</strong></li>
+                  <li>Open to <strong>all kids under 18 years</strong>aiming to promote sportsmanship and healthy competition.
+                  </li>
+                  <li><strong>"Parent" </strong> refers to a legal guardian responsible for fee payments and contract obligations.
+                  </li>
+                </ul>
+          
+              <strong>Membership:</strong> 
+             <ul>
+              <li><strong>One-time membership fee</strong> : ₹1000/-</li>
+              <li>Members enjoy discounts on sports products related to <strong>Kidzsport</strong></li>
+              <li>During the inaugural event, members will receive vouchers worth ₹2000/- for use in Kidzbook.in and Kidzsports.world applications.
               </li>
-
-                <li>Sports Store - Kidzsports stores availing all sports equipment.</li>
-                <li>Travel Boutique Application – Low-Cost Trip (Lower rates than the original available rate) (for all age groups)</li>
-                <li>Insurance – Jeevan Insurance (Insurance for kids, like Life Insurance)</li>
-                <li>
-                Investment – 
-                <a href="https://www.myrupee.in" target="_blank" rel="noopener noreferrer">
-                  www.myrupee.in
-                </a> (Empowering financial growth with investment and valuable returns on it for all age groups)
+              <li><strong>Upcoming applications associated with Kidzbook.in:</strong>
               </li>
-              </ul>
-              <br />
-              <strong>Sports:</strong> There will be infinite sports events for 8 months, barring the rainy/monsoon season. A sports carnival will be held, featuring a variety of indoor and outdoor sports. Individual sports matches will also take place between different schools, colleges, and states. There will be state-level contests in any of India’s states, and we will fund/sponsor the top selected kids depending on their credentials. Among the athletic activities are cricket, volleyball, football, carrom, chess, hockey, kabbadi, badminton, table tennis, and many more. All India School Kids Competition will be launched for which schools will registered and kids who are part of Kidzsport.world will compete with them.
-              <br /><br />
-              <strong>Refund Policy:</strong> Refunds will only be issued in the event that the goal of 25% of the total targeted members is not met. There is no return for the amount that will be subtracted from GST. In cases where the company is accountable, the refund process will begin.
-              <br />
-              Under normal circumstances, returns or cancellations of subscriptions are not allowed once a service has commenced or been delivered. This includes digital services, IT support, or sports-related subscriptions that rely on upfront preparation and planning.
-              <br />
-              <strong>Exception in Event Cancellation:</strong>
               <ul>
-                <li>If a sports event included in the subscription is cancelled, the Company will process a refund proportional to the specific event’s value within the subscription package.</li>
-                <li>Refunds will be credited to the original payment method or as account credit, depending on the customer’s preference or Company policy.</li>
-              </ul>
+           
+           <li><strong>Education</strong> - Library, Educational webinars, seminars, Sponsorships/Scholarships etc.</li>
+           <li>
+          <strong>Food Delivery Application</strong>  -  
+           <a href="https://www.rasoi.delivery" target="_blank" rel="noopener noreferrer">
+             www.rasoi.delivery
+           </a> 
+           (Pure Veg) (for all age groups)
+         </li>
+           <li><strong>Sports Store</strong> - Kidzsports stores availing all sports equipment.</li>
+           <li><strong>Travel Boutique</strong> –Low-cost trips with lower rates than market rates.
+         </li>
+           <li><strong>Insurance </strong>– Jeevan Insurance (Insurance for kids, like Life Insurance)</li>
+           <li>
+          <strong>Investment</strong>  – 
+           <a href="https://www.myrupee.in" target="_blank" rel="noopener noreferrer">
+             www.myrupee.in
+           </a> (Empowering financial growth with investment and valuable returns on it for all age groups)
+         </li>
+         </ul>
+              </ul>  
+              <strong>Sports Events :</strong> 
+              <ul>
+                <li><strong>Duration: </strong>Sports events will be held for <strong>8 months </strong>annually, excluding monsoon season.
+                </li>
+                <li> <strong>Sports Carnival: </strong>A variety of<strong>indoor and outdoor sports </strong>will be featured.</li>
+               <li><strong>Competitions:</strong></li> 
+                <ul>
+                <li>Individual matches between schools, colleges, and states.
+                </li>
+                <li><strong>State-level contests </strong>across India.
+                </li>
+                <li>Top-performing kids may receive <strong>sponsorship/funding </strong>based on their credentials.
+                </li>
+                </ul>
+               
+                <li><strong>Sports categories include: </strong>Cricket, volleyball, football, carrom, chess, hockey, kabaddi, badminton, table tennis, and more.
+                </li>
+                <li><strong>All India School Kids Competition </strong>where registered kids will compete with school teams.
+                </li>
+                </ul>
 
-                  <strong>Refund/Return Conditions:</strong>
+
+              <strong>Refund Policy:</strong>
+              <ul>
+                <li><strong>Refunds are only available :</strong> if the program fails to reach <strong></strong>25% of its target membership.
+                </li>
+                <li>No refund for amounts deducted due to <strong>GST or service charges .</strong>
+                </li>
+                <li>No refunds once a service has begun, including <strong>digital services, IT support, or sports-related subscriptions.
+                </strong> 
+                </li>
+                <li><strong> Event Cancellation:</strong>
                   <ul>
-                    <li><strong>Eligibility for Refund:</strong> Refunds will be considered only under the specific circumstance where a sports event is officially cancelled.</li>
-                    <li>The decision for cancellation and refund eligibility will be based on the notification or announcement from the event organizer.</li>
-                    <li><strong>Exclusions from Refund/Return:</strong> Refunds are not applicable for dissatisfaction related to intangible services like IT support, consultation, or other non-event-related features.</li>
-                    <li>Refund requests due to personal circumstances such as schedule conflicts, change of mind, or user error will not be entertained.</li>
-                    <li><strong>Timeframe for Claims:</strong> Customers must report any issues, disputes, or claims regarding services within 15 days of the occurrence. Claims raised after this period will not be considered.</li>
+                    <li>If a sports event is cancelled, refunds will be processed based on the event's value within the subscription.
+                    </li>
+                    <li>Refunds will be credited to the <strong>original payment method or as account credit.</strong>
+                    </li>
+
+                  </ul>
+                </li>          
+                  <strong>Refund Eligibility & Exclusions :</strong>
+                  <ul>
+                    <li><strong>Eligible for refund: </strong> Only if an event is officially cancelled.
+                    </li>
+                    <li><strong>Not eligible for refund:</strong></li> 
+                      <ul>
+                        <li >Dissatisfaction with intangible services (e.g., IT support, consultation).
+                        </li>
+                        <li>Personal reasons like scheduling conflicts or a change of mind.
+                        </li>
+                      </ul>
+                 
+                    <li><strong>Timeframe for refund claims:</strong> within <strong>15 days</strong> of the issue occurrence.
+                    </li>
+                  </ul>
+                  <strong>Company Liability</strong>
+                  <ul>
+                    <li>Limited to specific affected services/events.
+                    </li>
+                    <li>Not liable for indirect damages (e.g., lost profits, inconvenience).
+                    </li>
+                  </ul>
+                  <strong>Compensation Limits:</strong>
+                  <ul>
+                    <li>If an event accounts for 10% of the subscription fee, the refund will 
+                      <strong>only cover that portion.</strong>
+                    </li>
+                    <li>No additional claims beyond the <strong></strong>determined refund amount.
+                    </li>
                   </ul>
 
-                  <strong>Scope of Liability:</strong>
-                  <ul>
-                    <li>The Company’s liability for any issues or errors is strictly limited to the specific service or event that was affected.</li>
-                    <li>The Company will not be liable for indirect damages, such as lost profits, inconvenience, or incidental losses arising from the issue.</li>
+
+                    <li><strong>Force Majeure :</strong> </li>
+                    <li>The company is<strong>not liable for refunds or compensation </strong> in case of natural disasters affecting events.
+                    </li>
+                    <li>Unavoidable circumstances include:
+                    </li>
+                    <ul>
+                      <li>Extreme weather conditions (rain, hurricanes, floods, etc.).
+                      </li>
+                      <li>Other unpredictable and unpreventable disasters.
+                      </li>
+                    </ul>
                   </ul>
 
-                  <strong>Resolution of Claims:</strong>
+                  <strong>Additional Provisions</strong>
                   <ul>
-                    <li>The Company will determine the minimum compensation required to address the claim, ensuring fairness while maintaining financial accountability.</li>
+                    <li><strong>Emergency Medical Support:
+                    </strong></li>
+                    <ul>
+                      <li>Events will have <strong>trained emergency personnel</strong>, including doctors, trainers, and ambulances.
+                      </li>
+                    </ul>
+                    <li><strong>Dietary Regulations:</strong></li>
+                    <ul>
+                      <li>All food and beverages will be <strong>100% vegetarian and Jain-friendly.</strong>
+                      </li>
+                      <li>Souvenirs, gifts, and vouchers will be <strong>vegan products. </strong></li>
+                    </ul>
                   </ul>
 
-                  <strong>Compensation Limitations:</strong>
-                  <ul>
-                    <li>In cases where the Company is at fault, the compensation amount will be limited to the smallest applicable refund or adjustment necessary to address the issue.</li>
-                    <li>For example, if a cancelled sports event was valued at 10% of the subscription fee, the refund will only cover that portion.</li>
-                    <li><strong>No Additional Claims:</strong> Customers cannot claim amounts beyond the determined minimum refund, even if additional expenses or inconveniences were incurred.</li>
-                  </ul>
+                <strong>Termination Policy :</strong> 
+                <ul>
+                  <li><strong>Immediate termination</strong> if a child is found using toxic substances such as drugs, alcohol, or smoking.
+                  </li>
+                  <li>Strict actions will be taken against violations, and the <strong>membership will be cancelled immediately.</strong>
+                  </li>
+                </ul>
 
-                  <strong>Force Majeure:</strong>
-                  <ul>
-                    <li>A natural and unavoidable catastrophe that interrupts the expected course of events. In that case, the company won’t be liable for refunds or compensation.</li>
-                    <li>This includes the cancellation of sports events due to natural calamities that are outside of human control and are unpredictable and unpreventable, such as unexpected weather conditions, rain, hurricanes, floods, or any such events.</li>
-                  </ul>
-
-                  <br />
-
-                <strong>Termination:</strong> If kids found indulge in any kind of toxic substances including drugs, smoking, alcohol or any other such substance, that particular kid will be terminated on the spot without any explanation and a strict action will be taken against such a person/kid, violation of the rule are the against the policy of our company and henceforth, we have rights to cancel the membership.
-                <br /><br />
-                <strong>Location:</strong> – The location of the sporting events will fluctuate between outdoor and indoor games. Outdoor games will be held in metro cities throughout India’s states. Indoor games will be held in 4-5 cities each state, allowing players to travel to a nearby city to compete. Indoor games are open to all kids, as there will be at least 4-5 locations per state in various cities.
-                <br /><br/>
-                <strong>Location for the Outdoor Sports with state and cities are mentioned herein below for your ready reference:-</strong> 
+                <strong>Event Locations</strong> – 
+                <br />
+                <strong>Outdoor Games Locations:-</strong> 
                 <ul>
                   <li><strong>Maharashtra:</strong> Mumbai, Pune, Nagpur</li>
                   <li><strong>Hyderabad:</strong> Visakhapatnam, Vijayawada, Andhra Pradesh</li>
@@ -138,8 +215,16 @@ function TermsConditionPolicy() {
                   <li><strong>West Bengal:</strong> Kolkata</li>
                   <li><strong>Delhi</strong></li>
                 </ul>
-                <br />
-            <p>Please note – Location of Indoor Sports Games will be updated soon, for a reference there will be around 3-4 location in one city, allowing all the members to participate by reaching the nearby location</p>
+        
+            <strong>Indoor Games Locations:
+            </strong>
+            <ul>
+              <li>Locations will be announced soon.
+              </li>
+              <li>Expected <strong>3-4 locations per city</strong> , ensuring accessibility for all members</li>
+           
+            </ul>
+
             </p>
             </div>
           </div>

@@ -17,31 +17,32 @@ import twolines from '../assets/images/twolines.png'
 function Aboutus() {
     return (
 <>
-        <section className="about-us-section">
-   <div className='bacground-purple'>
-                <div className='container'>
-                    <div className='row'>
-                        <div className='col-lg-4'>
-                            <img src={fancyicon} alt="" className="fancy-icons floating" />
-                        </div>
-                        <div className='col-lg-4'>
-                            <h1 className='heading-main text-center'>
-                                About Us
-                            </h1>
-                            <ul class="breadcrumb justify-content-center text-white align-items-center gap-1">
-                                <a href="/" class="nav-link"><li>Home | </li></a>
-                                <a href="/" class="nav-link" style={{ color: "#ffb06c" }}><li>About Us</li></a>
-                                </ul>
-                        </div>
-                        <div className='col-lg-4'>
-                            <img src={linethree} alt="" className="fancy-iconss floating" />
-                        </div>
-                    </div>
+<section className="about-us-section">
+    <div className='bacground-purple'>
+        <div className='container'>
+            <div className='row'>
+                <div className='col-lg-4'>
+                    <img src={fancyicon} alt="" className="fancy-icons floating" />
+                </div>
+                <div className='col-lg-4'>
+                    <h1 className='heading-main text-center'>About Us</h1>
+                    <ul className="breadcrumb justify-content-center text-white align-items-center gap-1">
+                        <a href="/" className="nav-link"><li>Home | </li></a>
+                        <a href="/" className="nav-link" style={{ color: "#ffb06c" }}><li>About Us</li></a>
+                    </ul>
+                </div>
+                <div className='col-lg-4'>
+                    <img src={linethree} alt="" className="fancy-iconss floating" />
                 </div>
             </div>
-                <About />
-                
-        </section>
+        </div>
+    </div>
+    <About />
+    <style>
+        {`.Know { display: none; }`}
+    </style>
+</section>
+
 
         <div className="container bg-background-gradient">
   <div className="row text-center">
@@ -181,7 +182,7 @@ function Aboutus() {
         </div>
     </div>
 </section>
-<Register />
+{/* <Register /> */}
 
         </>
 

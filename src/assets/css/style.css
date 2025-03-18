@@ -5,15 +5,62 @@
 body {
     font-family: 'Lato', sans-serif !important;
   }
+  a.nav-link.fw-bold {
+    color: #002d45;
+}
+a#navbarDropdown {
+    color: #002d45;
+}
+a.book-now-btn:hover {
+    box-shadow: 2px 2px 47px #ffffff4d;
+    transform: scale(1.02);
+}
   h2 {
     font-family: "Playfair", serif;
     font-weight: 700;
   }
+  .text-white.para-one-hero {
+	font-size: 18px;
+}
+.fancy-icons-banner-one.floating {
+    animation-duration: 5s; /* Iska time kam kar diya */
+  }
+.hero-image-kids {
+	width: 72%;
+	display: block;
+	margin: auto;
+}
+img.fancy-icons-banner.fancy-icons-banner-one {
+    left: 36px;
+    top: 87px;
+    width: 68px;
+}
+
+
+.banner-floating-icons {
+    position: relative;
+}
+img.fancy-icons-banner {
+    width: 60px;
+    position: absolute;
+    top: 46px;
+}
   .carousel-indicators [data-bs-target] {
     width: 10px;
     height: 10px;
     border-radius: 100% !important;
     background-color: #f4831f;
+}
+.heading-one-hero.text-white {
+	font-family: "Playfair", serif;
+	font-size: 58px;
+	font-weight: bolder;
+}
+#bannerCarousel {
+	background-image: url("../images/background-image.png");
+    background-size: cover;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 img.watch-img {
@@ -49,12 +96,22 @@ img.contact-uss {
 ul.navbar-nav.ms-auto {
     margin: auto;
 }
+a.book-now-btn {
+    padding: 14px;
+    width: 40%;
+    margin-top: 10px;
+    background: linear-gradient(to right, #4CAF50, #2E8B57);
+}
 
 
 ::after {
     color: #FF9638;
 }
-
+img.young-boy {
+    width: 62%;
+    position: absolute;
+    top: 20px;
+}
 /* .navbar-light .navbar-nav .nav-link {
     color: black !important;
 } */
@@ -268,11 +325,7 @@ button.know.more1 {
 p.text-center.Our-programs-color {
     color: #ff871d;
 }
-img.young-boy {
-    width: 100%;
-    position: absolute;
-    top: 42px;
-}
+
 .youn-boy-img-with-bat {
     position: relative;
 }
@@ -427,7 +480,7 @@ h5.Activities {
     font-weight: 700;
     color: #002d45;
     font-size: 24px;
-    padding-top: 12px;
+    padding-top: 3px;
 }
 section.program p.sports-pg {
     color: #A6A6A6;
@@ -456,15 +509,27 @@ h2.sports-kidz {
     color: #002D45;
 }
 
+
 p.sports-pg {
-    color: #002D45;
-    letter-spacing: 1px;
+	color:#36454F;
+	letter-spacing: 1px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	margin-bottom: 0px;
 }
 img.quote {
     padding-top: 24px;
     padding-bottom: 0px;
 }
-
+h5 {
+	color: white;
+}
+.admin-name {
+	font-weight: bold;
+}
 
 p.phone1 {
     color: #259E44;
@@ -532,7 +597,7 @@ p.Jessica {
     color: #ffffff;
 }
 img.image-testimonial {
-    width: 92%;
+    width: 100%;
     display: block;
     margin-left: auto;
 }
@@ -780,7 +845,7 @@ input.input-text1 {
 }
 
 img.Kidzsport.World {
-    width: 220px;
+    width: 160px;
 }
 
 section.footer.bg-color {
@@ -1183,6 +1248,39 @@ img.circle-frame.circle-frame-two.floating-opposite {
 
 /* <top.css end> */
 @media only screen and (min-width: 1024px) and (max-width: 1099px) {
+    ul.navbar-nav.ms-auto {
+        margin-left: auto !important;
+        justify-content: flex-start;
+        width: 74%;
+    }
+    ul.navbar-nav.ms-auto {
+        margin-left: auto !important;
+        justify-content: flex-start;
+        width: 74%;
+        gap: 16px;
+    }
+    .heading-one-hero.text-white {
+        font-family: "Playfair", serif;
+        font-size: 38px;
+        font-weight: bolder;
+    }
+    .navbar-nav {
+        --bs-nav-link-padding-x: 0;
+        --bs-nav-link-padding-y: 0.5rem;
+        --bs-nav-link-font-weight: ;
+        --bs-nav-link-color: var(--bs-navbar-color);
+        --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+        --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+        display: flex;
+        flex-direction: row;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        flex-wrap: wrap;
+    }
+    .navbar-collapse {
+        display: flex;
+    }
     hr.dashline {
         width: 168px !important;
         margin: auto !important;
@@ -1335,6 +1433,22 @@ img.circle-frame.circle-frame-two.floating-opposite {
 
 
 }
+@media only screen and (min-width: 1300px) and (max-width: 1380px) {
+    img.young-boy {
+        width: 68%;
+        position: absolute;
+        top: 39px;
+    }
+    a#navbarDropdown {
+        font-size: 14px !important;
+    }
+    .navbar-nav .nav-item {
+        padding: 0px 6px;
+    }
+    a.nav-link.fw-bold {
+        font-size: 14px;
+    }
+}
 @media only screen and (min-width: 1200px) and (max-width: 1280px) {
     .news-letter button.btn.btn-primary.input-group-append {
         padding: 10px;
@@ -1438,6 +1552,7 @@ img.circle-frame.circle-frame-two.floating-opposite {
         padding: 4px !important;
         border-radius: 5px;
     }
+    
     .form-controls {
         border: 1px solid #ababab;
         padding: 5px !important;
@@ -1535,9 +1650,9 @@ img.circle-frame.circle-frame-two.floating-opposite {
         top: -39px;
     }
     img.young-boy {
-        width: 93%;
+        width: 74%;
         position: absolute;
-        top: 40px;
+        top: 37px;
     }
     img.child-group-img {
         width: 90%;
@@ -1640,6 +1755,32 @@ img.circle-frame.circle-frame-three.floating {
         width: 320px;
         margin-top: 0 !important;
     }
+    img.fancy-icons-banner {
+        width: 39px;
+        position: absolute;
+        top: 66px;
+        right: 33px;
+    }
+    img.fancy-icons-banner.fancy-icons-banner-one {
+        left: 4px;
+        top: 37px;
+        width: 45px;
+    }
+    a.book-now-btn {
+        padding: 11px;
+        width: 52%;
+        margin-top: 10px;
+        background: linear-gradient(to right, #4CAF50, #2E8B57);
+    }
+    .heading-one-hero.text-white {
+        font-family: "Playfair", serif;
+        font-size: 28px;
+        font-weight: bolder;
+    }
+    .text-white.para-one-hero {
+        font-size: 16px;
+    }
+  
     .worker-image-border {
         border: 6px solid #ff963d !important;
         width: 90% !important;
@@ -2009,6 +2150,31 @@ img.circle-frame.circle-frame-three.floating {
     }
 }
 @media only screen and (min-width: 900px) and (max-width: 992px) {
+    img.fancy-icons-banner {
+        width: 39px;
+        position: absolute;
+        top: 66px;
+        right: 33px;
+    }
+    img.fancy-icons-banner.fancy-icons-banner-one {
+        left: 4px;
+        top: 37px;
+        width: 45px;
+    }
+    a.book-now-btn {
+        padding: 11px;
+        width: 52%;
+        margin-top: 10px;
+        background: linear-gradient(to right, #4CAF50, #2E8B57);
+    }
+    .heading-one-hero.text-white {
+        font-family: "Playfair", serif;
+        font-size: 32px;
+        font-weight: bolder;
+    }
+    .text-white.para-one-hero {
+        font-size: 16px;
+    }
     .container.bg-background-gradient .col-lg-3 {
         width: 50%;
     }
@@ -2347,6 +2513,37 @@ img.circle-frame.circle-frame-three.floating {
     section.Login-page {
         background: #fafafa;
         padding: 15px !important;
+    }
+    .banner-floating-icons {
+        display: none;
+    }
+    img.hero-image-kids {
+        margin-bottom: 15px;
+    }
+    .carousel-indicators {
+        margin-bottom: 0rem;
+    }
+    a.book-now-btn {
+        padding: 10px;
+        width: 58%;
+        margin-top: 3px;
+        background: linear-gradient(to right, #4CAF50, #2E8B57);
+        margin-bottom: 15px;
+    }
+    .row.align-items-center.justify-content-center.columnn-reverse-one {
+        flex-direction: column-reverse;
+    }
+    #bannerCarousel {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .text-white.para-one-hero {
+        font-size: 15px;
+    }
+    .heading-one-hero.text-white {
+        font-family: "Playfair", serif;
+        font-size: 22px;
+        font-weight: bolder;
     }
     p.register-now-btn {
         padding-top: 24px;
@@ -2995,10 +3192,10 @@ img.blog-images {
     border-radius: 20px;
     transition: 0.3s;
 }
-.box-blog h5 {
+/* .box-blog h5 {
     font-family: "Playfair", serif;
     color: #fff;
-}
+} */
 button.read-more {
     background: none;
     border: 1px solid #fff;
@@ -3317,7 +3514,7 @@ section.Program-detail .box-blog {
 
 section.Program-detail p.admin-name {
     color: #002d45;
-    font-size: 10px;
+    font-size: 15px;
     margin-bottom: 10px;
 }       
 section.Program-detail img.list-dot {
@@ -3326,7 +3523,10 @@ section.Program-detail img.list-dot {
     position: relative;
     bottom: 1px;
 }
-section.Program-detail h5 {
+.program-link {
+	text-decoration: none;
+}
+/* section.Program-detail h5 {
     color: #1a1a1a;
     font-family: 'Lato';
     font-size: 15px;
@@ -3336,7 +3536,7 @@ section.Program-detail h5 {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+} */
 section.event a {
     text-decoration: none;
 }
@@ -4846,4 +5046,36 @@ a.nav-linked {
   .verify-otp-btn:hover {
     background: #bbb; /* Slightly darker grey on hover */
   }
-    
+  .input-group.custom-search-bar {
+	width: 55%;
+	margin-left: auto;
+}
+.btn.btn-warning {
+	background: #f77a1f;
+	border: 0;
+}
+.form-select.custom-state-dropdown {
+	border: 1px solid #FF9638;
+}
+.form-select.custom-state-dropdown:focus {
+	border: 1px solid #A0178D;
+}
+.fas.fa-map-marker-alt.text-warning {
+	color: #f77a1f !important;
+}
+.input-group-text.input-group-text-four {
+	border: 1px solid #FF9638;
+	background: #fff;
+}
+.btn.btn-outline-primary.mt-2.event-none-btn {
+	border: 1px solid #ff9638;
+	color: #ff9638;
+	font-size: 18px;
+}
+.btn.btn-outline-primary.mt-2.event-none-btn:hover {
+	background: #ff9638;
+	color: #fff;
+}
+.alert.alert-warning.p-4.shadow-sm.rounded {
+	background: #f77a1f0a;
+}

@@ -59,12 +59,12 @@ function Programmdetail() {
         <section className="Program-detail">
             <div className="container">
                 {/* State Dropdown */}
-                <div className="row mb-4">
+                <div className="row mb-4 justify-content-end">
                     <div className="col-lg-6 offset-lg-3">
-                        <label htmlFor="stateSelect" className="form-label fw-bold">Select State:</label>
+                        {/* <label htmlFor="stateSelect" className="form-label fw-bold">Select State:</label> */}
                         <div className="input-group custom-search-bar">
                             {/* Location Icon */}
-                            <span className="input-group-text">
+                            <span className="input-group-text input-group-text-four">
                                 <i className="fas fa-map-marker-alt text-warning"></i>
                             </span>
 
@@ -106,14 +106,14 @@ function Programmdetail() {
                                     <div className="main-display-admin">
                                         <div className="d-flex gap-3">
                                             <div>
-                                                <p className="admin-name text-muted">
+                                                <p className="admin-name">
                                                     <span className="color-dot">
                                                         <img src={listdot} alt="" className="list-dot" />
-                                                    </span> Admin: {event.user.name}
+                                                    </span> Created by: {event.user.name}
                                                 </p>
                                             </div>
                                             <div>
-                                                <p className="admin-name text-muted">
+                                                <p className="admin-name">
                                                     <span className="color-dot">
                                                         <img src={listdot} alt="" className="list-dot" />
                                                     </span> Date: {new Date(event.created_at).toLocaleDateString()}
@@ -121,19 +121,28 @@ function Programmdetail() {
                                             </div>
                                         </div>
                                     </div>
-                                    <h5 className="fw-bold">{event.event_name}</h5>
+                                    <h5 className="Activities">{event.event_name}</h5>
+                                    <div>
+                                    <p className="sports-pg">
+                                    {event.description}
+                                    </p>
+                                </div>
                                     <hr className="line-programm-sec" />
-                                    <Link to={`/event/${event.slug}`}>
+                                    <div className="d-flex gap-4 justify-content-between align-items-center">
+                        <p className="old">{event.age_group}</p>
+                        <Link to={`/event/${event.slug}`} className="program-link">
                                         <button className="join-now">
                                             View more <span><img src={arrowtransparent} alt="Arrow" className="arrow-circle-img" /></span>
                                         </button>
                                     </Link>
+                    </div>
+                            
                                 </div>
                             </div>
                         ))
                     ) : (
                         // Stylish "Coming Soon" Section using Bootstrap
-                        <div className="text-center mt-5">
+                        <div className="text-center">
                             <div className="alert alert-warning p-4 shadow-sm rounded">
                                 <i className="bi bi-calendar-x fs-1 text-danger"></i>
                                 <h3 className="mt-3">⚽🏀 Fun Sports Events Coming Soon!</h3>
@@ -141,7 +150,7 @@ function Programmdetail() {
                                     No events available for <strong>{selectedState}</strong> at the moment.<br />
                                     Stay tuned for upcoming programs!
                                 </p>
-                                <button className="btn btn-outline-primary mt-2" onClick={handleExploreClick}>
+                                <button className="btn btn-outline-primary mt-2 event-none-btn" onClick={handleExploreClick}>
                                     Explore Other States
                                     <span>
                                         <img src={arrowtransparent} alt="Arrow" className="arrow-circle-img" />

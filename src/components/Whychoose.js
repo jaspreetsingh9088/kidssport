@@ -4,7 +4,7 @@ import speaker1 from '../assets/images/speaker1.png';
 import troffy from '../assets/images/troffy.png';
 import imaginpicture from '../assets/images/imaginpicture.png';
 import happycustomer from '../assets/images/happycustomer.png';
-import youngboy from '../assets/images/youngboy.png';
+import youngboy from '../assets/images/young-boy.png';
 import rightarrows from '../assets/images/rightarrows.png';
 
 function Whychoose() {

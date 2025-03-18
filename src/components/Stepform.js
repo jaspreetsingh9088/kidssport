@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import fancyicon from "../assets/images/fancyicon.png";
 import linethree from "../assets/images/linethree.png";
@@ -6,6 +6,7 @@ import rightarrows from "../assets/images/rightarrows.png";
 import leftarrows from "../assets/images/leftarrows.png";
 import listdot from "../assets/images/listdot.png";
 import { useNavigate } from "react-router-dom";
+
 
 function Stepform() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -40,8 +41,28 @@ function Stepform() {
     insurance_info: "",
     password: "",
   });
+
   const [hasMedicalCondition, setHasMedicalCondition] = useState(null);
   const [showMedicalInputs, setShowMedicalInputs] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const [showToast, setShowToast] = useState(false);
+  const [showErrorToast, setShowErrorToast] = useState(false);
+
+  useEffect(() => {
+    if (successMessage) {
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 5000);
+    }
+  }, [successMessage]);
+
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      setShowErrorToast(true);
+      setTimeout(() => setShowErrorToast(false), 5000);
+    }
+  }, [errors]);
 
   const handleNextStep = () => {
     if (currentStep === 3 && hasMedicalCondition === null) {
@@ -76,26 +97,22 @@ function Stepform() {
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
-    if (type === "file") {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: files[0],
-      }));
-    } else {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
-    }
+  
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "file" ? files[0] : value, 
+    }));
   };
+  
 
   const handleRegister = async () => {
     const apiUrl = "https://mitdevelop.com/kidsadmin/api/create-user";
     const form = new FormData();
+
     Object.entries(formData).forEach(([key, value]) => {
       form.append(key, value);
     });
-  
+
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
@@ -104,18 +121,32 @@ function Stepform() {
           Accept: "application/json",
         },
       });
+
       const result = await response.json();
+
       if (response.ok) {
-        alert("Registration Successful!");
-        window.location.href = "/login"; 
+        setSuccessMessage("Registration Successful!");
+        setErrors({});
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 2000);
       } else {
-        alert("Error: " + result.message);
+        if (result.errors) {
+          setErrors(result.errors);
+          setSuccessMessage("");
+        } else {
+          setErrors({ general: result.message || "Something went wrong!" });
+          setSuccessMessage("");
+        }
       }
     } catch (error) {
       console.error("Error during registration:", error);
-      alert("An error occurred. Please try again.");
+      setErrors({ general: "An error occurred. Please try again." });
+      setSuccessMessage("");
     }
   };
+
+
   
   return (
     <section className="register-form-steps">
@@ -144,6 +175,48 @@ function Stepform() {
       </div>
 
       <div className="container mt-5 mb-5">
+{/* Toast Container */}
+<div className="position-fixed top-0 end-0 p-3" style={{ zIndex: 1050 }}>
+        {/* Success Toast */}
+        {showToast && (
+          <div className="toast show align-items-center text-bg-success border-0" role="alert">
+            <div className="d-flex">
+              <div className="toast-body">{successMessage}</div>
+              <button
+                type="button"
+                className="btn-close btn-close-white me-2 m-auto"
+                onClick={() => setShowToast(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        )}
+
+        {/* Error Toast */}
+        {showErrorToast && (
+          <div className="toast show align-items-center text-bg-danger border-0" role="alert">
+            <div className="d-flex">
+              <div className="toast-body">
+                <ul>
+                  {Object.entries(errors).map(([field, messages]) => (
+                    <li key={field}>
+                      <strong>{field}:</strong> {Array.isArray(messages) ? messages.join(", ") : messages}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <button
+                type="button"
+                className="btn-close btn-close-white me-2 m-auto"
+                onClick={() => setShowErrorToast(false)}
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Step Form */}
         <div className="box-step-form">
           <div className="step-indicator">
             <div className={`step ${currentStep === 1 ? "active" : ""}`}>
@@ -211,27 +284,27 @@ function Stepform() {
                       value={formData.gender}
                       onChange={handleChange}
                     >
-                      <option>Gender</option>
-                      <option>Male</option>
-                      <option>Female</option>
+                      <option value="">Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                   </div>
                      <div className="col-lg-4">
-        <select
-          className="form-select"
-          name="grade_level"
-          value={formData.grade_level}
-          onChange={handleChange}
-        >
-          <option value="">Select Grade Level</option>
-          {Array.from({ length: 12 }, (_, index) => index + 1).map((grade) => (
-            <option key={grade} value={grade}>
-              Grade {grade}
-            </option>
-          ))}
-        </select>
-      </div>
-    </div>
+                    <select
+                      className="form-select"
+                      name="grade_level"
+                      value={formData.grade_level}
+                      onChange={handleChange}
+                    >
+                      <option value="">Select Grade Level</option>
+                      {Array.from({ length: 12 }, (_, index) => index + 1).map((grade) => (
+                        <option key={grade} value={grade}>
+                          Grade {grade}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
 
                 {/* Additional Address and School Info */}
                 <div className="row">
@@ -242,7 +315,7 @@ function Stepform() {
                       id="Streetaddress"
                       placeholder="Street Address"
                       name="address"
-                      value={formData.street_address}
+                      value={formData.address}
                       onChange={handleChange}
                     />
                   </div>
@@ -306,7 +379,7 @@ function Stepform() {
                       type="text"
                       className="form-control"
                       id="Language"
-                      placeholder="Language(s) Spoken at Home"
+                      placeholder="Known Languages"
                       name="languages"
                       value={formData.languages}
                       onChange={handleChange}
@@ -330,10 +403,20 @@ function Stepform() {
                       name="adhar_number"
                       value={formData.adhar_number}
                       onChange={handleChange}
+                      onInput={(e) => {
+                        let value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                        value = value.substring(0, 12); // Limit to 12 digits
+                        e.target.value = value
+                          .replace(/(\d{4})(\d{4})?(\d{4})?/, (match, p1, p2, p3) => {
+                            return [p1, p2, p3].filter(Boolean).join("-");
+                          });
+                      }}
                       className="form-control"
                       id="Adharcard"
-                      placeholder="Addhar Card Number"
+                      placeholder="XXXX-XXXX-XXXX"
+                      maxLength="14" // 12 digits + 2 hyphens
                     />
+
                   </div>
                   <div className="col-lg-4">
                     <label className="form-label">
@@ -372,19 +455,7 @@ function Stepform() {
                     />
                   </div>
                 </div>
-                <div className="row">
-                  <div className="col-lg-6">
-                    <input
-                      type="password"
-                      className="form-control"
-                      id="Password"
-                      placeholder="User password"
-                      name="password"
-                      value={formData.password}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
+           
               </div>
             )}
 
@@ -432,6 +503,19 @@ function Stepform() {
                       onChange={handleChange}
                     />
                   </div>
+                  <div className="row">
+                  <div className="col-lg-6 mt-4">
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="Password"
+                      placeholder="User password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
                 </div>
               </div>
             )}
@@ -476,109 +560,105 @@ function Stepform() {
 
             {/* Step 4: Medical Information */}
             {currentStep === 4 && (
-              <div className="form-step">
-                {hasMedicalCondition === null && (
-                  <div className="row">
-                    <div className="col-lg-12 mb-4">
-                      <p>Do you have any medical conditions?</p>
-                      <div className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="medicalCondition"
-                          id="medicalConditionYes"
-                          value="yes"
-                          onChange={() => {
-                            setHasMedicalCondition(true);
-                            setShowMedicalInputs(true);
-                          }}
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="medicalConditionYes"
-                        >
-                          Yes
-                        </label>
-                      </div>
-                      <div className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="medicalCondition"
-                          id="medicalConditionNo"
-                          value="no"
-                          onChange={() => {
-                            setHasMedicalCondition(false);
-                            setShowMedicalInputs(false);
-                            setCurrentStep(5);
-                          }}
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="medicalConditionNo"
-                        >
-                          No
-                        </label>
-                      </div>
-                    </div>
+            <div className="form-step">
+              {hasMedicalCondition === null && ( // Show Yes/No checkbox only if it's null
+                <div className="row">
+                  <div className="col-lg-12 mb-4">
+                    <p>Do you have any medical conditions?</p>
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="radio"
+                        name="medicalCondition"
+                        id="medicalConditionYes"
+                        value="yes"
+                        onChange={() => {
+                          setHasMedicalCondition(true);
+                          setShowMedicalInputs(true);
+                        }}
+                      />
+                    <label className="form-check-label" htmlFor="medicalConditionYes">
+                      Yes
+                    </label>
                   </div>
-                )}
-                {hasMedicalCondition === true && showMedicalInputs && (
-                  <div className="row">
-                    <div className="col-lg-6 mb-4">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Known Medical Conditions"
-                        name="known_medical_condition"
-                        value={formData.known_medical_condition}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="col-lg-6">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Medications"
-                        name="medications"
-                        value={formData.medications}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="col-lg-6 mb-4">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Doctor's Name"
-                        name="doctors_name"
-                        value={formData.doctors_name}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="col-lg-6">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Doctor's Contact"
-                        name="dr_contact"
-                        value={formData.dr_contact}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="col-lg-6">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Insurance Information"
-                        name="insurance_info"
-                        value={formData.insurance_info}
-                        onChange={handleChange}
-                      />
-                    </div>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="medicalCondition"
+                      id="medicalConditionNo"
+                      value="no"
+                      onChange={() => {
+                        setHasMedicalCondition(false);
+                        setShowMedicalInputs(false);
+                        setCurrentStep(5);
+                      }}
+                    />
+                    <label className="form-check-label" htmlFor="medicalConditionNo">
+                      No
+                    </label>
                   </div>
-                )}
+                </div>
               </div>
             )}
+
+          {hasMedicalCondition === true && showMedicalInputs && (
+            <div className="row">
+              <div className="col-lg-6 mb-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Known Medical Conditions"
+                  name="known_medical_condition"
+                  value={formData.known_medical_condition}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-lg-6">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Medications"
+                  name="medications"
+                  value={formData.medications}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-lg-6 mb-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Doctor's Name"
+                  name="doctors_name"
+                  value={formData.doctors_name}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-lg-6">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Doctor's Contact"
+                  name="dr_contact"
+                  value={formData.dr_contact}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-lg-6">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Insurance Information"
+                  name="insurance_info"
+                  value={formData.insurance_info}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
           </form>
 
           {/* Navigation Buttons */}

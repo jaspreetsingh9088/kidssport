@@ -32,29 +32,60 @@ function Eventform() {
     const fetchEventData = async () => {
       const token = localStorage.getItem("token");
       if (!token) return;
-
+  
       try {
         const response = await axios.get(
           `https://mitdevelop.com/kidsadmin/api/event/${slug}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
-        const event = response.data.data || {};
+  
+        const event = response.data.data || null; 
+  
+        if (!event || !event.id) {
+          setMessage("No event found or invalid event slug.");
+          setFormData((prev) => ({
+            ...prev,
+            event_id: "",  
+            sport: "",
+            ageGroup: "",
+            state: "",
+            city: "",
+            division: "",
+            area: "",
+          }));
+          return;
+        }
+  
         setFormData((prev) => ({
           ...prev,
           event_id: event.id,
-          sport: event.category || "N/A",
-          ageGroup: event.age_group || "N/A",
-          state: event.state || "N/A",
-          city: event.city || "N/A",
-          division: event.division || "N/A",
-          area: event.area || "N/A",
+          sport: event.category || "",
+          ageGroup: event.age_group || "",
+          state: event.state || "",
+          city: event.city || "",
+          division: event.division || "",
+          area: event.area || "",
         }));
       } catch (error) {
         console.error("Error fetching event data:", error);
+        setMessage("Error fetching event details. Please try again.");
+        setFormData((prev) => ({
+          ...prev,
+          event_id: "", 
+          sport: "",
+          ageGroup: "",
+          state: "",
+          city: "",
+          division: "",
+          area: "",
+        }));
       }
     };
+  
     fetchEventData();
   }, [slug]);
+  
+  
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -69,7 +100,7 @@ function Eventform() {
         setFormData((prev) => ({
           ...prev,
           user_id: user.id,
-          registrationNumber: user.registration_number || "",
+          registrationNumber: user.customer_id || "",
           studentName: user.name || "",
           email: user.email || "",
           phone: user.phone_number || "",
@@ -83,10 +114,10 @@ function Eventform() {
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
-    setCheckboxError(false); // Remove error when checked
+    setCheckboxError(false); 
   };
 
-  const [orderId, setOrderId] = useState(null); // State to store order ID
+  const [orderId, setOrderId] = useState(null); 
 
   const handlePayment = async () => {
     if (!isChecked) {
@@ -169,10 +200,10 @@ useEffect(() => {
 
   if (paymentStatus === "success" && storedOrderId) {
       handlePaymentSuccess(storedOrderId);
-      localStorage.removeItem("order_id"); // Remove after handling
+      localStorage.removeItem("order_id"); 
   } else if (paymentStatus === "failure" && storedOrderId) {
       handlePaymentFailure(storedOrderId);
-      localStorage.removeItem("order_id"); // Remove after handling
+      localStorage.removeItem("order_id"); 
   }
 }, [location]);
 
@@ -210,6 +241,7 @@ useEffect(() => {
               {message}
             </div>
           )}
+          
           <form>
             <div className="row">
               {[

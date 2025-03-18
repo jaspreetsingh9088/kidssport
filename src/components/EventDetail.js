@@ -49,17 +49,27 @@ const EventDetail = () => {
   }, [slug]);
   
   useEffect(() => {
-    if (selectedCity) {
-      const filteredDivisions = event?.divisions?.filter((division) =>
-        event?.cities?.some((city) => city.id === parseInt(selectedCity) && division.division.includes(city.city))
-      ) || [];
-      setDivisions(filteredDivisions);
-      setSelectedDivision(""); 
+    if (event && selectedCity) {
+      const cityObj = event?.cities?.find(city => city.id.toString() === selectedCity);
+  
+      if (cityObj) {
+        const cityName = cityObj.city.trim().toLowerCase();
+  
+        if (cityName === "mohali" || cityName === "mumbai") { 
+          setDivisions(event.divisions ?? []); 
+        } else {
+          setDivisions([]); 
+        }
+      } else {
+        setDivisions([]); 
+      }
     } else {
       setDivisions([]);
     }
-  }, [selectedCity]);
-
+    setSelectedDivision(""); 
+  }, [selectedCity, event]);
+  
+  
     useEffect(() => {
       if (selectedCity === "133024") {  
       axios.get("https://mitdevelop.com/kidsadmin/api/get-areas")
@@ -97,26 +107,16 @@ const EventDetail = () => {
     
     const [errors, setErrors] = useState({
       city: "",
-      division: "",
-      area: "",
       ageGroup: "",
       batches: "",
     });
     
     const validateForm = () => {
       let valid = true;
-      let newErrors = { city: "", division: "", area: "", ageGroup: "", batches: "" };
+      let newErrors = { city: "", ageGroup: "", batches: "" };
   
       if (!selectedCity) {
         newErrors.city = "City is required";
-        valid = false;
-      }
-      if (!selectedDivision) {
-        newErrors.division = "Division is required";
-        valid = false;
-      }
-      if (!selectedArea) {
-        newErrors.area = "Area is required";
         valid = false;
       }
       if (!selectedAgeGroup) {
@@ -194,7 +194,7 @@ const EventDetail = () => {
                 <option value="">Select Division</option>
                 {divisions.map((division) => <option key={division.id} value={division.id}>{division.division}</option>)}
               </select>
-              <div className="text-danger">{errors.division}</div>
+              
               <select 
                 className="form-control mb-2" 
                   value={selectedArea} 
@@ -209,7 +209,7 @@ const EventDetail = () => {
                     <option disabled>No areas available</option>  
                   )}
                 </select>
-                <div className="text-danger">{errors.area}</div>
+               
 
                 {/* Age Group Dropdown */}
                 <select
