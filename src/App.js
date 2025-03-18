@@ -46,51 +46,45 @@ function App() {
   
   
 
-  const fetchLocation = async () => {
-    try {
-      const apiKey = "AIzaSyDo73Df-UckCfpBX8aQI-TqCD4wLXWZFQU"; 
+  const fetchLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
   
-      console.log("Fetching user location...");
+          
+          const geocodeResponse = await fetch(
+            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDo73Df-UckCfpBX8aQI-TqCD4wLXWZFQU`
+          );
+          const geocodeData = await geocodeResponse.json();
   
-      const response = await fetch(`https://www.googleapis.com/geolocation/v1/geolocate?key=${apiKey}`, {
-        method: "POST",
-      });
+          if (geocodeData.results.length > 0) {
+            const stateComponent = geocodeData.results[0].address_components.find(comp =>
+              comp.types.includes("administrative_area_level_1")
+            );
   
-      const data = await response.json();
-      console.log("Google Geolocation Response:", data);
-  
-      if (data.location) {
-        const { lat, lng } = data.location;
-        console.log(`Latitude: ${lat}, Longitude: ${lng}`);
-  
-        // Reverse geocode
-        const geocodeResponse = await fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`
-        );
-        const geocodeData = await geocodeResponse.json();
-        console.log("Reverse Geocode Response:", geocodeData);
-  
-        if (geocodeData.results.length > 0) {
-          const addressComponents = geocodeData.results[0].address_components;
-          const stateComponent = addressComponents.find((comp) => comp.types.includes("administrative_area_level_1"));
-  
-          if (stateComponent) {
-            const userState = stateComponent.long_name;
-            console.log("Detected State:", userState);
-            setSelectedState(userState);
-            localStorage.setItem("userState", userState);
-            setIsLocationOpen(false);
-          } else {
-            console.error("State not found in response.");
+            if (stateComponent) {
+              const userState = stateComponent.long_name;
+              console.log("Detected State:", userState);
+              setSelectedState(userState);
+              localStorage.setItem("userState", userState);
+              setIsLocationOpen(false);
+            } else {
+              console.error("State not found in response.");
+            }
           }
+        },
+        (error) => {
+          console.error("Error getting location:", error);
         }
-      } else {
-        console.error("Location data not available.");
-      }
-    } catch (error) {
-      console.error("Error fetching location:", error);
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
     }
   };
+  
+  
   
   
 
