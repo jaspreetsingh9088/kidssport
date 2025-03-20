@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { FaArrowRight } from 'react-icons/fa';
-import fancyicon from '../assets/images/fancyicon.png'
-import linethree from '../assets/images/linethree.png'
+import basketball from '../assets/images/basketball.png'
+import rackets from '../assets/images/rackets.png'
 
 function Banner() {
   const [banners, setBanners] = useState([]);
@@ -67,12 +67,12 @@ function Banner() {
                   <div className='row'>
                     <div className='col-lg-6'>
                       <div className='banner-floating-icons'>
-                      <img src={fancyicon} alt="" className="fancy-icons-banner fancy-icons-banner-one floating" />
+                      <img src={basketball} alt="" className="fancy-icons-banner fancy-icons-banner-one floating" />
                       </div>
                     </div>
                     <div className='col-lg-6'>
                     <div className='banner-floating-icons'>
-                      <img src={linethree} alt="" className="fancy-icons-banner floating" />
+                      <img src={rackets} alt="" className="fancy-icons-banner floating" />
                     </div>
                     </div>
                   </div>

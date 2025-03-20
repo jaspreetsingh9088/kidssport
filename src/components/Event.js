@@ -34,7 +34,7 @@ function Event() {
                             physical activities, fostering teamwork and healthy competition. These events focus on
                             inclusivity, safety, and creating positive experiences for kids of all skill levels.</p>
                     </div>
-                    <div class="d-flex gap-4 justify-content-center">
+                    <div class="d-flex gap-4 justify-content-center mt-3">
                         <div className='d-flex gap-2 align-items-center'>
                         <Link to="/Contactus"> <p className="phone1">Contact Us</p></Link>
                         <img src={rightarrow} alt="" class="right-arrow"/>

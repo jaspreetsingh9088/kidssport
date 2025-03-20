@@ -66,6 +66,7 @@ function Testimonial() {
 
     return (
         <>
+         
             <section className="Testimonial">
                 <div className="container purple-lg-review">
                     <div className="row align-items-center">
@@ -143,7 +144,6 @@ function Testimonial() {
                     </div>
                 </div>
             </section>
-
             <section className="child-group">
                 <div className="container">
                     <img
@@ -153,6 +153,7 @@ function Testimonial() {
                     />
                 </div>
             </section>
+           
         </>
     );
 }

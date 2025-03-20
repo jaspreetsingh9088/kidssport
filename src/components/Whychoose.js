@@ -23,7 +23,7 @@ function Whychoose() {
                         </p>
 
                         <Link to="/aboutus">
-                            <button className="know more1 mt-3">Know More <span className='img-right-arrow img-right-arrows'>
+                            <button className="know more1 mt-4">Know More <span className='img-right-arrow img-right-arrows'>
                                 <img src={rightarrows} alt='' /> </span>
                             </button>
                         </Link>

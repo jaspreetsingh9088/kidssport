@@ -26,12 +26,12 @@ a.book-now-btn:hover {
     animation-duration: 5s; /* Iska time kam kar diya */
   }
 .hero-image-kids {
-	width: 72%;
+	width: 70%;
 	display: block;
 	margin: auto;
 }
 img.fancy-icons-banner.fancy-icons-banner-one {
-    left: 36px;
+    left: 7px;
     top: 87px;
     width: 68px;
 }
@@ -41,7 +41,7 @@ img.fancy-icons-banner.fancy-icons-banner-one {
     position: relative;
 }
 img.fancy-icons-banner {
-    width: 60px;
+    width: 93px;
     position: absolute;
     top: 46px;
 }
@@ -108,9 +108,9 @@ a.book-now-btn {
     color: #FF9638;
 }
 img.young-boy {
-    width: 62%;
+    width: 64%;
     position: absolute;
-    top: 20px;
+    top: 49px;
 }
 /* .navbar-light .navbar-nav .nav-link {
     color: black !important;
@@ -480,19 +480,20 @@ h5.Activities {
     font-weight: 700;
     color: #002d45;
     font-size: 24px;
-    padding-top: 3px;
+    padding-top: 16px;
 }
 section.program p.sports-pg {
-    color: #A6A6A6;
+    color: #000000;
     letter-spacing: 0;
     font-size: 16px;
+    margin-bottom: 18px;
 }
-
 .img1 {
     background-color: white;
     padding: 20px;
     border-radius: 20px;
     width: 100%;
+    height: 100%;
 }
 
 p.code {
@@ -610,6 +611,7 @@ img.child-group-img {
 }
 .row.sponsors-logo {
     padding-top: 22px;
+    padding-bottom: 50px;
 }
 h2.Engaging.Engaging-one {
     width: 86%;
@@ -650,10 +652,11 @@ p.Gareema {
 img.sponser-logo-wid {
     display: block;
     margin: auto;
-    width: 100%;
-    background: #FFFBF7;
+    width: 95%;
+    background: #fffbf8;
     border: 1px solid #FF9638;
-    border-radius: 20px;
+    border-radius: 16px;
+    box-shadow: 3px 3px 0px #f3f3f3;
 }
 
 
@@ -815,11 +818,13 @@ img.circle-frame.circle-frame-two {
 
 img.child-sports {
     width: 100%;
+    border-radius: 16px;
 }
 
 section.latest-blog {
     background-color: #FFFAF6F2;
     padding-bottom: 110px;
+    padding-top: 50px;
 }
 
 .latest-gap {
@@ -1248,6 +1253,22 @@ img.circle-frame.circle-frame-two.floating-opposite {
 
 /* <top.css end> */
 @media only screen and (min-width: 1024px) and (max-width: 1099px) {
+    img.young-boy {
+        width: 62%;
+        position: absolute;
+        top: 74px;
+    }
+    button.know.more1 {
+        border-radius: 300px;
+        border: 0px;
+        background: linear-gradient(45deg, #74BB3B, #259E44);
+        color: white;
+        width: 56%;
+        font-family: 'Lato';
+        padding: 8px;
+        font-size: 18px;
+        transition: 0.3s;
+    }
     ul.navbar-nav.ms-auto {
         margin-left: auto !important;
         justify-content: flex-start;
@@ -1649,11 +1670,11 @@ img.circle-frame.circle-frame-two.floating-opposite {
         bottom: 0;
         top: -39px;
     }
-    img.young-boy {
-        width: 74%;
-        position: absolute;
-        top: 37px;
-    }
+   img.young-boy {
+    width: 60%;
+    position: absolute;
+    top: 65px;
+}
     img.child-group-img {
         width: 90%;
         padding-top: 38px;
@@ -2945,7 +2966,6 @@ img.circle-frame.circle-frame-three.floating {
     img.sponser-logo-wid {
         display: block;
         margin: auto;
-        width: 100%;
         background: #FFFBF7;
         border: 1px solid #FF9638;
         border-radius: 8px;
@@ -2980,16 +3000,26 @@ img.circle-frame.circle-frame-three.floating {
         font-size: 28px;
         margin-bottom: 0;
     }
+    section.Sponsors h2 {
+        padding-bottom: 7px !important;
+    }
+    section.Sponsors {
+        padding: 18px;
+    }
     button.know.more1 {
         border-radius: 300px;
         border: 0px;
         background: linear-gradient(45deg, #74BB3B, #259E44);
         color: white;
-        width: 52%;
+        width: 100%;
         font-family: 'Lato';
         padding: 8px;
         font-size: 17px;
-        margin-top: 0 !important;
+        margin-top: 16px !important;
+    }
+    section.Sponsors {
+        padding-bottom: 10px !important;
+        padding-top: 0px !important;
     }
     .container.box-program-main {
         background: linear-gradient(116deg, #FF9638, #FF8010);
@@ -3031,9 +3061,12 @@ img.circle-frame.circle-frame-three.floating {
         width: 100%;
     }
     img.young-boy {
-        width: 100%;
+        width: 50%;
         position: relative;
         top: 0px;
+        display: block;
+        margin: auto;
+        margin-top: 18px;
     }
     .navbar-nav .nav-item {
         padding: 0px 2px;
@@ -3185,12 +3218,14 @@ img.blog-images-arrow {
 }
 img.blog-images {
     width: 100%;
+    border-radius: 16px;
 }
 .box-blog {
     background: #259E44;
     padding: 20px;
     border-radius: 20px;
     transition: 0.3s;
+    height: 100%;
 }
 /* .box-blog h5 {
     font-family: "Playfair", serif;
@@ -3506,9 +3541,9 @@ span.img-right-arrow.img-right-arrows img {
     margin-left: 0;
 }
 section.Program-detail .box-blog {
-    background: #FFF9F2;
+    background: #fffcf9;
     transition: 0.3s;
-    border: 1px solid #FFF9F2;
+    border: 1px solid #ff9638;
     padding-bottom: 14px;
 }
 
@@ -3592,7 +3627,7 @@ img.child-plays {
 span.img-right-arrow.img-right-arrows img {
     vertical-align: middle;
 }
-button.know.more1.mt-3:hover {
+button.know.more1.mt-4:hover {
     box-shadow: 2px 2px 47px #79e643ba;
 }
 
@@ -3802,6 +3837,8 @@ img.worker:hover {
 }
 section.Blog-page .box-blog {
     background: #fff;
+    border: 1px solid #ff9638;
+    box-shadow: 6px 5px 0px #ff9638;
 }
 section.Blog-page {
     background: #FFF5F0;
@@ -4984,7 +5021,7 @@ button.btn.btn-primary-login {
     text-align: center;
     display: block;
     margin: 15px auto; /* Centers the button */
-    transition: background 0.3s ease-in-out;
+    transition:  0.3s ease-in-out;
   }
   
   .btn-primary-otp:hover {
@@ -5024,7 +5061,7 @@ a.nav-linked {
     font-size: 16px;
     font-weight: bold;
     border-radius: 30px;
-    transition: background 0.3s;
+    transition: 0.3s;
   }
   
   .toggle-option.active {
@@ -5039,7 +5076,7 @@ a.nav-linked {
     padding: 10px;
     color: #333; /* Dark text for contrast */
     font-weight: bold;
-    transition: background 0.3s;
+    transition:  0.3s;
     margin-left: 147px;
   }
   
@@ -5078,4 +5115,68 @@ a.nav-linked {
 }
 .alert.alert-warning.p-4.shadow-sm.rounded {
 	background: #f77a1f0a;
+}
+section.Sponsors {
+    padding-bottom: 80px;
+    padding-top: 42px;
+}
+section.Sponsors h2 {
+    padding-bottom: 24px;
+}
+:focus-visible {
+    outline: unset !important;
+}
+section.disclaimer.kidzsport-disclaimer.show a:hover {
+    color: #9a198e !important;
+}
+section.disclaimer.kidzsport-disclaimer.show a {
+    color: #ff9638;
+    transition: 0.3s;
+}
+section.disclaimer.kidzsport-disclaimer.show li {
+    font-family: 'Lato';
+    font-size: 18px;
+}
+.border-or-one p.sports-pg {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+}
+.border-or-two p.sports-pg {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+}
+.border-or-three p.sports-pg {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+}
+.border-or-four p.sports-pg {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+}
+section.Program-detail {
+    padding-bottom: 50px;
+}
+section.Blog-page .box-blog:hover {
+    box-shadow: 0px 0px 0px #ff9638;
+}
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 24px;
+    line-height: 1;
+    opacity: .75;
+    color: #ff9638;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
