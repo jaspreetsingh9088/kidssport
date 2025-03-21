@@ -113,7 +113,7 @@ function Blog() {
                       </div>
                     </div>
                   </div>
-                  <h5>{blog.blog_name}</h5>
+                  <h5 class="fw-bold">{blog.blog_name}</h5>
 
 <Link to={`/blog/${blog.slug}`}>
   {/* Your link content here */}

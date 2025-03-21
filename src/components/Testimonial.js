@@ -81,39 +81,39 @@ function Testimonial() {
                                 <div className="slider-container">
                                     <div className="testimonial">
                                         <p>
-                                            My 10-year-old daughter recently participated in the kids' sports bootcamp offered by Kidscamp, and I can't say enough positive things about her experience. From start to finish, the program was incredibly well-organized, engaging, and fun for kids of all levels.
+                                        KidzSports has been an amazing experience for my son. Not only has he improved his soccer skills, but he’s also made wonderful friends along the way!” 
                                         </p>
                                         <img
                                             src={profilereview}
                                             alt="Testimonial"
                                             class="girl-img"
                                         />
-                                        <h3>Jessica</h3>
-                                        <h4>Mother of Gareema</h4>
+                                        <h3>Ranvijay Singh</h3>
+                                        <h4>Parent</h4>
                                     </div>
                                     <div className="testimonial">
                                         <p>
-                                            My 10-year-old daughter recently participated in the kids' sports bootcamp offered by Kidscamp, and I can't say enough positive things about her experience. From start to finish, the program was incredibly well-organized, engaging, and fun for kids of all levels.
+                                        “I love coming to KidzSports events! I have so much fun playing basketball and learning new tricks.” – 
                                         </p>
                                         <img
                                             src={profilereview}
                                             alt="Testimonial"
                                             class="girl-img"
                                         />
-                                        <h3>Jessica</h3>
-                                        <h4>Mother of Gareema</h4>
+                                        <h3>Prakash Khurana</h3>
+                                        <h4>Parent</h4>
                                     </div>
                                     <div className="testimonial">
                                         <p>
-                                            My 10-year-old daughter recently participated in the kids' sports bootcamp offered by Kidscamp, and I can't say enough positive things about her experience. From start to finish, the program was incredibly well-organized, engaging, and fun for kids of all levels.
+                                        “As a parent, I feel confident knowing my child is in a safe and encouraging environment. The coaches are professional and truly care about the kids' development.” – 
                                         </p>
                                         <img
                                             src={profilereview}
                                             alt="Testimonial"
                                             class="girl-img"
                                         />
-                                        <h3>Jessica</h3>
-                                        <h4>Mother of Gareema</h4>
+                                        <h3>Akshita Sehgal</h3>
+                                        <h4>Parent</h4>
                                     </div>
 
                                 </div>

@@ -3606,7 +3606,7 @@ hr.line-programm-sec {
     margin-top: 7px;
 }
 section.Program-detail .box-blog:hover {
-    box-shadow: 0px 0px 16px #fffbf8;
+    box-shadow: 6px 5px 0px #FF9638;
     border: 1px solid #002d45;
 }
 .sports-detail {
@@ -3837,8 +3837,8 @@ img.worker:hover {
 }
 section.Blog-page .box-blog {
     background: #fff;
-    border: 1px solid #ff9638;
-    box-shadow: 6px 5px 0px #ff9638;
+    border: 1px solid #259E44;
+    box-shadow: 6px 5px 0px #259E44;
 }
 section.Blog-page {
     background: #FFF5F0;
@@ -5179,4 +5179,114 @@ section.Blog-page .box-blog:hover {
     color: #ff9638;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+p.invovled-pg {
+    font-size: 20px;
+    color: #002d45;
+    margin-bottom: 0px;
+}
+
+section.get-involved {
+    padding: 50px;
+}
+
+h4.for-parent {
+    color: #ff8010;
+    font-weight: 600;
+    margin-top: 30px;
+    padding-bottom: 15px;
+}
+p.together-pg {
+    font-size: 24px;
+    color: #fff;
+    margin-top: 50px;
+    background: linear-gradient(45deg, #9b198e, #c40c8c);
+    border-radius: 10px;
+    padding: 10px;
+}
+p.ivovled-pg {
+    color: #002d45;
+}
+h2.sports-get {
+    font-size: 48px;
+    color: #28a745;
+    margin-bottom: 0px;
+}
+
+.contact-section {
+    padding: 0px 20px;
+    text-align: center;
+    padding-bottom: 30px;
+}
+  
+  .contact-section h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #002D45;
+    font-family: "Playfair", serif;
+    font-size: 40px;
+}
+  
+  .contact-section h1 span {
+    color: #1e1e1e;
+  }
+  
+  .contact-section p {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .contact-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+  }
+  
+  .contact-box {
+    flex: 1 1 220px;
+    border-top: 3px solid #6f42c1;
+    padding: 30px 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact-box:nth-child(2), .contact-box:nth-child(4) {
+    border-top-color: #f4a300;
+  }
+  
+  .contact-box:hover {
+    transform: translateY(-5px);
+  }
+  
+  .contact-box img {
+    width: 40px;
+    margin-bottom: 15px;
+  }
+  
+  .contact-box h3 {
+    margin-bottom: 10px;
+    color: #222;
+  }
+  
+  .contact-box a {
+    color: #6f42c1;
+    text-decoration: none;
+  }
+  
+  .contact-box a:hover {
+    text-decoration: underline;
+  }
+  
+  img.location-icon {
+    width: 29%;
 }
