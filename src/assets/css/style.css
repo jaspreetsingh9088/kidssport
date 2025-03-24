@@ -224,6 +224,7 @@ p.about {
     color: #FF9638;
     font-size: 18px;
     margin-bottom: 8px;
+    font-weight: 700
 }
 h2.Engaging {
     font-size: 52px;
@@ -252,10 +253,11 @@ p.interactive {
 }
 
 p.Empowering {
-    font-size: 18px;
-    color: #002D45;
-    margin-bottom: 0px;
-    letter-spacing: 1px;
+	font-size: 18px;
+	color: #002D45;
+	margin-bottom: 0px;
+	letter-spacing: 1px;
+	font-weight: bold;
 }
 button.Know{
     width: 35%;
@@ -332,7 +334,7 @@ p.text-center.Our-programs-color {
 
 
 p.ratios {
-    font-size: 46px;
+    font-size: 18px;
     font-weight: 800;
     margin-bottom: 0px;
     color: #002D45;
@@ -480,10 +482,11 @@ h5.Activities {
     font-weight: 700;
     color: #002d45;
     font-size: 24px;
-    padding-top: 16px;
+    padding-top: 5px;
 }
+
 section.program p.sports-pg {
-    color: #000000;
+    color: #36454F;
     letter-spacing: 0;
     font-size: 16px;
     margin-bottom: 18px;
@@ -3606,8 +3609,16 @@ hr.line-programm-sec {
     margin-top: 7px;
 }
 section.Program-detail .box-blog:hover {
-    box-shadow: 6px 5px 0px #FF9638;
-    border: 1px solid #002d45;
+    box-shadow: 6px 5px 0px #FF9638 !important;
+    
+}
+
+img.blog-images.rounded {
+    border-radius: 20px !important;
+}
+.box-blog.shadow-sm.rounded {
+    border-radius: 20px !important;
+    padding: 16px;
 }
 .sports-detail {
     padding-top: 50px;
@@ -5084,7 +5095,7 @@ a.nav-linked {
     background: #bbb; /* Slightly darker grey on hover */
   }
   .input-group.custom-search-bar {
-	width: 55%;
+	width: 65%;
 	margin-left: auto;
 }
 .btn.btn-warning {
@@ -5137,36 +5148,20 @@ section.disclaimer.kidzsport-disclaimer.show li {
     font-family: 'Lato';
     font-size: 18px;
 }
-.border-or-one p.sports-pg {
+
+.border-or-one p.sports-pg, .border-or-two p.sports-pg, .border-or-three p.sports-pg, .border-or-four p.sports-pg {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
+    overflow: unset;
+    text-overflow: unset;
+    -webkit-line-clamp: unset;
 }
-.border-or-two p.sports-pg {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
-}
-.border-or-three p.sports-pg {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
-}
-.border-or-four p.sports-pg {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
-}
+
+
 section.Program-detail {
     padding-bottom: 50px;
+    background: #f77a1f0d;
+    padding-top: 20px;
 }
 section.Blog-page .box-blog:hover {
     box-shadow: 0px 0px 0px #ff9638;
@@ -5196,6 +5191,9 @@ h4.for-parent {
     font-weight: 600;
     margin-top: 30px;
     padding-bottom: 15px;
+    font-family: "Playfair", serif;
+    font-size: 200%;
+
 }
 p.together-pg {
     font-size: 24px;
@@ -5218,6 +5216,7 @@ h2.sports-get {
     padding: 0px 20px;
     text-align: center;
     padding-bottom: 30px;
+    padding-top: 55px;
 }
   
   .contact-section h1 {
@@ -5236,7 +5235,7 @@ h2.sports-get {
   .contact-section p {
     max-width: 700px;
     margin: 0 auto 40px;
-    color: #555;
+    color: #36454F;
     line-height: 1.6;
   }
   
@@ -5286,7 +5285,79 @@ h2.sports-get {
   .contact-box a:hover {
     text-decoration: underline;
   }
-  
-  img.location-icon {
-    width: 29%;
+  .social-links.mt-8 {
+	margin-top: 50px;
+}
+section.team h4 {
+    color: #ff9638;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.stand-box {
+    background: #6cb83d05;
+    padding: 18px;
+    height: 100%;
+    border: 1px solid #ff9638;
+    border-radius: 16px;
+    box-shadow: 0px 22px 22px #ff963824;
+}
+section.team.westand-for h2 {
+    margin-bottom: 24px !important;
+}
+section.team.westand-for {
+    padding-top: 15px;
+    padding-bottom: 62px;
+}
+img.fairplay-icon {
+    width: 50px;
+}
+section.team.westand-for p {
+    margin-bottom: 0;
+    border-top: 1px solid #022e46;
+    margin-top: 6px;
+    padding-top: 7px;
+}
+.bg-color-white {
+    background: #fff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 56px;
+}
+h2.Engaging.Engaging-about {
+    width: 100%;
+}
+img.boys-together.boys-together-one {
+    width: 90%;
+    margin: auto;
+}
+.btn.btn-success.mt-3 {
+	background-color: #6bb83c;
+	border: 0;
+}
+p.about.safely-p {
+    font-family: 'Lato';
+}
+section.safety-rules.text-center h2 {
+    width: 100%;
+}
+section.safety-rules.text-center {
+    padding-top: 24px;
+}
+section.safety-rules.text-center h2 {
+    width: 100%;
+    padding-bottom: 50px;
+}
+section.safety-rules.text-center h4 {
+    color: #ff9638;
+    font-weight: 600;
+}
+.stand-box.stand-box-one {
+    background: #ff96380f;
+    padding: 18px;
+    height: 100%;
+    border: 1px solid #1e465b;
+    border-radius: 16px;
+    box-shadow: 0px 8px 0px #1e465b;
+    transition: 0.3s;
 }

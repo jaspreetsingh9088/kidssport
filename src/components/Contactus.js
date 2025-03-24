@@ -10,6 +10,10 @@ import ticks from '../assets/images/ticks.svg';
 import contactCoach from '../assets/images/contact-coach.png';
 import contactParent from '../assets/images/contact-parent.png';
 import locationIcon from '../assets/images/location-icon.png';
+import PhoneIcon  from '../assets/images/phone-icon.png';
+import EmailIcon from '../assets/images/mail-icon.png';
+import { FaInstagram, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
+
 
 function Contactus() {
     const [formData, setFormData] = useState({
@@ -74,7 +78,7 @@ function Contactus() {
                            
                         </div> */}
                     <div class="col-lg-6">
-                        <h4 class="for-parent">For Parents & Schools:
+                        <h4 class="for-parent">For Parents and Schools:
                         </h4>
                         <div className="d-flex gap-2 mb-2">
               <img src={ticks} alt="Childplay" className="check-icon" />
@@ -110,7 +114,7 @@ function Contactus() {
                 <img src={contactCoach} alt="Childplay" className="child-play" />
                     </div>
                  <div class="col-lg-6">
-                        <h4 class="for-parent">For Coaches & Volunteers:
+                        <h4 class="for-parent">For Coaches and Volunteers:
 
                         </h4>
                         <div className="d-flex gap-2 mb-2">
@@ -146,41 +150,6 @@ function Contactus() {
             </div>
         </section>
 
-
-        <section class="contact-section">
-  <div class="container">
-    <h1>We’d Love to Hear from You
-    </h1>
-    <p>For more information about our events, training programs, or partnership opportunities, please reach out. Our team is here to help answer your questions and guide you through the registration process.</p>
-
-    <div class="contact-options">
-      <div class="contact-box-1">
-        <img src="https://img.icons8.com/ios-filled/50/000000/new-post.png" alt="Email Icon" />
-        
-        <p>Email: info@kidzsport.com
-        </p>
-      </div>
-
-      <div class="contact-box-1">
-        <img  class="location-icon" src={locationIcon} alt="Chat Icon" />
-       
-        <p>Location: [Your City, Country]
-        </p>
-      </div>
-
-      <div class="contact-box-1">
-        <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Call Icon" />
-       
-        <p>Phone: +123 456 7890
-        </p>
-      </div>
-
-      
-    </div>
-  </div>
-</section>
-
-
          <section className='contact-us-sec'>
             <div className='box-form-contact'>
                 <div className='container'>
@@ -210,6 +179,51 @@ function Contactus() {
                 </div>
             </div>
         </section>
+
+        <section class="contact-section">
+  <div class="container">
+    <h1>We’d Love to Hear from You
+    </h1>
+    <p>For more information about our events, training programs, or partnership opportunities, please reach out. Our team is here to help answer your questions and guide you through the registration process.</p>
+
+    <div class="contact-options">
+      <div class="contact-box-1">
+        <img src={PhoneIcon} alt="Email Icon" />
+        
+        <p>Email: info@kidzsport.com
+        </p>
+      </div>
+
+      <div class="contact-box-1">
+        <img  class="location-icon" src={locationIcon} alt="Chat Icon" />
+       
+        <p>Location: [Mumbai,Mharashtra,India]
+        </p>
+      </div>
+
+      <div class="contact-box-1">
+        <img src={EmailIcon} alt="Call Icon" />
+       
+        <p>Phone: +123 456 7890
+        </p>
+      </div>
+
+    </div>
+
+    <div className="social-links mt-8">
+          <h3 className="text-xl font-semibold mb-2">
+          <FaInstagram className="hover:text-pink-600 transition" />  <FaFacebookF className="hover:text-blue-600 transition" />
+          <FaTwitter className="hover:text-sky-500 transition" /><FaYoutube className="hover:text-red-600 transition" />
+          </h3>
+          <p className="text-gray-700">
+            Connect with us and become part of the KidzSports family—where every child
+            has the chance to shine!
+          </p>
+        </div>
+
+    </div>
+    </section>
+
         </>
     );
 }

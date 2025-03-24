@@ -62,6 +62,7 @@ const Footer = () => {
               <a href="#"><p className='footer-links'>Fun & Fitness</p></a>
               <a href="#"><p className='footer-links'>Adventure Explorers</p></a>
               <a href="#"><p className='footer-links'>Team Building</p></a>
+              <a href="/Safety-Security"><p className='footer-links'>safety & Security</p></a>
             </div>
             <div className='col-lg-2'>
               <div className='footer-main-heading'>

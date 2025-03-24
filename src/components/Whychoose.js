@@ -35,16 +35,14 @@ function Whychoose() {
                         <div className="row">
                             <div className="col-lg-6">
                                 <div className="border-or-one">
-                                    <div className="d-flex gap-3 align-items-baseline">
+                                    <div className="d-flex gap-3 align-items-start">
                                         <div className="choose-input">
                                             <img src={speaker1} alt="" className="emoji-content-img" />
                                         </div>
                                         <div>
-                                            <p className="ratios">1:1</p>
+                                            <p className="ratios">Organized Competitions </p>
                                             <p className="sports-pg">
-                                                Optimizing staffo-camper of the
-                                                ratios for our personalized
-                                                camp experiences.
+                                            We bring together young athletes from different backgrounds to participate in well-structured sports tournaments, allowing them to test their skills, challenge themselves, and celebrate their achievements.
                                             </p>
                                         </div>
                                     </div>
@@ -52,16 +50,14 @@ function Whychoose() {
                             </div>
                             <div className="col-lg-6">
                                 <div className="border-or-two">
-                                    <div className="d-flex gap-3 align-items-baseline">
+                                    <div className="d-flex gap-3 align-items-start">
                                         <div className="choose-input1">
                                             <img src={imaginpicture} alt="" className="emoji-content-img" />
                                         </div>
                                         <div>
-                                            <p className="ratios">13+</p>
+                                            <p className="ratios">Multi-Sport Events </p>
                                             <p className="sports-pg">
-                                                Optimizing staffo-camper of the
-                                                ratios for our personalized
-                                                camp experiences.
+                                            Whether your child is passionate about football, basketball, athletics, or any other sport, our platform provides a variety of competitive opportunities for every interest and skill level.
                                             </p>
                                         </div>
                                     </div>
@@ -69,15 +65,14 @@ function Whychoose() {
                             </div>
                             <div className="col-lg-6">
                                 <div className="border-or-three">
-                                    <div className="d-flex gap-3 align-items-baseline">
+                                    <div className="d-flex gap-3 align-items-start">
                                         <div className="choose-input2">
                                             <img src={troffy} alt="" className="emoji-content-img" />
                                         </div>
                                         <div>
-                                            <p className="ratios">08+</p>
+                                            <p className="ratios">Expert Coaching & Mentorship </p>
                                             <p className="sports-pg">
-                                                Prestigious award signifies remarkable achievement,
-                                                this honoring dedication and excellence
+                                            We work with experienced coaches and trainers who guide children in refining their techniques, building strength, and improving their game.
                                             </p>
                                         </div>
                                     </div>
@@ -85,16 +80,14 @@ function Whychoose() {
                             </div>
                             <div className="col-lg-6">
                                 <div className="border-or-four">
-                                    <div className="d-flex gap-3 align-items-baseline">
+                                    <div className="d-flex gap-3 align-items-start">
                                         <div className="choose-input3">
                                             <img src={happycustomer} alt="" className="emoji-content-img" />
                                         </div>
                                         <div>
-                                            <p className="ratios">100%</p>
+                                            <p className="ratios">A Safe & Encouraging Environment</p>
                                             <p className="sports-pg">
-                                                Optimizing staffo-camper of the
-                                                ratios for our personalized camp
-                                                experiences.
+                                            We prioritize safety and inclusivity, ensuring that every child feels supported and motivated while competing.
                                             </p>
                                         </div>
                                     </div>

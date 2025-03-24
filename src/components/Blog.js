@@ -115,8 +115,8 @@ function Blog() {
                   </div>
                   <h5 class="fw-bold">{blog.blog_name}</h5>
 
-<Link to={`/blog/${blog.slug}`}>
-  {/* Your link content here */}
+              <Link to={`/blog/${blog.slug}`}>
+                {/* Your link content here */}
  
                     <button type="readmore" className="read-more">
                       Read More <span className="image-arrow-read"><img src={arrowright} alt="" className="blog-images-arrow" /></span>
