@@ -64,8 +64,6 @@ const EventDetail = () => {
     setSelectedArea("");
   }, [selectedDivision, event]);
   
-  
-
   const handleBatchSelection = (batchId) => {
     setSelectedBatches((prevSelected) =>
       prevSelected.includes(batchId)
