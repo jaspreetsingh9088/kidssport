@@ -66,7 +66,7 @@ const Postdetail = () => {
                   className="group-play-child"
                 />
               </div>
-              <div className="d-flex align-items-center gap-2">
+              <div className="d-flex align-items-center gap-3">
                 <img
                   src={girlimage}
                   alt="Admin avatar"
@@ -74,7 +74,7 @@ const Postdetail = () => {
                 />
                 <p className="admin-bg">By {blog.user.name}</p>
                 <p className="admin-bg">
-                  Date: {new Date(blog.created_at).toLocaleDateString()}
+                <img src={dateicon} alt="Tick icon" className="date-icon" /> Date :  {new Date(blog.created_at).toLocaleDateString()}
                 </p>
               </div>
               <div>

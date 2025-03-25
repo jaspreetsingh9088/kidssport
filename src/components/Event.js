@@ -23,16 +23,13 @@ function Event() {
             <div className="col-lg-6 oder-set-two">
                 <div className="text-center">
                     <div>
-                        <p className="code">2024</p>
+                        <p className="code">2025</p>
                     </div>
                     <div>
-                        <h2 className="sports-kidz" > Sports Kidz Events</h2>
+                        <h2 className="sports-kidz" > Where Young Champions Shine!                        </h2>
                     </div>
                     <div>
-                        <p className="sports-pg"> provide a fun and engaging environment where children can participate
-                            in various
-                            physical activities, fostering teamwork and healthy competition. These events focus on
-                            inclusivity, safety, and creating positive experiences for kids of all skill levels.</p>
+                        <p className="sports-pg sports-pg-onr"> we are dedicated to creating exciting opportunities for children to engage in sports, develop their skills, and experience the thrill of competition in a fun, supportive, and structured environment. Our platform is designed to organize and host sports competitions that inspire young athletes to stay active.</p>
                     </div>
                     <div class="d-flex gap-4 justify-content-center mt-3">
                         <div className='d-flex gap-2 align-items-center'>

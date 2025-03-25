@@ -26,7 +26,7 @@ const SafetySecurity = () => {
         </div>
     </div>
     <section className="safety-rules text-center">
-    <p class="about safely-p">At KidzSports</p>
+    {/* <p class="about safely-p">At KidzSports</p> */}
     <h2 className="Engaging">
           we prioritize the safety and well-being <br></br>of every child
         </h2>

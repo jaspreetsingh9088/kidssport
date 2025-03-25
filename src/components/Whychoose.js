@@ -17,9 +17,8 @@ function Whychoose() {
                             <h2 className="why-choose pt-3 py-2">Why Choose Us</h2>
                         </div>
 
-                        <p className="sports-pg">
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit Ut et massa mi. Aliquam in hendrerit urna.
+                        <p className="sports-pg sports-pg-onr">
+                        we believe that competition fuels growth and success, and our mission is to provide a platform where young talents can shine, and every child gets the chance to experience the joy of sports. 
                         </p>
 
                         <Link to="/aboutus">
@@ -42,7 +41,7 @@ function Whychoose() {
                                         <div>
                                             <p className="ratios">Organized Competitions </p>
                                             <p className="sports-pg">
-                                            We bring together young athletes from different backgrounds to participate in well-structured sports tournaments, allowing them to test their skills, challenge themselves, and celebrate their achievements.
+                                            We bring together young athletes from different backgrounds to participate in well-structured sports tournaments.
                                             </p>
                                         </div>
                                     </div>
@@ -57,7 +56,7 @@ function Whychoose() {
                                         <div>
                                             <p className="ratios">Multi-Sport Events </p>
                                             <p className="sports-pg">
-                                            Whether your child is passionate about football, basketball, athletics, or any other sport, our platform provides a variety of competitive opportunities for every interest and skill level.
+                                            Whether your child is passionate about football, or any other sport, our platform provides a variety of competitive opportunities.
                                             </p>
                                         </div>
                                     </div>
@@ -72,7 +71,7 @@ function Whychoose() {
                                         <div>
                                             <p className="ratios">Expert Coaching & Mentorship </p>
                                             <p className="sports-pg">
-                                            We work with experienced coaches and trainers who guide children in refining their techniques, building strength, and improving their game.
+                                            We work with experienced trainers who guide children in refining their techniques, and improving their game.
                                             </p>
                                         </div>
                                     </div>

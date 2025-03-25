@@ -7,6 +7,8 @@ import fancyicon from '../assets/images/fancyicon.png';
 import linethree from '../assets/images/linethree.png';
 import arrowright from '../assets/images/arrowright.png';
 import listdot from '../assets/images/listdot.png';
+import dateicon from "../assets/images/dateicon.png";
+
 
 function Blog() {
   const [blogs, setBlogs] = useState([]);
@@ -76,7 +78,7 @@ function Blog() {
             <p>{error}</p>
           ) : Array.isArray(blogs) && blogs.length > 0 ? (
             blogs.map((blog, index) => (
-              <div key={index} className="col-lg-4 wid-program mt-5">
+              <div key={index} className="col-lg-4 wid-program mb-5">
                 <div className="box-blog">
                   {/* Ensure that blog_image exists before accessing it */}
                   {blog.images && blog.images.length > 0 ? (
@@ -108,6 +110,7 @@ function Blog() {
                           <span className="color-dot">
                             <img src={listdot} alt="" className="list-dot" />
                           </span>
+                          <img src={dateicon} alt="Tick icon" className="date-icon" /> 
                           Date: {new Date(blog.created_at).toLocaleDateString()}
                         </p>
                       </div>

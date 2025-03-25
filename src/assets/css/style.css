@@ -110,7 +110,7 @@ a.book-now-btn {
 img.young-boy {
     width: 64%;
     position: absolute;
-    top: 49px;
+    top: 25px;
 }
 /* .navbar-light .navbar-nav .nav-link {
     color: black !important;
@@ -808,7 +808,8 @@ img.circle-frame.circle-frame-one {
     position: absolute;
     width: 124px;
     right: -108px;
-    top: 0px;
+    top: -50px;
+    bottom: 0;
 }
 img.circle-frame.circle-frame-two {
     position: absolute;
@@ -1256,10 +1257,15 @@ img.circle-frame.circle-frame-two.floating-opposite {
 
 /* <top.css end> */
 @media only screen and (min-width: 1024px) and (max-width: 1099px) {
+    .explore-world section.safety-rules.text-center h4 {
+        color: #9a198e;
+        font-weight: 600;
+        font-size: 20px;
+    }
     img.young-boy {
         width: 62%;
         position: absolute;
-        top: 74px;
+        top: 89px;
     }
     button.know.more1 {
         border-radius: 300px;
@@ -1340,11 +1346,10 @@ img.circle-frame.circle-frame-two.floating-opposite {
         color: #002D45;
         font-size: 28px !important;
     }
-    p.ratios {
-        font-size: 32px;
-        font-weight: 800;
-        margin-bottom: 0px;
+    p.sports-pg {
         color: #002D45;
+        letter-spacing: 1px;
+        font-size: 14px;
     }
     img.emoji-content-img {
         width: 62px;
@@ -1401,11 +1406,7 @@ img.circle-frame.circle-frame-two.floating-opposite {
         padding: 12px;
         transition: 0.3s;
     }
-    p.sports-pg {
-        color: #002D45;
-        letter-spacing: 1px;
-        font-size: 10px;
-    }
+   
     img.arrow-circle-img {
         width: 25px;
         margin-left: 10px;
@@ -1461,7 +1462,7 @@ img.circle-frame.circle-frame-two.floating-opposite {
     img.young-boy {
         width: 68%;
         position: absolute;
-        top: 39px;
+        top: 5px;
     }
     a#navbarDropdown {
         font-size: 14px !important;
@@ -1775,6 +1776,9 @@ img.circle-frame.circle-frame-three.floating {
     top: 0;
 }
 @media only screen and (min-width: 768px) and (max-width: 899px) {
+    .explore-world {
+        height: auto !important;
+    }
     .col-lg-3.wid-program {
         width: 320px;
         margin-top: 0 !important;
@@ -2534,6 +2538,9 @@ img.circle-frame.circle-frame-three.floating {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .explore-world {
+        height: auto !important;
+    }
     section.Login-page {
         background: #fafafa;
         padding: 15px !important;
@@ -3269,7 +3276,7 @@ span.color-dot {
     margin-right: 6px;
 }
 .row.blog-gutter {
-    --bs-gutter-x: 3.5rem;
+    --bs-gutter-x: 1.5rem;
 }
 .kidzsport-about .col-lg-6 img.child-play {
     transform: translateX(-100%);
@@ -3848,8 +3855,8 @@ img.worker:hover {
 }
 section.Blog-page .box-blog {
     background: #fff;
-    border: 1px solid #259E44;
-    box-shadow: 6px 5px 0px #259E44;
+    border: 1px solid #ffffff;
+    box-shadow: 0px 0px 28px #259e4442;
 }
 section.Blog-page {
     background: #FFF5F0;
@@ -3872,7 +3879,7 @@ section.Blog-page button.read-more:hover {
     color: #ffffff;
 }
 section.Blog-page {
-    background: #FFF5F0;
+    background: #259e440f;
     padding-bottom: 72px;
 }
 
@@ -5164,7 +5171,8 @@ section.Program-detail {
     padding-top: 20px;
 }
 section.Blog-page .box-blog:hover {
-    box-shadow: 0px 0px 0px #ff9638;
+    box-shadow: 0px 0px 0px #3fa841;
+    border: 1px solid #6cb83c;
 }
 .slick-prev:before, .slick-next:before {
     font-family: 'slick';
@@ -5360,4 +5368,81 @@ section.safety-rules.text-center h4 {
     border-radius: 16px;
     box-shadow: 0px 8px 0px #1e465b;
     transition: 0.3s;
+}
+.sports-pg.sports-pg-onr {
+	-webkit-line-clamp: unset !important;
+}
+
+.explore-world section.safety-rules.text-center h4 {
+	color: #9a198e;
+	font-weight: 600;
+}
+.explore-world {
+    background: linear-gradient(1deg, #00adee0f, transparent);
+    margin-top: 30px;
+    padding-bottom: 52px;
+    height: 292px;
+}
+.explore-world p {
+    color: #36454f;
+}
+.stand-box-three:hover {
+    background: #fff;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    box-shadow: 2px 2px 38px #9d198e61;
+    border-radius: 10px;
+}
+.stand-box-three {
+    transition:0.3s;
+}
+section.post-detail .form-check .form-check-input {
+    float: left;
+    margin-left: 0;
+    margin-right: 7px;
+    position: relative;
+    top: 6px;
+}
+section.post-detail p.small.text-muted.mb-0 {
+    margin-top: 6px;
+}
+section.post-detail .form-check-input {
+    border: var(--bs-border-width) solid #6bb83c;
+}
+section.post-detail p.small.text-muted.mb-0 {
+    font-size: 18px;
+    color: #002d45 !important;
+}
+section.post-detail p.small.text-warning.mb-0 {
+    font-size: 18px;
+    color: #002d45 !important;
+}
+img.group-play-child {
+    border-radius: 20px;
+}
+section.post-detail .form-check-input:focus {
+    border-color: #6bb83c;
+    outline: 0;
+    box-shadow: unset;
+}
+section.post-detail .form-check-input:checked {
+    background-color: #6bb83c;
+    border-color: #6bb83c;
+}
+
+section.post-detail label.form-check-label {
+    font-size: 20px;
+    color: #6bb83c;
+}
+section.post-detail .form-check.border.p-2.mb-2.rounded {
+    background: #6bb83c0a;
+    border: 1px solid #6bb83c !important;
+}
+section.post-detail p.small.text-warning.mb-0 {
+    margin-top: 6px;
+}
+section.post-detail  .form-control {
+    border: 1px solid #ff9638;
+    padding: 12px;
+    color: #002d45;
 }

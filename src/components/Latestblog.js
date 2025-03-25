@@ -9,6 +9,8 @@ import blocks from '../assets/images/blocks.png';
 import arrowright from '../assets/images/arrowright.png';
 import listdot from '../assets/images/listdot.png';
 import circleiconframe from '../assets/images/circleiconframe.png';
+import dateicon from "../assets/images/dateicon.png";
+
 
 function Latestblog() {
   const [blogs, setBlogs] = useState([]);
@@ -47,7 +49,7 @@ function Latestblog() {
           <img src={circleiconframe} alt='' className='circle-frame circle-frame-two floating-opposite'/>
         </div>
         <h2 className="text-center mt-0">Latest Blog</h2>
-        <p className="interactive interactive-one">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. <br />Aliquam in hendrerit urna.</p>
+        <p className="interactive interactive-one">Discover the Newest Stories, Tips, and Updates <br></br>from Our Community</p>
         
         <div className='row blog-gutter program-mobile-preview'>
           {loading ? (
@@ -68,7 +70,7 @@ function Latestblog() {
                   <div className='main-display-admin'>
                     <div className='d-flex gap-3'>
                       <div><p className='admin-name'><span className='color-dot'><img src={listdot} alt="" className="list-dot" /></span> created by : {blog.user.name}</p></div>
-                      <div><p className='admin-name'><span className='color-dot'><img src={listdot} alt="" className="list-dot" /></span> Date : {new Date(blog.created_at).toLocaleDateString()}</p></div>
+                      <div><p className='admin-name'><span className='color-dot'><img src={dateicon} alt="" className="date-icon" /></span> Date : {new Date(blog.created_at).toLocaleDateString()}</p></div>
                     </div>
                   </div>
 
