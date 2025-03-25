@@ -182,7 +182,7 @@ function Programmdetail() {
                                         </div>
                                         <hr className="line-programm-sec" />
                                         <div className="d-flex gap-4 justify-content-between align-items-center">
-                                            <p className="old">{event.age_group}</p>
+                                            <p className="old">{event.age_group || "All Ages"}</p>
                                             <Link to={`/event/${event.slug}`} className="program-link">
                                                 <button className="join-now">
                                                     View more <span><img src={arrowtransparent} alt="Arrow" className="arrow-circle-img" /></span>
