@@ -816,7 +816,7 @@ img.circle-frame.circle-frame-two {
     width: 78px;
     left: -83px;
     bottom: 0;
-    top: -52px;
+    top: 25px;
 }
 
 
@@ -4216,8 +4216,9 @@ label.contact-input-name {
     transition: 0.1s;
 }   
 .contact-box textarea.form-control {
-    border: 1px solid #002d45;
+    /* border: 1px solid #002d45; */
     padding: 8px;
+    background: #a9148d0d;
 }
 .contact-box .form-control::placeholder {
     font-size: 12px;
@@ -5191,7 +5192,7 @@ p.invovled-pg {
 }
 
 section.get-involved {
-    padding: 50px;
+    padding: 14px;
 }
 
 h4.for-parent {
@@ -5224,7 +5225,7 @@ h2.sports-get {
     padding: 0px 20px;
     text-align: center;
     padding-bottom: 30px;
-    padding-top: 55px;
+    padding-top: 22px;
 }
   
   .contact-section h1 {
@@ -5239,13 +5240,12 @@ h2.sports-get {
   .contact-section h1 span {
     color: #1e1e1e;
   }
-  
   .contact-section p {
     max-width: 700px;
     margin: 0 auto 40px;
-    color: #36454F;
+    color: #002d45;
     line-height: 1.6;
-  }
+}
   
   .container {
     max-width: 1200px;
@@ -5261,9 +5261,9 @@ h2.sports-get {
   
   .contact-box {
     flex: 1 1 220px;
-    border-top: 3px solid #6f42c1;
+    border-top: 6px solid #6f42c1;
     padding: 30px 20px;
-    border-radius: 8px;
+    border-radius: 0px;
     transition: transform 0.3s ease;
   }
   
@@ -5277,7 +5277,7 @@ h2.sports-get {
   
   .contact-box img {
     width: 40px;
-    margin-bottom: 15px;
+    margin-bottom: 3px;
   }
   
   .contact-box h3 {
@@ -5374,14 +5374,18 @@ section.safety-rules.text-center h4 {
 }
 
 .explore-world section.safety-rules.text-center h4 {
-	color: #9a198e;
-	font-weight: 600;
+    color: #009dde;
+    font-weight: 600;
+    font-size: 20px;
 }
 .explore-world {
     background: linear-gradient(1deg, #00adee0f, transparent);
     margin-top: 30px;
     padding-bottom: 52px;
-    height: 292px;
+    height: 312px;
+}
+p.Empowering.emp-one {
+    font-weight: unset;
 }
 .explore-world p {
     color: #36454f;
@@ -5390,7 +5394,7 @@ section.safety-rules.text-center h4 {
     background: #fff;
     padding-top: 16px;
     padding-bottom: 16px;
-    box-shadow: 2px 2px 38px #9d198e61;
+    box-shadow: 2px 2px 38px #009de04f;
     border-radius: 10px;
 }
 .stand-box-three {
@@ -5445,4 +5449,25 @@ section.post-detail  .form-control {
     border: 1px solid #ff9638;
     padding: 12px;
     color: #002d45;
+}
+.contact-options {
+    background: linear-gradient(2deg, #ff9f491c, #4ead4000);
+    padding-top: 24px;
+    padding-bottom: 4px;
+}
+.social-icons-contact {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    font-size: 22px;
+    padding-top: 32px;
+    color: #002d45;
+}
+img.contactdetail-icon {
+    width: 48px;
+    background: #002d4500;
+    padding: 9px;
+    border: 2px solid #ff9f49;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }

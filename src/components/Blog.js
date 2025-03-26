@@ -107,9 +107,7 @@ function Blog() {
                       </div>
                       <div>
                         <p className="admin-name">
-                          <span className="color-dot">
-                            <img src={listdot} alt="" className="list-dot" />
-                          </span>
+                         
                           <img src={dateicon} alt="Tick icon" className="date-icon" /> 
                           Date: {new Date(blog.created_at).toLocaleDateString()}
                         </p>
