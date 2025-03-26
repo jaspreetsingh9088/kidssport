@@ -10,6 +10,8 @@ import pumpkin from "../assets/images/pumpkin.png";
 import tickgreen from "../assets/images/tickgreen.png";
 import Search from '../assets/images/search.png';
 import { stripHtml } from "string-strip-html";
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 
 const Postdetail = () => {
@@ -60,11 +62,26 @@ const Postdetail = () => {
           <div className="col-lg-8">
             <div className="post-background-color">
               <div>
-                <img
-                  src={`https://mitdevelop.com/kidsadmin/storage/app/public/${blog.images[0].blog_image}`}
-                  alt="Blog header"
-                  className="group-play-child"
-                />
+              {blog.images.length > 0 && (
+                <Carousel
+                  showThumbs={false}
+                  showStatus={false}
+                  infiniteLoop
+                  autoPlay
+                  interval={4000}
+                >
+                  {blog.images.map((img, i) => (
+                    <div key={i}>
+                      <img
+                        src={`https://mitdevelop.com/kidsadmin/storage/app/public/${img.blog_image}`}
+                        alt={`Blog image ${i + 1}`}
+                        className="group-play-child"
+                      />
+                    </div>
+                  ))}
+                </Carousel>
+              )}
+
               </div>
               <div className="d-flex align-items-center gap-3">
                 <img

@@ -136,10 +136,8 @@ function Contactus() {
             </div>
             <div className="d-flex gap-2 mb-2">
               <img src={ticks} alt="Childplay" className="check-icon" />
-              <p className="Empowering emp-one">Stay Informed: Subscribe to our newsletter for the latest news and updates.
-
-              </p>
-              
+              <p className="Empowering emp-one">Stay Informed: Subscribe to our newsletter for the latest news and updates.             
+            </p>             
             </div>
                     </div>
                  <div class="col-lg-6">
@@ -149,72 +147,54 @@ function Contactus() {
                         <div className="d-flex gap-2 mb-2">
               <img src={ticks} alt="Childplay" className="check-icon" />
               <p className="Empowering emp-one">Coaching Opportunities: Join our network and share your expertise.
-
               </p>
-
             </div>
             <div className="d-flex gap-2 mb-2">
               <img src={ticks} alt="Childplay" className="check-icon" />
               <p className="Empowering emp-one">Volunteer Programs: Help us organize events and support our young athletes.
-
-
               </p>
-              
             </div>
             <div className="d-flex gap-2 mb-2">
-              <img src={ticks} alt="Childplay" className="check-icon" />
-              <p className="Empowering emp-one">Community Engagement: Be part of a movement that makes a positive impact in children’s lives.
-
-
-              </p>
-              
+                <img src={ticks} alt="Childplay" className="check-icon" />
+                <p className="Empowering emp-one">Community Engagement: Be part of a movement that makes a positive impact in children’s lives.
+                 </p>             
             </div>
-                    </div>
-                    <div class="text-center"> 
-                    <p class="together-pg">Together , we can build a brighter future for our young athletes. Get involved today!
-                    </p>
-                    </div>
-                    
+            </div>
+            <div class="text-center"> 
+                <p class="together-pg">Together , we can build a brighter future for our young athletes. Get involved today!
+                </p>
+            </div>      
             </div>
             </div>
         </section>
 
-        
-
         <section class="contact-section">
-  <div class="container">
-    <h1>We’d Love to Hear from You
-    </h1>
-    <p>For more information about our events, training programs, or partnership opportunities, please reach out. Our team is here to help answer your questions and guide you through the registration process.</p>
+        <div class="container">
+            <h1>We’d Love to Hear from You
+            </h1>
+            <p>For more information about our events, training programs, or partnership opportunities, please reach out. Our team is here to help answer your questions and guide you through the registration process.</p>
 
-    <div class="contact-options">
-      <div class="contact-box-1">
-        <img src={PhoneIcon} alt="Email Icon" className="contactdetail-icon"/>
-        
-        <p>Email: info@kidzsport.com
-        </p>
-      </div>
+            <div class="contact-options">
+            <div class="contact-box-1">
+                <img src={PhoneIcon} alt="Email Icon" className="contactdetail-icon"/>
+            <p>Email: info@kidzsport.com
+            </p>
+        </div>
 
-      <div class="contact-box-1">
-        <img  class="contactdetail-icon" src={locationIcon} alt="Chat Icon" />
-       
-        <p>Location: Mumbai  Maharashtra , India
-        </p>
-      </div>
+        <div class="contact-box-1">
+            <img  class="contactdetail-icon" src={locationIcon} alt="Chat Icon" />
+            <p>Location: Mumbai  Maharashtra , India
+            </p>
+        </div>
 
-      <div class="contact-box-1">
+        <div class="contact-box-1">
         <img class="contactdetail-icon" src={EmailIcon} alt="Call Icon" />
-       
-        <p>Phone: +123 456 7890
-        </p>
-      </div>
-
+            <p>Phone: +123 456 7890
+            </p>
+        </div>
     </div>
-
-
     </div>
     </section>
-
         </>
     );
 }

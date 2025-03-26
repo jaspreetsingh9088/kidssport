@@ -144,7 +144,7 @@ function Aboutus() {
                     <div className="d-flex gap-3">
                         <h5 className="number">04</h5>
                         <div>
-                            <h5 className="health">Safe & Inclusive Space</h5>
+                            <h5 className="health">Safe and Inclusive Space</h5>
                             <p className="vision-pg">Ensure a <b>safe and inclusive environment</b> for all</p>
                         </div>
                     </div>
