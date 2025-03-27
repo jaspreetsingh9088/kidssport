@@ -22,6 +22,7 @@ const EventDetail = () => {
   const [selectedBatches, setSelectedBatches] = useState([]);
   const [groupedBatches, setGroupedBatches] = useState([]);
   const ageGroups = [...new Set(groupedBatches.map((group) => group.age_group))];
+  
 
   const navigate = useNavigate(); // Hook for navigation
 
@@ -175,10 +176,25 @@ const EventDetail = () => {
         }
       });
     } else {
-      console.log("Token found! Redirecting to Checkout...");
-      navigate(`/Checkout/${slug}`);
+      // ✅ Prepare selected data
+      const registrationData = {
+        event_id: event.id,
+        event_name: event.event_name,
+        division_id: selectedDivision,
+        division_name: divisions.find((d) => d.id === parseInt(selectedDivision))?.division || "",
+        area_id: selectedArea,
+        area_name: areas.find((a) => a.id === parseInt(selectedArea))?.area || "",
+        age_group: selectedAgeGroup,
+        selected_batches: selectedBatches[selectedAgeGroup] || [],
+      };
+  
+      console.log("Registration Data:", registrationData);
+  
+      // ✅ Pass data via `navigate` state
+      navigate(`/Checkout/${slug}`, { state: registrationData });
     }
   };
+   
   
   if (loading) return <div>Loading...</div>;
   if (!event) return <div>Event not found!</div>;
@@ -203,7 +219,15 @@ const EventDetail = () => {
           <div className="col-lg-4">
             <div className="post bg-back-color">
               <h4 className="post">Register for Event</h4>
-              <select className="form-control mb-2" value={selectedDivision} onChange={(e) => setSelectedDivision(e.target.value)}>
+          {/* Division Dropdown */}
+<select
+  className="form-control mb-2"
+  value={selectedDivision}
+  onChange={(e) => {
+    setSelectedDivision(e.target.value);
+    setSelectedArea(""); // Reset area when division changes
+  }}
+>
   <option value="">Select Division</option>
   {divisions.map((division) => (
     <option key={division.id} value={division.id}>
@@ -211,24 +235,25 @@ const EventDetail = () => {
     </option>
   ))}
 </select>
+<div className="text-danger">{errors.division}</div>
+
+{/* Area Dropdown - filtered based on selected division */}
+<select 
+  className="form-control mb-2" 
+  value={selectedArea} 
+  onChange={(e) => setSelectedArea(e.target.value)}
+>
+  <option value="">Select Area</option>
+  {areas.length > 0 ? (
+    areas.map((area) => (
+      <option key={area.id} value={area.id}>{area.area}</option>
+    ))
+  ) : (
+    <option disabled>No areas available</option>  
+  )}
+</select>
 
 
-              <div className="text-danger">{errors.division}</div>
-              
-              <select 
-                className="form-control mb-2" 
-                value={selectedArea} 
-                onChange={(e) => setSelectedArea(e.target.value)}
-              >
-                <option value="">Select Area</option>
-                {areas.length > 0 ? (
-                  areas.map((area) => (
-                    <option key={area.id} value={area.id}>{area.area}</option>
-                  ))
-                ) : (
-                  <option disabled>No areas available</option>  
-                )}
-              </select>
               
               {/* Age Group Dropdown */}
               <select

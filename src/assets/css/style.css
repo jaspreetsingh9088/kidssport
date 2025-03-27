@@ -1214,6 +1214,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
 }
 section.footer {
     background: linear-gradient(215deg, #E9018B, #921C8E);
+    padding-top:50px;
 }
 .news-letter {
     background: linear-gradient(45deg, #259E44, #74BB3B);
@@ -3381,7 +3382,7 @@ img.footer-social-icons:hover {
 }
 img.cloudsfooter {
     position: absolute;
-    width: 88%;
+    width: 52%;
     z-index: 0;
     top: 117px;
     right: 21%;
@@ -5470,4 +5471,10 @@ img.contactdetail-icon {
     border: 2px solid #ff9f49;
     border-radius: 8px;
     margin-bottom: 10px;
+}
+.terms-link-one:hover {
+	color: #ffa555 !important;
+}
+.terms-link-one {
+	color: #FF9638 !important;
 }

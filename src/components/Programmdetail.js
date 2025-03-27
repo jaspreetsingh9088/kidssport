@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import footballsports from '../assets/images/footballsports.png';
 import arrowtransparent from '../assets/images/arrowtransparent.png';
 import listdot from '../assets/images/listdot.png';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Programmdetail() {
   
@@ -13,6 +15,7 @@ function Programmdetail() {
         const [selectedState, setSelectedState] = useState("");
         const [states, setStates] = useState([]);
         const [cities, setCities] = useState([]);
+        const [validationError, setValidationError] = useState("");
         const stateSelectRef = useRef(null); // Ref for the select element
     
         useEffect(() => {
@@ -97,10 +100,24 @@ function Programmdetail() {
                 stateSelectRef.current.focus();
             }
         };
-    
+        const handleViewMore = (eventSlug) => {
+            if (!selectedCity) {
+                toast.error("Please select a city before viewing event details.", {
+                    position: "top-center",
+                    autoClose: 3000,
+                    pauseOnHover: true,
+                });
+                return;
+            }
+        
+            window.location.href = `/event/${eventSlug}`;
+        };
+        
         return (
             <section className="Program-detail">
                 <div className="container">
+                <ToastContainer />
+
                     {/* State & City Dropdowns */}
                     <div className="row mb-4 justify-content-end">
                         <div className="col-lg-6 offset-lg-3">
@@ -183,11 +200,14 @@ function Programmdetail() {
                                         <hr className="line-programm-sec" />
                                         <div className="d-flex gap-4 justify-content-between align-items-center">
                                             <p className="old">{event.age_group || "All Ages"}</p>
-                                            <Link to={`/event/${event.slug}`} className="program-link">
-                                                <button className="join-now">
-                                                    View more <span><img src={arrowtransparent} alt="Arrow" className="arrow-circle-img" /></span>
-                                                </button>
-                                            </Link>
+                                            <div className="text-end w-100">
+                                            <button className="join-now" onClick={() => handleViewMore(event.slug)}>
+                                                View more <span><img src={arrowtransparent} alt="Arrow" className="arrow-circle-img" /></span>
+                                            </button>
+
+                                            </div>
+
+
                                         </div>
                                     </div>
                                 </div>

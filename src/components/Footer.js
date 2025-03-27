@@ -27,19 +27,7 @@ const Footer = () => {
           </div>
           <div className='row'>
             <div className='col-lg-12'>
-              <div className='news-letter'>
-                <div className='row align-items-center'>
-                  <div className='col-lg-6'>
-                    <p>Sign up to Our Newsletter for Latest Update</p>
-                  </div>
-                  <div className='col-lg-6'>
-                    <div className="input-group">
-                      <input className="form-control" placeholder="Enter Email Here" type="text" name="email" />
-                      <button type="submit" className="btn btn-primary input-group-append">Subscribe Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        
             </div>
           </div>
           <div className='row' style={{ position: 'relative', zIndex: 1 }}>
