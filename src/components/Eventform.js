@@ -31,6 +31,8 @@ function Eventform() {
   const registrationDetails = location.state || {};
   const [agreeToTerms, setAgreeToTerms] = useState(false);
 const [showError, setShowError] = useState(false);
+const [status, setStatus] = useState("loading");
+
 
 
   useEffect(() => {
@@ -69,7 +71,7 @@ const [showError, setShowError] = useState(false);
           ageGroup: registrationDetails.age_group || prev.ageGroup,
         }));
 
-        setBatches(event.batches_grouped || []); // Store batches
+        setBatches(event.batches_grouped || []); 
       } catch (error) {
         console.error("Error fetching event data:", error);
         setMessage("Error fetching event details. Please try again.");
@@ -122,8 +124,8 @@ const [showError, setShowError] = useState(false);
   const [orderId, setOrderId] = useState(null);
 
   const handlePayment = async () => {
-    if (!isChecked) {
-      setCheckboxError(true);
+    if (!agreeToTerms) {
+      setShowError(true);
       return;
     }
 
@@ -135,6 +137,7 @@ const [showError, setShowError] = useState(false);
     }
 
     try {
+      const batchId = registrationDetails?.selected_batches?.[0] || null;
       const response = await axios.post(
         "https://mitdevelop.com/kidsadmin/api/initiate-payment",
         {
@@ -144,6 +147,7 @@ const [showError, setShowError] = useState(false);
           name: formData.studentName,
           user_id: formData.user_id,
           event_id: formData.event_id,
+          batch_id: batchId,
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -167,16 +171,21 @@ const [showError, setShowError] = useState(false);
   const handlePaymentSuccess = async (orderId) => {
     try {
       const response = await axios.post(
-        "https://mitdevelop.com/kidsadmin/api/payment-success",
+        "/api/payment-success",
         { order_id: orderId },
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
-      alert(response.data.message);
+  
+      if (response.data.verified) {
+        alert("Payment confirmed and verified.");
+      } else {
+        alert("Payment could not be verified.");
+      }
     } catch (error) {
-      console.error("Error handling payment success:", error.response?.data || error.message);
-      alert("Error processing successful payment.");
+      console.error("Payment success error:", error);
     }
   };
+  
 
   const handlePaymentFailure = async (orderId) => {
     try {
@@ -191,6 +200,42 @@ const [showError, setShowError] = useState(false);
       alert("Error processing failed payment.");
     }
   };
+  
+  useEffect(() => {
+    const storedOrderId = localStorage.getItem("order_id");
+    if (!storedOrderId) return;
+  
+    const checkPaymentStatus = async () => {
+      try {
+        const query = new URLSearchParams(location.search);
+        const paymentStatus = query.get("status");
+        console.log("Webhook Check - Status:", paymentStatus, "Order ID:", storedOrderId);
+  
+        if (paymentStatus === "success") {
+          console.log("Processing Payment Success for Order:", storedOrderId);
+          await handlePaymentSuccess(storedOrderId);
+          setStatus("success");
+        } else if (paymentStatus === "failure") {
+          console.log("Processing Payment Failure for Order:", storedOrderId);
+          await handlePaymentFailure(storedOrderId);
+          setStatus("failed");
+        } else {
+          console.warn("Unknown payment status received:", paymentStatus);
+        }
+  
+        localStorage.removeItem("order_id");
+      } catch (error) {
+        console.error("Error checking payment status:", error);
+        setStatus("failed");
+      }
+    };
+  
+    checkPaymentStatus();
+  }, [location]);
+  
+  
+  
+  
 
   useEffect(() => {
     const query = new URLSearchParams(location.search);
@@ -269,8 +314,7 @@ const [showError, setShowError] = useState(false);
       </div>
     ))}
 
-    {/* ✅ Add Batch Name Field */}
- {/* ✅ Correct Batch Name Field using selected_batch_id */}
+    {/* Add Batch Name Field */}
 <div className="col-lg-4">
   <div className="mb-4">
     <label className="form-label">Batch Name</label>
@@ -344,7 +388,7 @@ const [showError, setShowError] = useState(false);
       Proceed to Payment <span className="img-right-arrow"><img src={rightarrows} alt="arrow"  /></span>
     </button>
   </div>
-  
+ 
         </div>
       </div>
     </section>

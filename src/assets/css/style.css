@@ -25,9 +25,9 @@ a.book-now-btn:hover {
 .fancy-icons-banner-one.floating {
     animation-duration: 5s; /* Iska time kam kar diya */
   }
-.hero-image-kids {
-	width: 70%;
-	display: block;
+  .hero-image-kids {
+	width: 70% !important;
+	display: block !important;
 	margin: auto;
 }
 img.fancy-icons-banner.fancy-icons-banner-one {

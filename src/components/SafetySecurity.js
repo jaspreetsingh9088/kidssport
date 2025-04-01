@@ -13,10 +13,10 @@ const SafetySecurity = () => {
                     <img src={fancyicon} alt="" className="fancy-icons floating" />
                 </div>
                 <div className='col-lg-4'>
-                    <h1 className='heading-main text-center'>Safety & Security</h1>
+                    <h1 className='heading-main text-center'>Safety and Security</h1>
                     <ul className="breadcrumb justify-content-center text-white align-items-center gap-1">
                         <a href="/" className="nav-link"><li>Home | </li></a>
-                        <a href="/" className="nav-link" style={{ color: "#ffb06c" }}><li>Safety & Security</li></a>
+                        <a href="/" className="nav-link" style={{ color: "#ffb06c" }}><li>Safety and Security</li></a>
                     </ul>
                 </div>
                 <div className='col-lg-4'>
