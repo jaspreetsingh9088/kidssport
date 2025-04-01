@@ -92,11 +92,13 @@ function MyAccount() {
   const handleLogout = async () => {
     try {
       const token = localStorage.getItem('token');
+      
       if (!token) {
-        console.log('No token available');
+        console.log('You are already logged out.');
+        window.location.href = '/login'; // Redirect immediately
         return;
       }
-
+  
       await axios.post(
         'https://mitdevelop.com/kidsadmin/api/logout',
         {},
@@ -106,15 +108,16 @@ function MyAccount() {
           },
         }
       );
-
+  
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
-
-      window.location.href = '/login';
+  
+      window.location.href = '/login'; // Redirect after logout
     } catch (error) {
       console.error('Logout error:', error.response?.data || error.message);
     }
   };
+  
   
   
   // Debug: log profileData to see if it has been updated

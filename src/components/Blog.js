@@ -101,6 +101,7 @@ function Blog() {
                         <p className="admin-name">
                           <span className="color-dot">
                             <img src={listdot} alt="" className="list-dot" />
+                            Admin by : 
                           </span>
                           {blog.user.name}
                         </p>

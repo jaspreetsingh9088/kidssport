@@ -77,8 +77,8 @@ function Navbar() {
     </li>
     <li className="nav-item">
       <Link to="/events" className="nav-link fw-bold">
-        Events
-      </Link>
+      tournaments
+        </Link>
     </li>
     <li className="nav-item">
       <Link to="/Sports-coaching" className="nav-link fw-bold">

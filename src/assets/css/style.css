@@ -462,6 +462,7 @@ p.old {
     padding: 8px 12px;
     border: 0;
     font-family: 'Lato';
+  
 }
 
 .left {
@@ -5477,4 +5478,8 @@ img.contactdetail-icon {
 }
 .terms-link-one {
 	color: #FF9638 !important;
+}
+.box-blog.shadow-sm.rounded {
+    height: auto;
+    margin-bottom: 20px;
 }

@@ -9,7 +9,7 @@ const ExploreWorld = () => {
     
     <section className="safety-rules text-center">
     <h2 className="Engaging">
-             Explore Are World
+             Explore Our World
         </h2>
     {/* <p class="about safely-p">At KidzSports</p> */}
         <div className="container">

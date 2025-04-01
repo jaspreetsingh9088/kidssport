@@ -199,8 +199,10 @@ function Programmdetail() {
                                         </div>
                                         <hr className="line-programm-sec" />
                                         <div className="d-flex gap-4 justify-content-between align-items-center">
+                                            <div>
                                             <p className="old">{event.age_group || "All Ages"}</p>
-                                            <div className="text-end w-100">
+                                            </div>
+                                            <div className="text-end ">
                                             <button className="join-now" onClick={() => handleViewMore(event.slug)}>
                                                 View more <span><img src={arrowtransparent} alt="Arrow" className="arrow-circle-img" /></span>
                                             </button>
