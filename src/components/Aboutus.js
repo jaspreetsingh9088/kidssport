@@ -187,7 +187,7 @@ function Aboutus() {
                     <div className="d-flex gap-3">
                         <h5 className="number">01</h5>
                         <div>
-                            <h5 className="health">Provide a Safe & Inclusive Platform </h5>
+                            <h5 className="health">Provide a Safe and Inclusive Platform </h5>
                             <p className="vision-pg">Ensuring that all children, regardless of background or experience, have access to professional-level competitions.</p>
                         </div>
                     </div>
@@ -196,7 +196,7 @@ function Aboutus() {
                     <div className="d-flex gap-3">
                         <h5 className="number">02</h5>
                         <div>
-                            <h5 className="health">Encourage Teamwork & Fair Play </h5>
+                            <h5 className="health">Encourage Teamwork and Fair Play </h5>
                             <p className="vision-pg">Instilling core values that help kids grow into responsible and respectful individuals.</p>
                         </div>
                     </div>
@@ -205,7 +205,7 @@ function Aboutus() {
                     <div className="d-flex gap-3">
                         <h5 className="number">03</h5>
                         <div>
-                            <h5 className="health">Foster Confidence & Personal Growth </h5>
+                            <h5 className="health">Foster Confidence and Personal Growth </h5>
                             <p className="vision-pg">Helping young athletes push their limits, celebrate their progress, and build self-esteem.</p>
                         </div>
                     </div>
@@ -214,7 +214,7 @@ function Aboutus() {
                     <div className="d-flex gap-3">
                         <h5 className="number">04</h5>
                         <div>
-                            <h5 className="health">Promote Physical & Mental Well-Being</h5>
+                            <h5 className="health">Promote Physical and Mental Well-Being</h5>
                             <p className="vision-pg">Encouraging an active lifestyle that strengthens both the body and mind.</p>
                         </div>
                     </div>
@@ -235,7 +235,7 @@ function Aboutus() {
           <div className='stand-box'>
             <div className='d-flex gap-3 align-items-center'>
               <div><img src={fairplay} alt="Volum One" className="fairplay-icon" /></div>
-              <div> <h4>Integrity & Fair Play</h4></div>
+              <div> <h4>Integrity and Fair Play</h4></div>
             </div>
             <p className='interactive'>Every competition is organized with the highest standards of fairness.</p>
           </div>
@@ -244,7 +244,7 @@ function Aboutus() {
           <div className='stand-box'>
           <div className='d-flex gap-3 align-items-center'>
               <div><img src={puzzle} alt="Volum One" className="fairplay-icon" /></div>
-              <div> <h4>Inclusivity & Safety</h4></div>
+              <div> <h4>Inclusivity and Safety</h4></div>
             </div>
             
             <p className='interactive'>We ensure a secure environment where all children can participate and thrive.</p>
@@ -254,7 +254,7 @@ function Aboutus() {
           <div className='stand-box'>
           <div className='d-flex gap-3 align-items-center'>
               <div><img src={creativethinking} alt="Volum One" className="fairplay-icon" /></div>
-              <div> <h4>Skill & Character Development</h4></div>
+              <div> <h4>Skill and Character Development</h4></div>
             </div>
             
             <p className='interactive'>Our events are about more than just sports—they’re about building confidence and life-long friendships.</p>

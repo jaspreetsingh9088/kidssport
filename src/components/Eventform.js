@@ -21,7 +21,7 @@ function Eventform() {
     area: "",
     email: "",
     phone: "",
-    amount: 10,
+    amount: 1000,
   });
 
   const [message, setMessage] = useState(null);
@@ -171,7 +171,7 @@ const [status, setStatus] = useState("loading");
   const handlePaymentSuccess = async (orderId) => {
     try {
       const response = await axios.post(
-        "/api/payment-success",
+        "https://mitdevelop.com/kidsadmin/api/payment-success",
         { order_id: orderId },
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
@@ -185,6 +185,8 @@ const [status, setStatus] = useState("loading");
       console.error("Payment success error:", error);
     }
   };
+  
+ 
   
 
   const handlePaymentFailure = async (orderId) => {
@@ -201,36 +203,45 @@ const [status, setStatus] = useState("loading");
     }
   };
   
+  const sendPaymentWebhook = async (orderId, status) => {
+    if (!orderId) {
+      console.error("Order ID is missing. Webhook not sent.");
+      return;
+    }
+  
+    try {
+      const response = await axios.post(
+        "https://mitdevelop.com/kidsadmin/api/hdfc-webhook",
+        { order_id: orderId, status },
+        { headers: { "Content-Type": "application/json" } }
+      );
+  
+      console.log("Webhook Response:", response.data);
+    } catch (error) {
+      console.error("Error sending payment webhook:", error.response?.data || error.message);
+    }
+  };
+
   useEffect(() => {
     const storedOrderId = localStorage.getItem("order_id");
     if (!storedOrderId) return;
   
-    const checkPaymentStatus = async () => {
-      try {
-        const query = new URLSearchParams(location.search);
-        const paymentStatus = query.get("status");
-        console.log("Webhook Check - Status:", paymentStatus, "Order ID:", storedOrderId);
+    const query = new URLSearchParams(location.search);
+    const paymentStatus = query.get("status");
   
-        if (paymentStatus === "success") {
-          console.log("Processing Payment Success for Order:", storedOrderId);
-          await handlePaymentSuccess(storedOrderId);
-          setStatus("success");
-        } else if (paymentStatus === "failure") {
-          console.log("Processing Payment Failure for Order:", storedOrderId);
-          await handlePaymentFailure(storedOrderId);
-          setStatus("failed");
-        } else {
-          console.warn("Unknown payment status received:", paymentStatus);
-        }
+    if (paymentStatus === "success") {
+      sendPaymentWebhook(storedOrderId, "SUCCESS");
+      handlePaymentSuccess(storedOrderId);
+      setStatus("success");
+    } else if (paymentStatus === "failure") {
+      sendPaymentWebhook(storedOrderId, "FAILED");
+      handlePaymentFailure(storedOrderId);
+      setStatus("failed");
+    } else {
+      console.warn("Unknown payment status received:", paymentStatus);
+    }
   
-        localStorage.removeItem("order_id");
-      } catch (error) {
-        console.error("Error checking payment status:", error);
-        setStatus("failed");
-      }
-    };
-  
-    checkPaymentStatus();
+    localStorage.removeItem("order_id");
   }, [location]);
   
   

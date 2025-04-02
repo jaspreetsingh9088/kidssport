@@ -47,7 +47,7 @@ function About() {
             At Kidzsport, we believe that every child has the potential to be a champion,
             and our mission is to create a platform where young athletes can compete,
             learn, and grow in a safe, supportive, and inspiring environment.
-            Kidzsport was founded with a simple yet powerful belief: every child deserves a
+            Kidzsport was founded with a simple yet powerful belief. every child deserves a
             chance to shine on the field. 
           </p>
         </div>

@@ -3350,7 +3350,7 @@ img.galleryimage {
 }
 img.galleryimage {
     width: 100%;
-    border: 2px solid #ffffff;
+    border: 0px solid #ffffff;
     border-radius: 20px;
     filter: grayscale(100%);
     transition: filter 0.3s ease;

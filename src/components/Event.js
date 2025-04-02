@@ -22,9 +22,10 @@ function Event() {
             </div>
             <div className="col-lg-6 oder-set-two">
                 <div className="text-center">
-                    <div>
-                        <p className="code">2025</p>
+                <div>
+                    <p className="code">{new Date().toLocaleString('en-IN', { year: 'numeric', timeZone: 'Asia/Kolkata' })}</p>
                     </div>
+
                     <div>
                         <h2 className="sports-kidz" > Where Young Champions Shine!                        </h2>
                     </div>
