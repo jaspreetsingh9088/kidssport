@@ -40,6 +40,7 @@ function Stepform() {
     dr_contact: "",
     insurance_info: "",
     password: "",
+    amount: "", 
   });
 
   const [hasMedicalCondition, setHasMedicalCondition] = useState(null);
@@ -106,45 +107,46 @@ function Stepform() {
   
 
   const handleRegister = async () => {
-    const apiUrl = "https://mitdevelop.com/kidsadmin/api/create-user";
+    const apiUrl = "https://mitdevelop.com/kidsadmin/api/initiate-Payment-register";
     const form = new FormData();
 
     Object.entries(formData).forEach(([key, value]) => {
-      form.append(key, value);
+        form.append(key, value);
     });
 
     try {
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        body: form,
-        headers: {
-          Accept: "application/json",
-        },
-      });
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            body: form,
+            headers: {
+                Accept: "application/json",
+            },
+        });
 
-      const result = await response.json();
+        const result = await response.json();
 
-      if (response.ok) {
-        setSuccessMessage("Registration Successful!");
-        setErrors({});
-        setTimeout(() => {
-          window.location.href = "/login";
-        }, 2000);
-      } else {
-        if (result.errors) {
-          setErrors(result.errors);
-          setSuccessMessage("");
+        if (response.ok) {
+            if (result.payment_link) {
+                // ✅ Redirect user to HDFC Payment Page
+                window.location.href = result.payment_link;
+            } else {
+                setSuccessMessage("Registration Successful, but no payment link received.");
+                setTimeout(() => {
+                    window.location.href = "/dashboard"; 
+                }, 2000);
+            }
         } else {
-          setErrors({ general: result.message || "Something went wrong!" });
-          setSuccessMessage("");
+            if (result.errors) {
+                setErrors(result.errors);
+            } else {
+                setErrors({ general: result.message || "Something went wrong!" });
+            }
         }
-      }
     } catch (error) {
-      console.error("Error during registration:", error);
-      setErrors({ general: "An error occurred. Please try again." });
-      setSuccessMessage("");
+        console.error("Error during payment initiation:", error);
+        setErrors({ general: "An error occurred. Please try again." });
     }
-  };
+};
 
 
   
@@ -515,6 +517,17 @@ function Stepform() {
                       onChange={handleChange}
                     />
                   </div>
+                  <div className="col-lg-6 mt-4">
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Amount"
+                      name="amount"
+                      value={formData.amount}
+                      onChange={handleChange}
+                    />
+                  </div>
+
                 </div>
                 </div>
               </div>

@@ -5483,3 +5483,51 @@ img.contactdetail-icon {
     height: auto;
     margin-bottom: 20px;
 }
+.check-division-bg button {
+    background: #ff9638;
+    border: 0;
+    width: 100%;
+    margin-top: 24px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.check-division-bg button:hover {
+    background: #6eb93c;
+}
+.check-division-bg .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+    color: var(--bs-btn-active-color);
+    background-color: #70b93b;
+    border-color: #70b93b;
+}
+section.post-detail h5.modal-title {
+    color: #fff;
+    font-size: 24px;
+}
+ul.country-cities-name a {
+    text-decoration: none;
+    color: #002D45;
+    list-style: none;
+    transition: 0.3s;
+}
+.modal-header {
+    border-bottom: var(--bs-modal-header-border-width) solid #ffffff;
+    background: #74BB3B;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+    padding: 10px 20px;
+}
+p.upcoming-event-headline {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 20px;
+    color: #74bb3b;
+    border-top: 1px solid #002d60;
+    padding-top: 8px;
+}
+.modal-body {
+    background: #fffaf5;
+}
+ul.country-cities-name a:hover {
+    color: #ff9331 !important;
+}

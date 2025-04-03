@@ -104,7 +104,7 @@ const [status, setStatus] = useState("loading");
         setFormData((prev) => ({
           ...prev,
           user_id: user.id,
-          registrationNumber: user.customer_id || "",
+          registrationNumber: user.order_id || "",
           studentName: user.name || "",
           email: user.email || "",
           phone: user.phone_number || "",
@@ -219,8 +219,10 @@ const [status, setStatus] = useState("loading");
       console.log("Webhook Response:", response.data);
     } catch (error) {
       console.error("Error sending payment webhook:", error.response?.data || error.message);
+      alert("Error notifying server about payment status. Please contact support.");
     }
   };
+  
 
   useEffect(() => {
     const storedOrderId = localStorage.getItem("order_id");
@@ -229,38 +231,19 @@ const [status, setStatus] = useState("loading");
     const query = new URLSearchParams(location.search);
     const paymentStatus = query.get("status");
   
-    if (paymentStatus === "success") {
-      sendPaymentWebhook(storedOrderId, "SUCCESS");
-      handlePaymentSuccess(storedOrderId);
-      setStatus("success");
-    } else if (paymentStatus === "failure") {
-      sendPaymentWebhook(storedOrderId, "FAILED");
-      handlePaymentFailure(storedOrderId);
-      setStatus("failed");
-    } else {
-      console.warn("Unknown payment status received:", paymentStatus);
+    if (paymentStatus === "success" || paymentStatus === "failure") {
+      sendPaymentWebhook(storedOrderId, paymentStatus === "success" ? "SUCCESS" : "FAILED");
+      paymentStatus === "success"
+        ? handlePaymentSuccess(storedOrderId)
+        : handlePaymentFailure(storedOrderId);
+  
+      setStatus(paymentStatus === "success" ? "success" : "failed");
+      localStorage.removeItem("order_id");
     }
-  
-    localStorage.removeItem("order_id");
-  }, [location]);
-  
-  
+  }, [location.search]); // 🔹 Changed from [location] to [location.search]
   
   
 
-  useEffect(() => {
-    const query = new URLSearchParams(location.search);
-    const paymentStatus = query.get("status");
-    const storedOrderId = localStorage.getItem("order_id");
-
-    if (paymentStatus === "success" && storedOrderId) {
-      handlePaymentSuccess(storedOrderId);
-      localStorage.removeItem("order_id");
-    } else if (paymentStatus === "failure" && storedOrderId) {
-      handlePaymentFailure(storedOrderId);
-      localStorage.removeItem("order_id");
-    }
-  }, [location]);
 
   const handlePaymentClick = () => {
     if (!agreeToTerms) {

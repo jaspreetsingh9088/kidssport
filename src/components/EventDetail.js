@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import dateicon from "../assets/images/dateicon.png";
 import { useNavigate } from "react-router-dom"; // Import navigate
 
+
 const EventDetail = () => {
   const { slug } = useParams();
 
@@ -22,6 +23,8 @@ const EventDetail = () => {
   const [selectedBatches, setSelectedBatches] = useState([]);
   const [groupedBatches, setGroupedBatches] = useState([]);
   const ageGroups = [...new Set(groupedBatches.map((group) => group.age_group))];
+  const [allDivisions, setAllDivisions] = useState([]);
+
   
 
   const navigate = useNavigate(); // Hook for navigation
@@ -31,12 +34,13 @@ const EventDetail = () => {
       try {
         const response = await axios.get(`https://mitdevelop.com/kidsadmin/api/event/${slug}`);
         console.log("Event API Response:", response.data); 
-    
+  
         if (response.data && response.data.data) {
           setEvent(response.data.data);
           setDivisions(response.data.data.divisions || []);
           setAreas(response.data.data.areas || []);
           setGroupedBatches(response.data.data.batches_grouped || []);
+          setAllDivisions(response.data.data.all_divisions || []); // ✅ Store all divisions for modal
         }
       } catch (error) {
         console.error("Error fetching event:", error);
@@ -46,6 +50,7 @@ const EventDetail = () => {
     };
     fetchEvent();
   }, [slug]);
+  
   
   
   useEffect(() => {
@@ -310,6 +315,55 @@ const EventDetail = () => {
               <button className="btn btn-success mt-3" onClick={handleRegisterClick}>
                 Register Event
               </button>
+
+              <button 
+          type="button" 
+          className="btn btn-primary ms-2" 
+          data-bs-toggle="modal" 
+          data-bs-target="#staticBackdrop"
+        >
+          Check Division
+        </button>
+
+{/* Modal for checking divisions */}
+
+<div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div className="modal-dialog modal-xl modal-dialog-centered">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="staticBackdropLabel">Check Division</h5>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div className="modal-body">
+        <div className="row">
+          {/* Map through allDivisions and distribute evenly into columns */}
+          {allDivisions.length > 0 ? (
+            allDivisions.reduce((rows, division, index) => {
+              const colIndex = index % 4; // Divide into 4 columns
+              if (!rows[colIndex]) rows[colIndex] = [];
+              rows[colIndex].push(division);
+              return rows;
+            }, []).map((colDivisions, colIndex) => (
+              <div key={colIndex} className="col-lg-3">
+                <ul className="country-cities-name">
+                  {colDivisions.map((division) => (
+                    <li key={division.id}>{division.division}</li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          ) : (
+            <p>No divisions available.</p>
+          )}
+        </div>
+        <p className="upcoming-event-headline">Upcoming events are coming in this division. Stay tuned!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
             </div>
           </div>
         </div>
