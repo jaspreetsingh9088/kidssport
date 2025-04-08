@@ -8,8 +8,23 @@ function Header() {
   const [location, setLocation] = useState({
     state: sessionStorage.getItem("userState") || "",
   });
-  
+  const [visitors, setVisitors] = useState(0);
 
+  
+  useEffect(() => {
+    const fetchVisitors = async () => {
+      try {
+        const response = await fetch("https://kidzsports.in/api/visitor");
+        const data = await response.json();
+        console.log("Visitor data:", data); // Check this in browser dev tools
+        setVisitors(data.total_visitors || 0);
+      } catch (error) {
+        console.error("Failed to fetch visitor count:", error);
+      }
+    };
+    fetchVisitors();
+  }, []);
+  
   useEffect(() => {
     const fetchGoogleLocation = async () => {
       try {
@@ -98,11 +113,21 @@ function Header() {
           )}
         </div>
 
-        <div className="social-icons">
-          <div><img src={facebookImg} alt="Facebook" className="facebook2" /></div>
-          <div><img src={instagramImg} alt="Instagram" className="facebook2" /></div>
-          <div><img src={whatsappImg} alt="WhatsApp" className="facebook2" /></div>
-        </div>
+        <div className="d-flex align-items-center gap-3">
+  {/* 👁️ Total Visitors */}
+  <div className="visitor-count text-white d-flex align-items-center">
+    <i className="fas fa-eye me-1"></i>
+    <span>{visitors}</span>
+  </div>
+
+  {/* Social Icons */}
+  <div className="social-icons d-flex gap-2">
+    <div><img src={facebookImg} alt="Facebook" className="facebook2" /></div>
+    <div><img src={instagramImg} alt="Instagram" className="facebook2" /></div>
+    <div><img src={whatsappImg} alt="WhatsApp" className="facebook2" /></div>
+  </div>
+</div>
+
       </div>
     </header>
   );
