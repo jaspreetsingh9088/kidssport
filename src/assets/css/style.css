@@ -5531,3 +5531,6 @@ p.upcoming-event-headline {
 ul.country-cities-name a:hover {
     color: #ff9331 !important;
 }
+.checkdivisionicon img {
+	width: 42px;
+}

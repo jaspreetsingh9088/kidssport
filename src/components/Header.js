@@ -14,7 +14,7 @@ function Header() {
   useEffect(() => {
     const fetchVisitors = async () => {
       try {
-        const response = await fetch("https://kidzsports.in/api/visitor");
+        const response = await fetch("https://mitdevelop.com/kidsadmin/api/visitors");
         const data = await response.json();
         console.log("Visitor data:", data); // Check this in browser dev tools
         setVisitors(data.total_visitors || 0);

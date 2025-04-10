@@ -90,33 +90,43 @@ function MyAccount() {
 
 
   const handleLogout = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      
-      if (!token) {
-        console.log('You are already logged out.');
-        window.location.href = '/login'; // Redirect immediately
-        return;
-      }
+    const token = localStorage.getItem('token');
   
-      await axios.post(
+    if (!token) {
+      console.log('No token found. Already logged out.');
+      window.location.href = '/login';
+      return;
+    }
+  
+    try {
+      const response = await axios.post(
         'https://mitdevelop.com/kidsadmin/api/logout',
-        {},
+        {}, // POST body
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json',
           },
         }
       );
   
+      console.log('Logout success:', response.data);
+  
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
   
-      window.location.href = '/login'; // Redirect after logout
+      window.location.href = '/login';
     } catch (error) {
       console.error('Logout error:', error.response?.data || error.message);
+  
+      // Clear token anyway in case the server already revoked it
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
+  
+      window.location.href = '/login';
     }
   };
+  
   
   
   

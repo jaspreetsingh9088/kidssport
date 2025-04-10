@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
 import girlimage from "../assets/images/girlimage.png";
+import mumbai from "../assets/images/mumbai.png";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import dateicon from "../assets/images/dateicon.png";
@@ -316,22 +317,30 @@ const EventDetail = () => {
                 Register Event
               </button>
 
+              <div className="check-division-bg">
               <button 
           type="button" 
-          className="btn btn-primary ms-2" 
+          className="btn btn-primary" 
           data-bs-toggle="modal" 
           data-bs-target="#staticBackdrop"
         >
           Check Division
         </button>
+        </div>
 
-{/* Modal for checking divisions */}
 
+
+            </div>
+            {/* Modal for checking divisions */}
 <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div className="modal-dialog modal-xl modal-dialog-centered">
     <div className="modal-content">
       <div className="modal-header">
-        <h5 className="modal-title" id="staticBackdropLabel">Check Division</h5>
+        <div className="d-flex gap-3 align-items-center">
+          <div><span className="checkdivisionicon"><img src={mumbai} alt="checkdivision"/></span></div>
+          <div><h5 className="modal-title" id="staticBackdropLabel">Check Division</h5>
+          </div>
+        </div>
         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div className="modal-body">
@@ -347,7 +356,7 @@ const EventDetail = () => {
               <div key={colIndex} className="col-lg-3">
                 <ul className="country-cities-name">
                   {colDivisions.map((division) => (
-                    <li key={division.id}>{division.division}</li>
+                    <a href="#"><li key={division.id}>{division.division}</li></a>
                   ))}
                 </ul>
               </div>
@@ -361,10 +370,6 @@ const EventDetail = () => {
     </div>
   </div>
 </div>
-
-
-
-            </div>
           </div>
         </div>
       </div>
