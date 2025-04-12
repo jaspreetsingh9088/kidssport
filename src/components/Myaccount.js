@@ -18,11 +18,13 @@ import badminton from '../assets/images/badminton.png'
 import arrowtransparent from '../assets/images/arrowtransparent.png';
 import tickgreen from "../assets/images/tickgreen.png";
 import listdot from '../assets/images/listdot.png'
+import DataTable from 'react-data-table-component';
  
 
 function MyAccount() {
   const BASE_URL = "https://mitdevelop.com/kidsadmin"; // Replace with your actual Laravel base URL
   const { id } = useParams(); // Extract id from the URL
+  const [orders, setOrders] = useState([]); 
   const [activeTab, setActiveTab] = useState('profile'); // Default active tab
   const [profileData, setProfileData] = useState({
     firstName: '',
@@ -47,46 +49,112 @@ function MyAccount() {
   useEffect(() => {
     // Fetch data using the dynamic id from URL
     const fetchData = async () => {
-      try {
-        const response = await axios.get(`https://mitdevelop.com/kidsadmin/api/users/${id}`, {
-          headers: {
-            'Cookie': '<Your-Cookie-Value>', // Replace with actual cookie if required
-          },
-        });
+        try {
+            const response = await axios.get(`https://mitdevelop.com/kidsadmin/api/users/${id}`, {
+                headers: {
+                    'Cookie': '<Your-Cookie-Value>', // Replace with actual cookie if required
+                },
+            });
 
-        // Log the full response to see the structure
-        console.log(response.data); // See how the data is structured
-        
-        const data = response.data;
-        // Assuming data has a structure like { user: { name, last_name, etc. } }
-        if (data.user) {
-          setProfileData({
-            firstName: data.user.name || '',
-            middleName: data.user.middle_name || '',
-            profilePic: data.user.profile_pic || holderimage, // Use default if profile picture is missing
-            lastName: data.user.last_name || '',
-            dateOfBirth: data.user.date || '',
-            gender: data.user.gender || '',
-            gradeLevel: data.user.grade_level || '',
-            streetAddress: data.user.address || '',
-            city: data.user.city || '',
-            state: data.user.state_province || '',
-            zipCode: data.user.zip_code || '',
-            school: data.user.school || '',
-            nationality: data.user.nationality || '',
-            language: data.user.languages || '',
-            aadharNumber: data.user.adhar_number || '',
-            adharFrontImage: data.user.adhar_front ||'', 
-            adharBackImage: data.user.adhar_back ||'',
-          });
+            // Log the full response to see the structure
+            console.log(response.data); // See how the data is structured
+
+            const data = response.data;
+
+            // Check if user data exists
+            if (data.user) {
+                setProfileData({
+                    firstName: data.user.name || '',
+                    middleName: data.user.middle_name || '',
+                    profilePic: data.user.profile_pic || holderimage, // Use default if profile picture is missing
+                    lastName: data.user.last_name || '',
+                    dateOfBirth: data.user.date || '',
+                    gender: data.user.gender || '',
+                    gradeLevel: data.user.grade_level || '',
+                    streetAddress: data.user.address || '',
+                    city: data.user.city || '',
+                    state: data.user.state_province || '',
+                    zipCode: data.user.zip_code || '',
+                    school: data.user.school || '',
+                    nationality: data.user.nationality || '',
+                    language: data.user.languages || '',
+                    aadharNumber: data.user.adhar_number || '',
+                    adharFrontImage: data.user.adhar_front || '',
+                    adharBackImage: data.user.adhar_back || '',
+                });
+
+                // Assuming orders are available in the user object
+                const orders = data.user.orders || [];
+                const formattedOrders = orders.map(order => ({
+                    eventName: order.event?.event_name || 'Unknown Event', // Adjusted property name
+                    OrderDate: order.event?.created_at
+                    ? new Date(order.created_at).toLocaleDateString('en-IN', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                      })
+                    : 'Unknown Date',                
+                    state: order.event?.state?.state || 'Unknown State', // Adjusted property name
+                    city: order.event?.city?.city || 'Unknown City', // Adjusted property name
+                    division: order.batch?.division?.division || 'Unknown Division', // Accessed directly from batch
+                    area: order.batch?.area?.area || 'Unknown Area', // Accessed directly from batch
+                    amount: order.amount || 'Unknown Amount', // Display the amount
+                    status: order.status || 'Unknown Status', // Display the order status
+                }));
+
+                setOrders(formattedOrders); // Save orders to state or handle them as needed
+            }
+        } catch (error) {
+            console.error('Error fetching profile data:', error);
         }
-      } catch (error) {
-        console.error('Error fetching profile data:', error);
-      }
     };
 
     fetchData();
-  }, [id]); // Re-run effect if id changes
+}, [id]);
+
+const columns = [
+  {
+    name: 'Event Name',
+    selector: row => row.eventName,
+    sortable: true,
+  },
+  {
+    name: 'Order Date',
+    selector: row => row.eventDate,
+    sortable: true,
+  },
+  {
+    name: 'State',
+    selector: row => row.state,
+    sortable: true,
+  },
+  {
+    name: 'City',
+    selector: row => row.city,
+    sortable: true,
+  },
+  {
+    name: 'Division',
+    selector: row => row.division,
+    sortable: true,
+  },
+  {
+    name: 'Area',
+    selector: row => row.area,
+    sortable: true,
+  },
+  {
+    name: 'Amount',
+    selector: row => row.amount,
+    sortable: true,
+  },
+  {
+    name: 'Status',
+    selector: row => row.status,
+    sortable: true,
+  },
+];
+
 
 
   const handleLogout = async () => {
@@ -204,7 +272,7 @@ function MyAccount() {
                     className={`tab-link ${activeTab === 'activities' ? 'active' : ''}`}
                     onClick={(e) => handleTabClick('activities', e)}
                   >
-                    <span><img src={activity} alt="" className="dasboardicons" /></span>My Activities
+                    <span><img src={activity} alt="" className="dasboardicons" /></span>My Orders
                   </a>
                   {/* <hr className='dashline'></hr> */}
                 </li>
@@ -401,128 +469,23 @@ function MyAccount() {
     </div>
   </div>
 </div>
-
-
                             </div>
               </section>
 
-              <section
-                id="activities"
-                className={`tab-content ${activeTab === 'activities' ? 'active' : ''}`}
-              >
-                <h2>My Activities</h2>
-                <div className='row'>
-                  
-                  <div className='col-lg-5'>
-                    <div className='main-box-activity'>
-                    <div className='image-box-one'>
-                    <img src={cricket} alt="" className="blog-images blog-images-ones blog-images-ones-two" />
+              <section id="activities" className={`tab-content ${activeTab === 'activities' ? 'active' : ''}`}>
+      <div className="container">
+        <h2>My Orders</h2>
+        <DataTable
+          columns={columns}
+          data={orders}
+          pagination
+          highlightOnHover
+          responsive
+          striped
+        />
+      </div>
+    </section>
 
-                    </div>
-                    <div className='upcoming-box'>
-                    <h3>Cricket Upcoming</h3>
-                    <hr></hr>
-                      <div className='d-flex justify-content-between flex-wrap'>
-                        <div> <p className='detail-upcoming'><span className=''><img src={dateicon} alt="" className="date-icon" /></span> 15 jan 2025</p></div>
-                        <div> <p className='detail-upcoming'><span className=''><img src={time} alt="" className="date-icon" /></span> 10:00 am To 12:00 pm</p></div>
-                        <div> <p className='detail-upcoming'><span className=''><img src={locationimg} alt="" className="date-icon" /></span> Mohali</p></div>
-                        <hr></hr>
-                      </div>
-                    
-                     
-                      <div className='detailbtn'>
-                      <button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-                  
-                  <div className='col-lg-5'>
-                    <div className='main-box-activity'>
-                    <div className='image-box-one'>
-                    <img src={football} alt="" className="blog-images blog-images-ones blog-images-ones-two" />
-
-                    </div>
-                    <div className='upcoming-box'>
-                    <h3>Football Upcoming</h3>
-                    <hr></hr>
-                      <div className='d-flex justify-content-between flex-wrap'>
-                        <div> <p className='detail-upcoming'><span className=''><img src={dateicon} alt="" className="date-icon" /></span> 15 jan 2025</p></div>
-                        <div> <p className='detail-upcoming'><span className=''><img src={time} alt="" className="date-icon" /></span> 10:00 am To 12:00 pm</p></div>
-                        <div> <p className='detail-upcoming'><span className=''><img src={locationimg} alt="" className="date-icon" /></span> Mohali</p></div>
-                        <hr></hr>
-                      </div>
-                    
-                     
-                      <div className='detailbtn'>
-                      <button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-                  <div className='col-lg-5'>
-                    <div className='main-box-activity'>
-                    <div className='image-box-one'>
-                    <img src={cricket} alt="" className="blog-images blog-images-ones blog-images-ones-two" />
-
-                    </div>
-                    <div className='upcoming-box'>
-                    <h3>Cricket Upcoming</h3>
-                    <hr></hr>
-                      <div className='d-flex justify-content-between flex-wrap'>
-                        <div> <p className='detail-upcoming'><span className=''><img src={dateicon} alt="" className="date-icon" /></span> 15 jan 2025</p></div>
-                        <div> <p className='detail-upcoming'><span className=''><img src={time} alt="" className="date-icon" /></span> 10:00 am To 12:00 pm</p></div>
-                        <div> <p className='detail-upcoming'><span className=''><img src={locationimg} alt="" className="date-icon" /></span> Mohali</p></div>
-                        <hr></hr>
-                      </div>
-                    
-                     
-                      <div className='detailbtn'>
-                      <button className='join-now'>Join Now <span><img src={arrowtransparent} alt="" className="arrow-circle-img" /></span></button>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-                  <div className='col-lg-7'>
-                      <div className='box-events'>
-                    <div className='row'>
-                      <div className='col-lg-6'>
-                      <div className='image-box-one'>
-                    <img src={football} alt="" className="blog-images blog-images-ones" />
-                    </div>
-                    <div className='upcoming-box-one'>
-                      <h4>Upcoming events</h4>
-                    </div>
-                      </div>
-                      <div className='col-lg-6'>
-                      <div className='image-box-one'>
-                    <img src={badminton} alt="" className="blog-images blog-images-ones" />
-                    </div>
-                    <div className='upcoming-box-one'>
-                      <h4>Visit events</h4>
-                    </div>
-                      </div>
-                      <div className='col-lg-6'>
-                      <div className='image-box-one'>
-                    <img src={cricket} alt="" className="blog-images blog-images-ones" />
-                    </div>
-                    <div className='upcoming-box-one'>
-                      <h4>Past Events</h4>
-                    </div>
-                      </div>
-                      <div className='col-lg-6'>
-                      <div className='image-box-one'>
-                    <img src={cricket} alt="" className="blog-images blog-images-ones" />
-                    </div>
-                    <div className='upcoming-box-one'>
-                      <h4>Past events</h4>
-                    </div>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </section>
 
               <section
                 id="subscriptions"

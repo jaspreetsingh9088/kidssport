@@ -32,6 +32,7 @@ import MyRuppeeCoin from "./components/MyRuppeeCoin";
 import EventDetail from "./components/EventDetail";
 import SafetySecurity from "./components/SafetySecurity";
 import ExploreWorld from "./components/ExploreWorld";
+import PaymentSuccess from "./components/PaymentSuccess";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./assets/css/style.css";
 
@@ -133,7 +134,7 @@ function App() {
           <Route path="/My-Rupee-Coin" element={<MyRuppeeCoin />} />
           <Route path="/event/:slug" element={<EventDetail />} />
           <Route path="/Safety-Security" element={<SafetySecurity />} />
-          
+          <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="Login" element={<Login />} />
         </Routes>
       </main>

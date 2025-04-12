@@ -120,8 +120,8 @@ const [status, setStatus] = useState("loading");
     setIsChecked(!isChecked);
     setCheckboxError(false);
   };
-
   const [orderId, setOrderId] = useState(null);
+
 
   const handlePayment = async () => {
     if (!agreeToTerms) {
@@ -154,7 +154,7 @@ const [status, setStatus] = useState("loading");
 
       console.log("API Response:", response.data);
 
-      if (response.data.status === "CREATED" && response.data.payment_links) {
+      if (response.data.status === "NEW" && response.data.payment_links) {
         const orderId = response.data.order_id;
         setOrderId(orderId);
         localStorage.setItem("order_id", orderId);

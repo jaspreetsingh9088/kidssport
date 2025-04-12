@@ -4778,8 +4778,7 @@ img.blog-images.blog-images-ones {
 }
 main.main-content {
     overflow: hidden;
-    overflow: auto;
-    height: 500px;
+    
 }
 section.my-account .bacground-purple {
     display: none;
@@ -5533,4 +5532,26 @@ ul.country-cities-name a:hover {
 }
 .checkdivisionicon img {
 	width: 42px;
+}
+.main-content .hFLscN {
+	color: rgb(155, 25, 142);
+	font-size: 16px;
+	font-weight: 800;
+}
+.main-content .icYkJs div:first-child {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: unset;
+	color: #002c44;
+}
+.main-content .icYkJs div:first-child {
+	white-space: unset;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 15px;
+}
+.main-content .hZrbMC {
+	overflow: unset;
+	white-space: unset;
+	text-overflow: ellipsis;
 }
