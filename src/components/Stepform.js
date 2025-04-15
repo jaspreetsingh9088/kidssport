@@ -127,7 +127,6 @@ function Stepform() {
 
         if (response.ok) {
             if (result.payment_link) {
-                // ✅ Redirect user to HDFC Payment Page
                 window.location.href = result.payment_link;
             } else {
                 setSuccessMessage("Registration Successful, but no payment link received.");

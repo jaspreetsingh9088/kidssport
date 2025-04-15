@@ -33,6 +33,9 @@ import EventDetail from "./components/EventDetail";
 import SafetySecurity from "./components/SafetySecurity";
 import ExploreWorld from "./components/ExploreWorld";
 import PaymentSuccess from "./components/PaymentSuccess";
+
+import SpeedometerMeter  from "./components/Meter";
+
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./assets/css/style.css";
 
@@ -113,7 +116,9 @@ function App() {
                 <Programm />
                 <Testimonial />
                 <Sponsors />
+               
                 <Latestblog />
+                <SpeedometerMeter goal={10000} />
               </>
             }
           />
@@ -136,6 +141,7 @@ function App() {
           <Route path="/Safety-Security" element={<SafetySecurity />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="Login" element={<Login />} />
+          
         </Routes>
       </main>
 

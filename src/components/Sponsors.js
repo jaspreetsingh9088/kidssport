@@ -9,6 +9,10 @@ import myrupee from '../assets/images/myrupee.png';
 import nivesh from '../assets/images/nivesh.png';
 import rasoi from '../assets/images/rasoi.png';
 import fxfort from '../assets/images/fxfort.png';
+import hockeyplay from "../assets/images/hockeyplay.mp4";
+import tennisvideo from "../assets/images/tennisvideo.mp4";
+import chidvideo from "../assets/images/chidvideo.mp4";
+import footballbvideo from "../assets/images/footballbvideo.mp4";
 
 const Sponsors = () => {
   const settings = {
@@ -42,11 +46,34 @@ const Sponsors = () => {
   };
 
   const sponsors = [kidzbook, lowcosttrip, myrupee, nivesh, rasoi, fxfort];
+  const ads = [hockeyplay, tennisvideo, chidvideo, footballbvideo];
 
   return (
     <section className="Sponsors">
+
       <div className="container">
-        <h2 className="text-center">Our Sponsors</h2>
+      <h2 className="text-center">Our Sponsors</h2>
+      <p class="interactive interactive-one">Supporting the Champions of tomorrow</p>
+        <div className="sponsors-slider video-slider-ads">
+          <Slider {...settings}>
+            {ads.map((video, index) => (
+              <div key={index} className="text-center">
+                <video
+                  width="100%"
+                  controls
+                  autoPlay
+                  muted
+                  loop
+                  style={{ borderRadius: "16px" }}
+                  className="ads-collapse"
+                >
+                  <source src={video} type="video/mp4" alt={`ads ${index + 1}`} />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            ))}
+          </Slider>
+        </div>
         <div className="sponsors-slider">
           <Slider {...settings}>
             {sponsors.map((logo, index) => (

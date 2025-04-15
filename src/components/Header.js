@@ -8,22 +8,10 @@ function Header() {
   const [location, setLocation] = useState({
     state: sessionStorage.getItem("userState") || "",
   });
-  const [visitors, setVisitors] = useState(0);
+
 
   
-  useEffect(() => {
-    const fetchVisitors = async () => {
-      try {
-        const response = await fetch("https://mitdevelop.com/kidsadmin/api/visitors");
-        const data = await response.json();
-        console.log("Visitor data:", data); // Check this in browser dev tools
-        setVisitors(data.total_visitors || 0);
-      } catch (error) {
-        console.error("Failed to fetch visitor count:", error);
-      }
-    };
-    fetchVisitors();
-  }, []);
+
   
   useEffect(() => {
     const fetchGoogleLocation = async () => {
@@ -114,11 +102,7 @@ function Header() {
         </div>
 
         <div className="d-flex align-items-center gap-3">
-  {/* 👁️ Total Visitors */}
-  <div className="visitor-count text-white d-flex align-items-center">
-    <i className="fas fa-eye me-1"></i>
-    <span>{visitors}</span>
-  </div>
+
 
   {/* Social Icons */}
   <div className="social-icons d-flex gap-2">

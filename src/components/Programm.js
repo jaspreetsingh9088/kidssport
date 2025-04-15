@@ -31,7 +31,8 @@ function Programm() {
                 Young Minds<br/>
                 Adventures and Innovations
             </h2>
-            <div className="container box-program-main">
+            <div className=" box-program-main">
+                <div className="container">
                 <div className="row program-mobile-preview">
                     {latestEvents.length > 0 ? (
                         latestEvents.map((event, index) => (
@@ -60,6 +61,7 @@ function Programm() {
                             <p>No latest events available.</p>
                         </div>
                     )}
+                </div>
                 </div>
             </div>
         </section>

@@ -168,82 +168,6 @@ const [status, setStatus] = useState("loading");
     }
   };
 
-  const handlePaymentSuccess = async (orderId) => {
-    try {
-      const response = await axios.post(
-        "https://mitdevelop.com/kidsadmin/api/payment-success",
-        { order_id: orderId },
-        { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
-      );
-  
-      if (response.data.verified) {
-        alert("Payment confirmed and verified.");
-      } else {
-        alert("Payment could not be verified.");
-      }
-    } catch (error) {
-      console.error("Payment success error:", error);
-    }
-  };
-  
- 
-  
-
-  const handlePaymentFailure = async (orderId) => {
-    try {
-      const response = await axios.post(
-        "https://mitdevelop.com/kidsadmin/api/payment-failure",
-        { order_id: orderId },
-        { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
-      );
-      alert(response.data.message);
-    } catch (error) {
-      console.error("Error handling payment failure:", error.response?.data || error.message);
-      alert("Error processing failed payment.");
-    }
-  };
-  
-  const sendPaymentWebhook = async (orderId, status) => {
-    if (!orderId) {
-      console.error("Order ID is missing. Webhook not sent.");
-      return;
-    }
-  
-    try {
-      const response = await axios.post(
-        "https://mitdevelop.com/kidsadmin/api/hdfc-webhook",
-        { order_id: orderId, status },
-        { headers: { "Content-Type": "application/json" } }
-      );
-  
-      console.log("Webhook Response:", response.data);
-    } catch (error) {
-      console.error("Error sending payment webhook:", error.response?.data || error.message);
-      alert("Error notifying server about payment status. Please contact support.");
-    }
-  };
-  
-
-  useEffect(() => {
-    const storedOrderId = localStorage.getItem("order_id");
-    if (!storedOrderId) return;
-  
-    const query = new URLSearchParams(location.search);
-    const paymentStatus = query.get("status");
-  
-    if (paymentStatus === "success" || paymentStatus === "failure") {
-      sendPaymentWebhook(storedOrderId, paymentStatus === "success" ? "SUCCESS" : "FAILED");
-      paymentStatus === "success"
-        ? handlePaymentSuccess(storedOrderId)
-        : handlePaymentFailure(storedOrderId);
-  
-      setStatus(paymentStatus === "success" ? "success" : "failed");
-      localStorage.removeItem("order_id");
-    }
-  }, [location.search]); // 🔹 Changed from [location] to [location.search]
-  
-  
-
 
   const handlePaymentClick = () => {
     if (!agreeToTerms) {
@@ -251,7 +175,7 @@ const [status, setStatus] = useState("loading");
       return;
     }
     setShowError(false);
-    handlePayment(); // your existing function
+    handlePayment(); 
   };
   
   return (
@@ -303,7 +227,7 @@ const [status, setStatus] = useState("loading");
       <div className="col-lg-4" key={index}>
         <div className="mb-4">
           <label className="form-label">{label}</label>
-          <input className="form-control" name={field} value={formData[field]} type="text" readOnly />
+          <input className="form-control" name={field} value={formData[field]} type="text" />
         </div>
       </div>
     ))}
@@ -324,7 +248,6 @@ const [status, setStatus] = useState("loading");
         })()
       }
       type="text"
-      readOnly
     />
   </div>
 </div>
@@ -333,13 +256,13 @@ const [status, setStatus] = useState("loading");
     <div className="col-lg-4">
       <div className="mb-4">
         <label className="form-label">Email</label>
-        <input className="form-control" name="email" value={formData.email} type="email" readOnly />
+        <input className="form-control" name="email" value={formData.email} type="email" />
       </div>
     </div>
     <div className="col-lg-4">
       <div className="mb-4">
         <label className="form-label">Phone</label>
-        <input className="form-control" name="phone" value={formData.phone} type="text" readOnly />
+        <input className="form-control" name="phone" value={formData.phone} type="text" />
       </div>
     </div>
   </div>

@@ -22,14 +22,14 @@ import DataTable from 'react-data-table-component';
  
 
 function MyAccount() {
-  const BASE_URL = "https://mitdevelop.com/kidsadmin"; // Replace with your actual Laravel base URL
-  const { id } = useParams(); // Extract id from the URL
+  const BASE_URL = "https://mitdevelop.com/kidsadmin"; 
+  const { id } = useParams(); 
   const [orders, setOrders] = useState([]); 
-  const [activeTab, setActiveTab] = useState('profile'); // Default active tab
+  const [activeTab, setActiveTab] = useState('profile');
   const [profileData, setProfileData] = useState({
     firstName: '',
     middleName: '',
-    profilePic: '', // Add profile picture property
+    profilePic: '', 
     lastName: '',
     dateOfBirth: '',
     gender: '',
@@ -47,26 +47,26 @@ function MyAccount() {
   });
 
   useEffect(() => {
-    // Fetch data using the dynamic id from URL
+   
     const fetchData = async () => {
         try {
             const response = await axios.get(`https://mitdevelop.com/kidsadmin/api/users/${id}`, {
                 headers: {
-                    'Cookie': '<Your-Cookie-Value>', // Replace with actual cookie if required
+                    'Cookie': '<Your-Cookie-Value>', 
                 },
             });
 
-            // Log the full response to see the structure
-            console.log(response.data); // See how the data is structured
+          
+            console.log(response.data); 
 
             const data = response.data;
 
-            // Check if user data exists
+         
             if (data.user) {
                 setProfileData({
                     firstName: data.user.name || '',
                     middleName: data.user.middle_name || '',
-                    profilePic: data.user.profile_pic || holderimage, // Use default if profile picture is missing
+                    profilePic: data.user.profile_pic || holderimage, 
                     lastName: data.user.last_name || '',
                     dateOfBirth: data.user.date || '',
                     gender: data.user.gender || '',
@@ -83,26 +83,29 @@ function MyAccount() {
                     adharBackImage: data.user.adhar_back || '',
                 });
 
-                // Assuming orders are available in the user object
+               
                 const orders = data.user.orders || [];
-                const formattedOrders = orders.map(order => ({
-                    eventName: order.event?.event_name || 'Unknown Event', // Adjusted property name
-                    OrderDate: order.event?.created_at
-                    ? new Date(order.created_at).toLocaleDateString('en-IN', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric',
-                      })
-                    : 'Unknown Date',                
-                    state: order.event?.state?.state || 'Unknown State', // Adjusted property name
-                    city: order.event?.city?.city || 'Unknown City', // Adjusted property name
-                    division: order.batch?.division?.division || 'Unknown Division', // Accessed directly from batch
-                    area: order.batch?.area?.area || 'Unknown Area', // Accessed directly from batch
-                    amount: order.amount || 'Unknown Amount', // Display the amount
-                    status: order.status || 'Unknown Status', // Display the order status
-                }));
 
-                setOrders(formattedOrders); // Save orders to state or handle them as needed
+                const formattedOrders = orders.map(order => ({
+                    eventName: order.event?.event_name || 'Unknown Event',
+                    OrderDate: order.created_at
+                        ? new Date(order.created_at).toLocaleDateString('en-IN', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric',
+                        })
+                        : 'Unknown Date',
+                    state: order.event?.state?.state || 'Unknown State',
+                    city: order.event?.city?.city || 'Unknown City',
+                    division: order.batch?.division?.division || 'Unknown Division',
+                    area: order.batch?.area?.area || 'Unknown Area',
+                    batchName: order.batch?.batch_name || 'Unknown Batch',
+                    ageGroup: order.batch?.age_group || 'Unknown Age Group',
+                    amount: order.amount || 'Unknown Amount',
+                    status: order.status || 'Unknown Status',
+                }));
+                
+                setOrders(formattedOrders); 
             }
         } catch (error) {
             console.error('Error fetching profile data:', error);
@@ -120,7 +123,7 @@ const columns = [
   },
   {
     name: 'Order Date',
-    selector: row => row.eventDate,
+    selector: row => row.OrderDate,
     sortable: true,
   },
   {
@@ -141,6 +144,16 @@ const columns = [
   {
     name: 'Area',
     selector: row => row.area,
+    sortable: true,
+  },
+  {
+    name: 'Batch Name',
+    selector: row => row.batchName,
+    sortable: true,
+  },
+  {
+    name: 'Age Group',
+    selector: row => row.ageGroup,
     sortable: true,
   },
   {
@@ -187,7 +200,7 @@ const columns = [
     } catch (error) {
       console.error('Logout error:', error.response?.data || error.message);
   
-      // Clear token anyway in case the server already revoked it
+     
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
   
@@ -195,15 +208,12 @@ const columns = [
     }
   };
   
-  
-  
-  
-  // Debug: log profileData to see if it has been updated
+
   useEffect(() => {
-    console.log(profileData); // This will log profileData after it's updated
+    console.log(profileData); 
   }, [profileData]);
   const handleTabClick = (tab, e) => {
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault(); 
     setActiveTab(tab);
   };
   
@@ -249,10 +259,10 @@ const columns = [
                     <p>{profileData.firstName} {profileData.lastName}</p>
                     </div>
                     <div className="logout-btn">
-  <button type="button" onClick={handleLogout}>
-    Logout
-  </button>
-</div>
+                  <button type="button" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </div>
 
                   </div>
                 </div>
@@ -263,8 +273,6 @@ const columns = [
                   <a href="#profile" className={`tab-link ${activeTab === 'profile' ? 'active' : ''}`}
                     onClick={(e) => handleTabClick('profile', e)}
                   ><span><img src={myaccounticon} alt="" className="dasboardicons" /></span>Profile</a>
-
-                  {/* <hr className='dashline'></hr> */}
                 </li>
                 <li>
                   <a
@@ -274,7 +282,6 @@ const columns = [
                   >
                     <span><img src={activity} alt="" className="dasboardicons" /></span>My Orders
                   </a>
-                  {/* <hr className='dashline'></hr> */}
                 </li>
                 <li>
                   <a
@@ -284,7 +291,6 @@ const columns = [
                   >
                     <span><img src={subscription} alt="" className="dasboardicons" /></span>Subscriptions
                   </a>
-                  {/* <hr className='dashline'></hr> */}
                 </li>
                 <li>
                   <a
@@ -294,13 +300,11 @@ const columns = [
                   >
                     <span><img src={setting} alt="" className="dasboardicons" /></span>Settings
                   </a>
-                  {/* <hr className='dashline'></hr> */}
                 </li>
               </ul>
             </aside>
           </div>
 
-          {/* Main Content */}
           <div className="col-lg-9">
             <main className="main-content">
               <section
@@ -325,38 +329,32 @@ const columns = [
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
-  <div className="mb-4">
-    <input
-      type="date"
-      className="form-control form-date"
-      value={profileData.dateOfBirth} // Bind value to dateOfBirth
-      id="date"
-      name="date"
-      onChange={(e) => setProfileData({ ...profileData, dateOfBirth: e.target.value })} // Update state on change
-    />
-  </div>
-</div>
-
-                                {/* <div className='col-lg-4'>
-                                    <div className="mb-4">
-                                        <select class="form-select" id="sel2" name="sellist2"><option>Gender</option><option>Male</option><option>Female</option></select>
-                                    </div>
-                                </div> */}
-                                <div className="col-lg-4">
-  <div className="mb-4">
-    <select 
-      className="form-select" 
-      id="gender" 
-      name="gender" 
-      value={profileData.gender} // Bind value to profileData.gender
-      onChange={(e) => setProfileData({ ...profileData, gender: e.target.value })} // Update gender on change
-    >
-      <option value="">Select Gender</option> {/* Default placeholder */}
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-    </select>
-  </div>
-</div>
+                            <div className="mb-4">
+                              <input
+                                type="date"
+                                className="form-control form-date"
+                                value={profileData.dateOfBirth} 
+                                id="date"
+                                name="date"
+                                onChange={(e) => setProfileData({ ...profileData, dateOfBirth: e.target.value })} 
+                              />
+                            </div>
+                          </div>
+                          <div className="col-lg-4">
+                              <div className="mb-4">
+                                <select 
+                                  className="form-select" 
+                                  id="gender" 
+                                  name="gender" 
+                                  value={profileData.gender} 
+                                  onChange={(e) => setProfileData({ ...profileData, gender: e.target.value })} 
+                                >
+                                  <option value="">Select Gender</option> 
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                                </select>
+                              </div>
+                            </div>
 
                                 <div className='col-lg-4'>
                                     <div className="mb-4">
@@ -406,85 +404,85 @@ const columns = [
                                 </div>
                                 
 
-<div className='col-lg-4 adhar-field'>
-  <div className="mb-4 last-feild-col">
-    <label htmlFor="adharFront" className="form-label">
-      <span className='color-dot'>
-        <img src={listdot} alt="" className="list-dot list-dot-two" />
-      </span> 
-      Aadhar Card Front
-    </label>
-    <div className="input-group">
-      <input 
-        type="text" 
-        className="form-control" 
-        value={profileData.adharFrontImage ? `${BASE_URL}/storage/app/public/${profileData.adharFrontImage}` : ''} 
-        id="AdharcardFront" 
-        placeholder="Aadhar Card Front Image URL" 
-        readOnly 
-      />
-      {profileData.adharFrontImage && (
-        <a 
-          href={`${BASE_URL}/storage/app/public/${profileData.adharFrontImage}`} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="btn"
-          style={{ backgroundColor: "#ff6600", color: "#fff" }}
-        >
-          View
-        </a>
-      )}
-    </div>
-  </div>
-</div>
-
-<div className='col-lg-4 adhar-field'>
-  <div className="mb-4 last-feild-col">
-    <label htmlFor="adharBack" className="form-label">
-      <span className='color-dot'>
-        <img src={listdot} alt="" className="list-dot list-dot-two" />
-      </span> 
-      Aadhar Card Back
-    </label>
-    <div className="input-group">
-      <input 
-        type="text" 
-        className="form-control" 
-        value={profileData.adharBackImage ? `${BASE_URL}/storage/${profileData.adharBackImage}` : ''} 
-        id="AdharcardBack" 
-        placeholder="Aadhar Card Back Image URL" 
-        readOnly 
-      />
-      {profileData.adharBackImage && (
-        <a 
-          href={`${BASE_URL}/storage/${profileData.adharBackImage}`} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="btn"
-           style={{ backgroundColor: "#ff6600", color: "#fff" }}
-        >
-          View
-        </a>
-      )}
-    </div>
-  </div>
-</div>
+                          <div className='col-lg-4 adhar-field'>
+                            <div className="mb-4 last-feild-col">
+                              <label htmlFor="adharFront" className="form-label">
+                                <span className='color-dot'>
+                                  <img src={listdot} alt="" className="list-dot list-dot-two" />
+                                </span> 
+                                Aadhar Card Front
+                              </label>
+                              <div className="input-group">
+                                <input 
+                                  type="text" 
+                                  className="form-control" 
+                                  value={profileData.adharFrontImage ? `${BASE_URL}/storage/app/public/${profileData.adharFrontImage}` : ''} 
+                                  id="AdharcardFront" 
+                                  placeholder="Aadhar Card Front Image URL" 
+                                  readOnly 
+                                />
+                                {profileData.adharFrontImage && (
+                                  <a 
+                                    href={`${BASE_URL}/storage/app/public/${profileData.adharFrontImage}`} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="btn"
+                                    style={{ backgroundColor: "#ff6600", color: "#fff" }}
+                                  >
+                                    View
+                                  </a>
+                                )}
+                              </div>
                             </div>
-              </section>
+                          </div>
+
+                      <div className='col-lg-4 adhar-field'>
+                        <div className="mb-4 last-feild-col">
+                          <label htmlFor="adharBack" className="form-label">
+                            <span className='color-dot'>
+                              <img src={listdot} alt="" className="list-dot list-dot-two" />
+                            </span> 
+                            Aadhar Card Back
+                          </label>
+                          <div className="input-group">
+                            <input 
+                              type="text" 
+                              className="form-control" 
+                              value={profileData.adharBackImage ? `${BASE_URL}/storage/${profileData.adharBackImage}` : ''} 
+                              id="AdharcardBack" 
+                              placeholder="Aadhar Card Back Image URL" 
+                              readOnly 
+                            />
+                            {profileData.adharBackImage && (
+                              <a 
+                                href={`${BASE_URL}/storage/${profileData.adharBackImage}`} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="btn"
+                                style={{ backgroundColor: "#ff6600", color: "#fff" }}
+                              >
+                                View
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                </section>
 
               <section id="activities" className={`tab-content ${activeTab === 'activities' ? 'active' : ''}`}>
-      <div className="container">
-        <h2>My Orders</h2>
-        <DataTable
-          columns={columns}
-          data={orders}
-          pagination
-          highlightOnHover
-          responsive
-          striped
-        />
-      </div>
-    </section>
+            <div className="container">
+              <h2>My Orders</h2>
+              <DataTable
+                columns={columns}
+                data={orders}
+                pagination
+                highlightOnHover
+                responsive
+                striped
+              />
+            </div>
+          </section>
 
 
               <section
@@ -508,7 +506,7 @@ const columns = [
                                     </p>
                                 </div>
                             </div>
-                      <div className="d-flex gap-2">
+                             <div className="d-flex gap-2">
                                 <div>
                                     <img src={tickgreen} alt="Tick icon" className="tickgreen-image" />
                                 </div>
@@ -518,7 +516,7 @@ const columns = [
                                     </p>
                                 </div>
                             </div>
-                      <div className="d-flex gap-2">
+                            <div className="d-flex gap-2">
                                 <div>
                                     <img src={tickgreen} alt="Tick icon" className="tickgreen-image" />
                                 </div>

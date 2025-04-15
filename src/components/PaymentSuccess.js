@@ -32,8 +32,6 @@ const PaymentSuccess = () => {
     }
   }, [orderId]);
   
-  
-
   const renderStatusMessage = (status) => {
     switch (status) {
       case "success":
