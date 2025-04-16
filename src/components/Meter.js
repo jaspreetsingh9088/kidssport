@@ -34,7 +34,7 @@ const SpeedometerMeter = ({ goal = 10000 }) => {
         <div className="proggress-views w-24 h-24">
           <CircularProgressbar
             value={percentage}
-            text={`${Math.round(percentage)}%`} // Display percentage with 2 decimal places
+            text={`${percentage.toFixed(1)}%`}
             styles={buildStyles({
               pathColor: '#f57f17',
               textColor: '#111827',

@@ -1,20 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
+import axios from "axios";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-import kidzbook from '../assets/images/kidzbook.png';
-import lowcosttrip from '../assets/images/lowcosttrip.png';
-import myrupee from '../assets/images/myrupee.png';
-import nivesh from '../assets/images/nivesh.png';
-import rasoi from '../assets/images/rasoi.png';
-import fxfort from '../assets/images/fxfort.png';
-import hockeyplay from "../assets/images/hockeyplay.mp4";
-import tennisvideo from "../assets/images/tennisvideo.mp4";
-import chidvideo from "../assets/images/chidvideo.mp4";
-import footballbvideo from "../assets/images/footballbvideo.mp4";
-
 const Sponsors = () => {
+  const [videos, setVideos] = useState([]);
+  const [images, setImages] = useState([]);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -26,63 +19,93 @@ const Sponsors = () => {
     responsive: [
       {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        },
+        settings: { slidesToShow: 3 },
       },
       {
         breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-        },
+        settings: { slidesToShow: 2 },
       },
       {
         breakpoint: 480,
-        settings: {
-          slidesToShow: 2,
-        },
+        settings: { slidesToShow: 2 },
       },
     ],
   };
 
-  const sponsors = [kidzbook, lowcosttrip, myrupee, nivesh, rasoi, fxfort];
-  const ads = [hockeyplay, tennisvideo, chidvideo, footballbvideo];
+  useEffect(() => {
+    axios.get("https://mitdevelop.com/kidsadmin/api/sponsored")
+      .then((response) => {
+        if (response.data.success) {
+          const sponsored = response.data.data;
+          const storageBaseURL = "https://mitdevelop.com/kidsadmin/storage/app/public/";
+
+          const videoItems = sponsored
+            .filter(item => item.video_url)
+            .map(item => ({
+              id: item.id,
+              url: storageBaseURL + item.video_url,
+              title: item.title
+            }));
+
+          const imageItems = sponsored
+            .filter(item => item.image_url)
+            .map(item => ({
+              id: item.id,
+              url: storageBaseURL + item.image_url,
+              title: item.title
+            }));
+
+          setVideos(videoItems);
+          setImages(imageItems);
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching sponsored data:", error);
+      });
+  }, []);
 
   return (
     <section className="Sponsors">
-
       <div className="container">
-      <h2 className="text-center">Our Sponsors</h2>
-      <p class="interactive interactive-one">Supporting the Champions of tomorrow</p>
-        <div className="sponsors-slider video-slider-ads">
-          <Slider {...settings}>
-            {ads.map((video, index) => (
-              <div key={index} className="text-center">
-                <video
-                  width="100%"
-                  controls
-                  autoPlay
-                  muted
-                  loop
-                  style={{ borderRadius: "16px" }}
-                  className="ads-collapse"
-                >
-                  <source src={video} type="video/mp4" alt={`ads ${index + 1}`} />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            ))}
-          </Slider>
-        </div>
-        <div className="sponsors-slider">
-          <Slider {...settings}>
-            {sponsors.map((logo, index) => (
-              <div key={index} className="text-center">
-                <img src={logo} alt={`Sponsor ${index + 1}`} className="sponser-logo-wid" />
-              </div>
-            ))}
-          </Slider>
-        </div>
+        <h2 className="text-center">Our Sponsors</h2>
+        <p className="interactive interactive-one">Supporting the Champions of tomorrow</p>
+
+        {/* Videos Slider */}
+        {videos.length > 0 && (
+          <div className="sponsors-slider video-slider-ads">
+            <Slider {...settings}>
+              {videos.map((video) => (
+                <div key={video.id} className="text-center">
+                  <video
+                    width="100%"
+                    controls
+                    autoPlay
+                    muted
+                    loop
+                    style={{ borderRadius: "16px" }}
+                    className="ads-collapse"
+                  >
+                    <source src={video.url} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        )}
+
+        {/* Images Slider */}
+        {images.length > 0 && (
+          <div className="sponsors-slider">
+            <Slider {...settings}>
+              {images.map((img) => (
+                <div key={img.id} className="text-center">
+                  <img src={img.url} alt={img.title} className="sponser-logo-wid" />
+                </div>
+              ))}
+            </Slider>
+          </div>
+        )}
       </div>
     </section>
   );
